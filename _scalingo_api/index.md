@@ -14,7 +14,7 @@ The Scalingo V1 API is a publicly available interface allowing developers to
 control Scalingo's entire cloud computing platform and access to the rich
 Scalingo dataset. The interface is stable and currently used by the Scalingo
 [command line client](https://cli.scalingo.com) (written in Go) and
-[dashboard](https://my.scalingo.com) (an Ember.js app). However, changes are
+[dashboard](https://dashboard.scalingo.com) (a Vue.js app). However, changes are
 occasionally made to improve performance and enhance features. See the
 changelog for more details.
 
