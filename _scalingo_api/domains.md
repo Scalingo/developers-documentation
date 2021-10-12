@@ -174,7 +174,7 @@ Otherwise return 201
 
 ### Limit
 
-There is a hard limit of 5 custom domains per application, if you need more:
+There is a hard limit of 20 custom domains per application, if you need more:
 [contact us](mailto:support@scalingo.com)
 
 ||| col |||
