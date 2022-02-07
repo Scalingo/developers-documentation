@@ -129,7 +129,7 @@ curl -H 'Accept: application/json' -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $BEARER_TOKEN" \
   -X POST https://auth.scalingo.com/v1/keys -d \
   '{
-    "key" {
+    "key" : {
       "name" : "Office Laptop",
       "content" : "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmlEXHPj43jNzIiFbFx0NlcZpsFQZUC4paVoDf1/VXeA4P5ld5YT5O4PQEwvx/V8HzQit0sXRgUSFcKgGlAs9b0ea/nzxov8b3kc+Z5Ak1aRSkXKYE30xW9ALag9Pdf1ejzUXMY3X4bltEsyx7wV5i1hkKzQPHrH4SjhcGv+ILAg4J9KDfyqQ2QmKzVA+Esbmg3RE0IGbZIoNBxBYbNejcaw8+lX7nLsqAP8fZ+dgFP3JYsOYuTibtM5s09Gw7c3oXLrRm6F5G/Au6HYqlNYEKUYgZ2UmXox2vK1ljOZYzcOGj9kGqJ5DQgn88cVPqbA73vAYKGY6WcZf2X+3JOTct example-user@scalingo.com"
     }
