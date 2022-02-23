@@ -69,7 +69,7 @@ Status: 201 Created
 ```json
 {
   "id": "addon-id-1",
-  "config_vars": {"EXAMPLE_VAR1": "VALUE"},
+  "config": {"EXAMPLE_VAR1": "VALUE"},
   "message": "Addon has been provisioned"
 }
 ```
@@ -117,7 +117,7 @@ Status: 200 OK
 
 ```json
 {
-  "config_vars": {"EXAMPLE_VAR1": "VALUE_UPDATED"},
+  "config": {"EXAMPLE_VAR1": "VALUE_UPDATED"},
   "message": "Addon has been updated"
 }
 ```
