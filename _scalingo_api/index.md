@@ -120,7 +120,7 @@ encrypted.
 
 You can create an API token from your Profile page on the dashboard:
 
-[Create your API Token](https://my.scalingo.com/profile)
+[Create your API Token](https://dashboard.scalingo.com/account/tokens)
 
 --- row ---
 
