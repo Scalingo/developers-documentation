@@ -146,7 +146,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
  -X POST https://auth.scalingo.com/v1/tokens -d \
  '{
    "token": {
-     "name": "Test Token",
+     "name": "Test Token"
    }
  }'
 ```
