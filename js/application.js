@@ -1,7 +1,7 @@
 requirejs.config({
   waitSeconds: 200,
   paths: {
-    'docsearch': '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min'
+    'docsearch': '//cdn.jsdelivr.net/npm/@docsearch/js@3.0.0/dist/umd/index'
   },
   shim: {
     'search': ['docsearch'],
