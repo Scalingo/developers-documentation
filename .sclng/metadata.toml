@@ -1,0 +1,8 @@
+dependencies = []
+description = "Scalingo API Reference"
+destination_server = ["scalingo-platform"]
+flags = ["scalingo-app"]
+languages = ["javascript", "ruby"]
+owner = "kevin@scalingo.com"
+team = "UFS"
+version = "1.0.2"
