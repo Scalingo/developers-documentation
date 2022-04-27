@@ -71,6 +71,8 @@ Example object:
 
 `GET https://$SCALINGO_API_URL/v1/scm_repo_links`
 
+> Feature: This endpoint supports [pagination](/#pagination).
+
 ### Parameters
 
 * `auth_integration_uuid`: Filter by [scm integration](./scm_integrations.md)
@@ -135,7 +137,16 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "hours_before_delete_stale":0,
       "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
     }
-  ]
+  ],
+  "meta": {
+    "pagination": {
+      "current_page": 1,
+      "next_page": 2,
+      "prev_page": null,
+      "total_pages": 4,
+      "total_count": 61
+    }
+  }
 }
 ```
 
