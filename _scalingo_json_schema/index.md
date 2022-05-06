@@ -213,7 +213,7 @@ Example:
 | field          | type   | description                                                                                     |
 | -------------- | ------ | ----------------------------------------------------------------------------------------------- |
 | postdeploy     | string | Command and arguments of the script you want to execute after each deployment.                  |
-| first-deploy   | string | Job to run as postdelpoy hook at the first deployment of a review app or one-click deployed app |
+| first-deploy   | string | Job to run as postdeploy hook at the first deployment of a review app or one-click deployed app |
 
 You can get more information on this feature on the [dedicated page](https://doc.scalingo.com/platform/app/review-apps#run-a-task-after-the-first-deployment-of-a-review-app).
 
