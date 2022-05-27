@@ -20,6 +20,8 @@ or `scalingo.json`. The latter will always take priority over the first one.
 This JSON manifest is read when deploying a review app or a [one-click
 deploy](https://doc.scalingo.com/platform/deployment/one-click-deploy).
 
+All attributes are optional.
+
 --- row ---
 
 **The manifest attributes**
@@ -39,8 +41,6 @@ deploy](https://doc.scalingo.com/platform/deployment/one-click-deploy).
 | addons                    | array  | List of all the addons required to run the app |
 | scripts                   | object | Optional hook scripts, see below               |
 | formation                 | object | Formation of containers when an app is created |
-
-All attributes are optional.
 
 **Environment**
 
