@@ -25,22 +25,22 @@ deploy](https://doc.scalingo.com/platform/deployment/one-click-deploy).
 **The manifest attributes**
 
 {:.table}
-| field                       | type   | description                                    |
-| --------------------------- | ------ | ---------------------------------------------- |
-| _name_                      | string | Complete name of the project                   |
-| _repository_                | string | Location of the GIT repository of the project  |
-| _ref_                       | string | Branch name or commit ID of the code to use    |
-| _stack_                     | string | Name of the stack to use                       |
-| _description_               | string | Description in one or two sentences of the app |
-| _logo_                      | string | URL to the logo of the project                 |
-| _website_                   | string | Official website of the application if any     |
-| _copy_parent_database_urls_ | bool   | Copy database credentials from parent app      |
-| _env_                       | object | Environment of the application, see below      |
-| _addons_                    | array  | List of all the addons required to run the app |
-| _scripts_                   | object | Optional hook scripts, see below               |
-| _formation_                 | object | Formation of containers when an app is created |
+| field                     | type   | description                                    |
+| ------------------------- | ------ | ---------------------------------------------- |
+| name                      | string | Complete name of the project                   |
+| repository                | string | Location of the GIT repository of the project  |
+| ref                       | string | Branch name or commit ID of the code to use    |
+| stack                     | string | Name of the stack to use                       |
+| description               | string | Description in one or two sentences of the app |
+| logo                      | string | URL to the logo of the project                 |
+| website                   | string | Official website of the application if any     |
+| copy_parent_database_urls | bool   | Copy database credentials from parent app      |
+| env                       | object | Environment of the application, see below      |
+| addons                    | array  | List of all the addons required to run the app |
+| scripts                   | object | Optional hook scripts, see below               |
+| formation                 | object | Formation of containers when an app is created |
 
-Optional arguments are in italics.
+All attributes are optional.
 
 **Environment**
 
