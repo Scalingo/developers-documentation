@@ -1196,6 +1196,198 @@ Example object:
 
 --- row ---
 
+* **Successful Login**
+
+_When:_ A successful login occured
+`type=login_success`
+
+{:.table}
+| field     | type   | description                |
+| --------- | ------ | -------------------------- |
+| remote_ip | string | Remote IP doing the action |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type": "login_success",
+  "type_data": {
+    "remote_ip": "1.2.3.4"
+  }
+}
+```
+
+--- row ---
+
+* **Failed Login**
+
+_When:_ A failed login attempt occured
+`type=login_failure`
+
+{:.table}
+| field     | type   | description                |
+| --------- | ------ | -------------------------- |
+| remote_ip | string | Remote IP doing the action |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type": "login_failure",
+  "type_data": {
+    "remote_ip": "1.2.3.4"
+  }
+}
+```
+
+--- row ---
+
+* **Password Reset Query**
+
+_When:_ A password reset attempt has been initiated
+`type=password_reset_query`
+
+{:.table}
+| field     | type   | description                |
+| --------- | ------ | -------------------------- |
+| remote_ip | string | Remote IP doing the action |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type": "password_reset_query",
+  "type_data": {
+    "remote_ip": "1.2.3.4"
+  }
+}
+```
+
+--- row ---
+
+* **Password Reset Success**
+
+_When:_ Password was reseted succesfully
+`type=password_reset_success`
+
+{:.table}
+| field     | type   | description                |
+| --------- | ------ | -------------------------- |
+| remote_ip | string | Remote IP doing the action |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type": "password_reset_success",
+  "type_data": {
+    "remote_ip": "1.2.3.4"
+  }
+}
+```
+
+--- row ---
+
+* **Account Locked**
+
+_When:_ 10 Failed login attempted locked the account
+`type=login_lock`
+
+{:.table}
+| field     | type   | description                |
+| --------- | ------ | -------------------------- |
+| remote_ip | string | Remote IP doing the action |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type": "login_lock",
+  "type_data": {
+    "remote_ip": "1.2.3.4"
+  }
+}
+```
+
+--- row ---
+
+* **Account Unlocked**
+
+_When:_ Account has been unlocked
+`type=login_unlock_success`
+
+{:.table}
+| field     | type   | description                |
+| --------- | ------ | -------------------------- |
+| remote_ip | string | Remote IP doing the action |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type": "login_unlock_success",
+  "type_data": {
+    "remote_ip": "1.2.3.4"
+  }
+}
+```
+
+--- row ---
+
 ## List the Events of an App
 
 --- row ---
