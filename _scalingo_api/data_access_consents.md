@@ -46,7 +46,7 @@ Example object:
 
 --- row ---
 
-`GET https://$SCALINGO_API_URL/v1/apps/:app/data_access_consents`
+`GET https://$SCALINGO_API_URL/v1/apps/:app_id/data_access_consents`
 
 ||| col |||
 
