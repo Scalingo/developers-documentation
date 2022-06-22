@@ -19,7 +19,7 @@ layout: default
 | user_id             | string  | unique ID of the user                   |
 | end_at              | date    | deadline of DataAccessConsent ISO 8601 |
 | databases           | boolean | to allow databases                      |
-| containers          | boolean | to allow databases                      |
+| containers          | boolean | to allow containers                      |
 
 ||| col |||
 
