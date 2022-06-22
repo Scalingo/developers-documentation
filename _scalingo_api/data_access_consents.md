@@ -84,9 +84,9 @@ Returns 200 OK
 
 `POST https://$SCALINGO_API_URL/v1/apps/:app_id/data_access_consents`
 
-### Url Parameter
+### URL Parameter
 
-- `example-app`: the urlized app name
+- `app`: the urlized app name
 
 ### Body Parameters
 
