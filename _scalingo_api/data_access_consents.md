@@ -17,7 +17,7 @@ layout: default
 | updated_at          | date    | date of last update                     |
 | app_id              | string  | unique ID of the app                    |
 | user_id             | string  | unique ID of the user                   |
-| end_at              | date    | dedadline of DataAccessConsent ISO 8601 |
+| end_at              | date    | deadline of DataAccessConsent ISO 8601 |
 | databases           | boolean | to allow databases                      |
 | containers          | boolean | to allow databases                      |
 
