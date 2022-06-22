@@ -86,7 +86,7 @@ Returns 200 OK
 
 ### URL Parameter
 
-- `app`: the urlized app name
+- `app_id`: the app ID
 
 ### Body Parameters
 
