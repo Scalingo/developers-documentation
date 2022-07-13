@@ -574,6 +574,90 @@ Example object:
 
 --- row ---
 
+* **Database - Add Feature event**
+
+_When:_ A feature is added to a database addon
+`type=database/add_feature`
+
+{:.table}
+| field               | type   | description                             |
+| ------------------- | ------ | --------------------------------------- |
+| feature             | string | Name of the addon enabled addon feature |
+| addon_provider_name | string | Name of the addon provider              |
+| addon_provider_id   | string | ID of the addon    provider             |
+| addon_uuid          | string | ID (UUIDv4) of the addon resource       |
+| remote_ip           | string | Remote IP doing the action              |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "database/add_feature",
+  "type_data": {
+    "feature": "force-ssl",
+    "remote_ip": "1.2.3.4",
+    "addon_uuid": "ad-012345678-1234-5678-12345678",
+    "addon_provider_id": "6343eccd646173000a140000",
+    "addon_provider_name": "postgresql"
+  }
+}
+```
+
+--- row ---
+
+* **Database - Remove eature event**
+
+_When:_ A feature has been removed from a database addon
+`type=database/remove_feature`
+
+{:.table}
+| field               | type   | description                              |
+| ------------------- | ------ | ---------------------------------------- |
+| feature             | string | Name of the addon disabled addon feature |
+| addon_provider_name | string | Name of the addon provider               |
+| addon_provider_id   | string | ID of the addon provider                 |
+| addon_uuid          | string | ID (UUIDv4) of the addon resource        |
+| remote_ip           | string | Remote IP doing the action               |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "database/remove_feature",
+  "type_data": {
+    "feature": "force-ssl",
+    "remote_ip": "1.2.3.4",
+    "addon_uuid": "ad-012345678-1234-5678-12345678",
+    "addon_provider_id": "6343eccd646173000a140000",
+    "addon_provider_name": "postgresql"
+  }
+}
+```
+
+--- row ---
+
 * **New Collaborator event**
 
 _When:_ Each time a collaboration invitation is sent
