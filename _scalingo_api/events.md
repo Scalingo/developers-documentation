@@ -576,7 +576,7 @@ Example object:
 
 * **Database - Add Feature event**
 
-_When:_ A feature has been removed from a database addon
+_When:_ A feature is added to a database addon
 `type=database/add_feature`
 
 {:.table}
@@ -618,7 +618,7 @@ Example object:
 
 * **Database - Remove eature event**
 
-_When:_ A feature as been removed from a database addon
+_When:_ A feature has been removed from a database addon
 `type=database/remove_feature`
 
 {:.table}
