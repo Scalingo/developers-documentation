@@ -1472,6 +1472,44 @@ Example object:
 
 --- row ---
 
+* **New Data Access Consent**
+
+_When:_ Data Access Consent has been created
+`type=create_data_access_consent`
+
+{:.table}
+| field               | type        | description                             |
+| ------------------- | ----------- | --------------------------------------- |
+| end_at              | datetime    | deadline of DataAccessConsent ISO 8601  |
+| databases           | boolean     | to allow databases                      |
+| containers          | boolean     | to allow databases                      |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id":"54dcdd4a73636100011a0000",
+  "created_at":"2022-07-01T13:29:12.679Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type":"create_data_access_consent",
+  "type_data":
+    {
+      "end_at":"2022-07-14T00:00:00.000+00:00",
+      "databases":true,
+      "containers":true
+    },
+}
+```
+
+--- row ---
 ## List the Events of an App
 
 --- row ---
