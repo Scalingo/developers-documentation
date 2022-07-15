@@ -1510,6 +1510,59 @@ Example object:
 ```
 
 --- row ---
+
+* **Edit HDS Contact**
+
+_When:_ HDS Contact has been updated
+`type=edit_hds_contact`
+
+{:.table}
+| field            | type      | description                     |
+| ---------------- | --------- | ------------------------------- |
+| name             | string    | name of the contact             |
+| email            | string    | email of the contact            |
+| phone_number     | string    | phone_number of the contact     |
+| company          | string    | company of the contact          |
+| address_line1    | string    | address_line1 of the contact    |
+| address_line2    | string    | address_line2 of the contact    |
+| address_city     | string    | address_city of the contact     |
+| address_zip      | string    | address_zip of the contact      |
+| address_country  | string    | address_country of the contact  |
+| notes            | string    | notes about the contact         |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id":"62d13ad1a5b6ec0001e553c8",
+  "created_at":"2022-07-15T10:00:49.703Z",
+  "type":"edit_hds_contact",
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data":
+    {
+      "name":"Médecin",
+      "email":"test@test.com",
+      "phone_number":"0600000006",
+      "company":"company",
+      "address_line1":"23 rue du bois",
+      "address_line2":null,
+      "address_city":"Strasbourg",
+      "address_zip":"67000",
+      "address_country":"FR",
+      "notes":"test"
+    },
+}
+```
+
+--- row ---
 ## List the Events of an App
 
 --- row ---
