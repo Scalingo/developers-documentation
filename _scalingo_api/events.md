@@ -20,8 +20,8 @@ applications.
 | created_at | date   | date of creation                         |
 | user       | object | embedded user who generated the event    |
 | type       | string | type of event (see below for the values) |
-| app_id     | string | unique ID of the app
-| app_name   | string | app name the event belongs to.           |
+| app_id     | string | unique ID of the app                     |
+| app_name   | string | app name the event belongs to            |
 
 Note: `app_name` is not modified when an application is renamed, it's
 frozen in the event.
@@ -616,7 +616,7 @@ Example object:
 
 --- row ---
 
-* **Database - Remove eature event**
+* **Database - Remove feature event**
 
 _When:_ A feature has been removed from a database addon
 `type=database/remove_feature`
@@ -1483,6 +1483,7 @@ _When:_ Data Access Consent has been created
 | end_at              | datetime    | deadline of DataAccessConsent ISO 8601  |
 | databases           | boolean     | to allow databases                      |
 | containers          | boolean     | to allow databases                      |
+| remote_ip           | string      | Remote IP doing the action              |
 
 ||| col |||
 
@@ -1504,7 +1505,8 @@ Example object:
     {
       "end_at":"2022-07-14T00:00:00.000+00:00",
       "databases":true,
-      "containers":true
+      "containers":true,
+      "remote_ip": "1.2.3.4"
     },
 }
 ```
@@ -1529,6 +1531,7 @@ _When:_ HDS Contact has been updated
 | address_zip      | string    | address_zip of the contact      |
 | address_country  | string    | address_country of the contact  |
 | notes            | string    | notes about the contact         |
+| remote_ip        | string    | Remote IP doing the action      |
 
 ||| col |||
 
@@ -1557,7 +1560,8 @@ Example object:
       "address_city":"Strasbourg",
       "address_zip":"67000",
       "address_country":"FR",
-      "notes":"test"
+      "notes":"test",
+      "remote_ip": "1.2.3.4"
     },
 }
 ```
