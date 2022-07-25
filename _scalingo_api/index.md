@@ -50,8 +50,8 @@ Scalingo being available on multiple regions, the API endpoint depends on the
 region your application is hosted on. It's designated by `SCALINGO_API_URL` in
 this documentation and must be replaced with one of the following value:
 
-- 3DS Outscale Paris: api.osc-fr1.scalingo.com
-- 3DS Outscale Paris SecNumCloud: api.osc-secnum-fr1.scalingo.com
+- 3DS Outscale Paris: `api.osc-fr1.scalingo.com`
+- 3DS Outscale Paris SecNumCloud: `api.osc-secnum-fr1.scalingo.com`
 
 ## HTTP Verbs
 
