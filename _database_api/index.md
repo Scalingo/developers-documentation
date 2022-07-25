@@ -20,8 +20,8 @@ Scalingo being available on multiple regions, the Database API hostname depends
 on the region your database is hosted on. It's designated by `DB_API_URL`
 in this documentation and must be replaced with one of the following value:
 
-- 3DS Outscale Paris: https://db-api.osc-fr1.scalingo.com
-- 3DS Outscale Paris SecNumCloud: https://db-api.osc-secnum-fr1.scalingo.com
+- 3DS Outscale Paris: db-api.osc-fr1.scalingo.com
+- 3DS Outscale Paris SecNumCloud: db-api.osc-secnum-fr1.scalingo.com
 
 --- row ---
 
