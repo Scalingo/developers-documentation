@@ -207,7 +207,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 Returns 200 OK
 
-Reponse
+Response
 
 ```json
 {

@@ -41,7 +41,7 @@ Example object:
 
 --- row ---
 
-This provides the list of event categories, usefull to display [Event Types](/event_types) properly.
+This provides the list of event categories, useful to display [Event Types](/event_types) properly.
 
 `GET https://$SCALINGO_API_URL/v1/event_categories`
 

@@ -183,7 +183,7 @@ Returns 200 OK
 
 `GET https://$SCALINGO_API_URL/v1/account/usage`
 
-Get the account usage betwen two given dates.
+Get the account usage between two given dates.
 
 ### Parameters
 
