@@ -60,7 +60,7 @@ Example object
     "owner": {
       "id": "us-c4e889d8-9bbc-4dfa-b39f-5d41c888349d",
       "email": "test-user@example.com",
-      "username": "test-user",
+      "username": "test-user"
     }
   }
 }
@@ -101,7 +101,7 @@ Returns 200 OK
       "owner": {
         "id": "us-c4e889d8-9bbc-4dfa-b39f-5d41c888349d",
         "email": "test-user@example.com",
-        "username": "test-user",
+        "username": "test-user"
       }
     },
     {
@@ -118,7 +118,7 @@ Returns 200 OK
       "owner": {
         "id": "us-88c4e9af-f93c-8284-c67a-fa414d49c5de",
         "email": "test-user@example.com",
-        "username": "test-user",
+        "username": "test-user"
       }
     }
   ]
@@ -161,7 +161,7 @@ Returns 200 OK
     "owner": {
       "id": "us-88c4e9af-f93c-8284-c67a-fa414d49c5de",
       "email": "test-user@example.com",
-      "username": "test-user",
+      "username": "test-user"
     }
   }
 }
@@ -222,7 +222,7 @@ Returns 201 Created
     "owner": {
       "id": "us-88c4e9af-f93c-8284-c67a-fa414d49c5de",
       "email": "test-user@example.com",
-      "username": "test-user",
+      "username": "test-user"
     }
   }
 }
@@ -284,7 +284,7 @@ Returns 201 Created
       "owner": {
         "id": "us-88c4e9af-f93c-8284-c67a-fa414d49c5de",
         "email": "test-user@example.com",
-        "username": "test-user",
+        "username": "test-user"
       }
     }
   ]

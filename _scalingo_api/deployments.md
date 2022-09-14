@@ -387,7 +387,7 @@ You'll receive different types of message from the websocket:
 
 ### Details about the deployment statuses
 
-* `queued`: whe received the deployment it's waiting for a slot on our schedulers
+* `queued`: deployment is waiting for a slot on our schedulers
 * `building`: when the buildpack is chosen and executed
 * `pushing`: the generated Docker image is pushed to our registry
 * `starting`: the order to start your app has been transmitted to our scheduler

@@ -19,11 +19,11 @@ layout: default
 | active             | boolean  | is the notifier active or not                   |
 | type               | string   | notifier type                                   |
 | app_id             | string   | app reference                                   |
-| platform_id        | string   | notification platform used by this notifer      |
+| platform_id        | string   | notification platform used by this notifier      |
 | send_all_alerts    | boolean  | should the notifier accept all alerts           |
 | send_all_events    | boolean  | should the notifier accept all events           |
 | selected_event_ids | []string | list of events accepted by this notifier        |
-| type_data          | object   | notitication platform dependant additional data |
+| type_data          | object   | notification platform dependant additional data |
 
 The *`type_data` Object* depends of the platform_id which is used.
 

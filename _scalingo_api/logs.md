@@ -100,7 +100,7 @@ closed.
 
 ||| col |||
 
-Exemple of keepalive event
+Example of keepalive event
 
 ```json
 {
@@ -108,4 +108,3 @@ Exemple of keepalive event
   "timestamp": "<date>"
 }
 ```
-
