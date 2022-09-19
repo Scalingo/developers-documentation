@@ -271,6 +271,79 @@ Returns 201 Created
 
 --- row ---
 
+## Enable Feature
+
+--- row ---
+
+`POST https://$DB_API_URL/api/databases/[:db_id]/features`
+
+Enable a togglable feature for the given database.
+
+Generic features are:
+
+* `force-ssl`: Enforce database configuration to accept only TLS encrypted connections from clients
+* `publicly-available`: Require `force-ssl`, make the database accessible through its URL on the internet and not only in Scalingo infrastructure
+
+Redis-specific features are:
+
+* `redis-rdb`: Enable RDB dump persistency mode writing down on disk database data (enabled by default)
+* `redis-aof`: Enable Append-Only File persistency mode to write down all commands and prevent data loss
+* `redis-cache`: Enable cache mode for Redis deployments (least used data are automatically dropped)
+
+A `status` is returned, its state can be one of the following:
+* `PENDING`: The feature is being enabled asynchronously, please poll the database resource to get updates
+* `ACTIVATED`: The feature has been successfuly enabled
+* `FAILED`: Something wrong happened, please reach our support to get more information
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
+  -X POST https://$DB_API_URL/api/databases/my-db-123/features \
+  -d '{ "feature": {"name": "force-ssl"} }'
+```
+
+Returns 200 OK
+
+```json
+{
+  "name": "force-ssl",
+  "status": "PENDING",
+  "message": "force-ssl feature is being enabled"
+}
+```
+
+--- row ---
+
+## Disable Database Feature
+
+--- row ---
+
+`DELETE https://$DB_API_URL/api/databases/[:db_id]/features?feature=feature_name`
+
+Disable a togglable feature for the given database.
+
+||| col |||
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
+  -X DELETE https://$DB_API_URL/api/databases/my-db-123/features?feature=force-ssl
+```
+
+Returns 200 OK
+
+```json
+{
+  "message": "force-ssl feature has been disabled",
+}
+```
+
+--- row ---
+
 ## Actions over Database Management System
 
 --- row ---
