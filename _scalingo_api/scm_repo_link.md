@@ -16,7 +16,7 @@ Link your Scalingo application to an existing integration.
 | -----                        | -----   | -----                                                                                               |
 | id                           | string  | unique ID                                                                                           |
 | app_id                       | string  | application ID                                                                                      |
-| auth_integration_uuid        | string  | ID of the [scm integration](./scm_integrations.md) linked for authentication                        |
+| auth_integration_uuid        | string  | ID of the [scm integration](./scm_integrations) linked for authentication                        |
 | linker                       | object  | description of the user that linked this repository                                                 |
 | owner                        | string  | repository owner name                                                                               |
 | repo                         | string  | repository name                                                                                     |
@@ -75,7 +75,7 @@ Example object:
 
 ### Parameters
 
-* `auth_integration_uuid`: Filter by [scm integration](./scm_integrations.md)
+* `auth_integration_uuid`: Filter by [scm integration](./scm_integrations)
 
 ||| col |||
 
@@ -160,7 +160,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 
 ### Parameters
 
-* `auth_integration_uuid`: Unique ID for the authentication of [scm integration](./scm_integrations.md)
+* `auth_integration_uuid`: Unique ID for the authentication of [scm integration](./scm_integrations)
 * `source`: URL of the SCM repository to link
 * `branch`: Branch used for the auto deploy feature (optional)
 * `auto_deploy_enabled`: Trigger a new deployment when changes are pushed to the
