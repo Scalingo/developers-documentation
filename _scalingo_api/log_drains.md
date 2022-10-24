@@ -19,11 +19,12 @@ You will find how to enable this service using the CLI on the
 {:.table}
 | Logs management service   | type        | token | host | port | drain_region | url |
 | ------------------------- | ------------| ----- | ---- | ---- | ------------ | --- |
+| Appsignal                 | appsignal   | ✓     | ✓    | ✓    |              |     |
 | Datadog                   | datadog     | ✓     |      |      | ✓            |     |
 | OVH hosted Graylog        | ovh-graylog | ✓     | ✓    |      |              |     |
 | Logentries                | logentries  | ✓     |      |      |              |     |
 | Papertrail                | papertrail  |       | ✓    | ✓    |              |     |
-| Syslog                    | syslog      |       | ✓    | ✓    |              |     |
+| Syslog                    | syslog      | ✓     | ✓    | ✓    |              |     |
 | Self-hosted ELK stack     | elk         |       |      |      |              | ✓   |
 
 --- row ---
