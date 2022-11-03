@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-ruby '3.0.2'
+ruby '3.1.2'
 
 gem 'jekyll'
 gem 'puma'
+gem 'rack', '< 3'
 gem 'rack-jekyll', github: "adaoraul/rack-jekyll"
 gem 'rack-rewrite', '~> 1.5', '>= 1.5.1'
 gem 'rake'
