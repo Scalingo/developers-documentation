@@ -30,6 +30,7 @@ layout: default
 | last_deployed_by    | string  | user who attempted the last deployment           |
 | last_deployment_id  | string  | id of the last successful deployment             |
 | stack_id            | string  | id of the stack used                             |
+| data_access_consent | object  | object representing data access consent          |
 
 ||| col |||
 
@@ -62,6 +63,12 @@ Example object:
   "url": "https://example-app.scalingo.io",
   "links": {
     "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
+  },
+  "data_access_consent": {
+    "app_id": "ap-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "containers_until": null,
+    "database_until": null,
+    "user_id": "us-8ba226e5-93e0-4545-8363-9c16b2d68d67"
   }
 }
 ```
