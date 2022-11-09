@@ -19,7 +19,7 @@ layout: default
 | user_id             | string      | unique ID of the user, format uuid      |
 | end_at              | datetime    | deadline of DataAccessConsent ISO 8601  |
 | databases           | boolean     | to allow databases                      |
-| containers          | boolean     | to allow databases                      |
+| containers          | boolean     | to allow containers                     |
 
 ||| col |||
 
