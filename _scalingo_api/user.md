@@ -192,6 +192,8 @@ Get the account usage between two given dates.
 
 Both dates must be in the form `YYYY-MM-DD` and are optional.
 
+> ⚠️ `price`, `hourly_price` and `thirtydays_price` are deprecated fields.
+
 ||| col |||
 
 Example Request

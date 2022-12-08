@@ -101,6 +101,9 @@ Example object:
 | disabled_alternative_plan_id | string  | ID of other plan if this plan disabled      |
 | position                     | integer | order of "importance" when displayed        |
 
+> ⚠️ `price` is a deprecated field.
+
+
 ||| col |||
 
 Example object:
