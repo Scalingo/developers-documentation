@@ -22,6 +22,8 @@ layout: default
 | human_cpu        | string  | Human representation of the CPU priority          |
 | sku              | string  | Stock Keeping Unit aka Products catalog ID        |
 
+> ⚠️ `hourly_price` and `thirtydays_price` are deprecated fields.
+
 ||| col |||
 
 Example object:
