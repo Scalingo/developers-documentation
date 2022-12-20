@@ -22,7 +22,7 @@ application are deployed.
 | git_ref        | string  | git SHA                                                         |
 | pusher         | object  | embedded user who pushed the GIT reference                      |
 | links          | object  | hypermedia links about the deployment                           |
-| image_size     | integer | Image size deployment (in bytes)                                |
+| image_size     | integer | size of the deployment image (in bytes)                                |
 
 **Deployment pusher attributes**
 
