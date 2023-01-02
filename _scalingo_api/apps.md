@@ -798,6 +798,39 @@ Returns 202 Accepted
 
 --- row ---
 
+## Send Signal to a Container
+
+Endpoint used by `scalingo send-signal`.
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/containers/[:container_id]/kill`
+
+Allow to send signals to a running container.
+
+### Parameters
+
+* `signal`: Accepted signals are `SIGUSR1` and `SIGUSR2`
+
+
+||| col |||
+
+Example request:
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST 'https://$SCALINGO_API_URL/v1/apps/example-app/containers/6054bcc56d80de00682f7a18/kill' -d \
+  '{
+    "signal": "SIGUSR1"
+  }'
+```
+
+Returns 204 No Content
+
+--- row ---
+
+
 ## Create a Child Application
 
 --- row ---
