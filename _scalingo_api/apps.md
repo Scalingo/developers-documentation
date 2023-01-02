@@ -807,6 +807,7 @@ Endpoint used by `scalingo send-signal`.
 `POST https://$SCALINGO_API_URL/v1/apps/[:app]/containers/[:container_id]/kill`
 
 Allow to send signals to a running container.
+
 ### Parameters
 
 * `signal`: Accepted signals are `SIGUSR1` and `SIGUSR2`
