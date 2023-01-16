@@ -84,7 +84,7 @@ Three generators are available `secret`, `template` or `url`:
 
 * `url`: will automatically insert the URL of the application will have once
   deployed. When this generator is used, the `template` property is taken into
-  account, the token `%URL%` can be used to be replaced by the future app URL.
+  account, the token `%URL%` can be used to be replaced by the created app URL.
 
 ||| col |||
 
