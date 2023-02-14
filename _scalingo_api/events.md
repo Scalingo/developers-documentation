@@ -1568,6 +1568,46 @@ Example object:
 ```
 
 --- row ---
+
+* **Stack changed**
+
+_When:_ App stack has been changed
+`type=stack_changed`
+
+{:.table}
+| field                         | type      | description                     |
+| ------------------------------| --------- | ------------------------------- |
+| previous_stack_id             | string    | Previous stack Id               |
+| current_stack_id              | string    | Current stack Id                |
+| previous_stack_name           | string    | Previous stack name             |
+| current_stack_name            | string    | Current stack name              |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id":"62d13ad1a5b6ec0001e553c8",
+  "created_at":"2022-07-15T10:00:49.703Z",
+  "type":"edit_hds_contact",
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "previous_stack_id": "st-2f83d71f-505c-4b40-89b4-04912cbfa911",
+    "current_stack_id": "st-9d5bf098-01df-4194-8160-9779cfbc7122",
+    "previous_stack_name": "scalingo-20",
+    "current_stack_name": "scalingo-22"
+  }
+}
+```
+
+--- row ---
 ## List the Events of an App
 
 --- row ---
