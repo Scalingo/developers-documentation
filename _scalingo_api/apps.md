@@ -31,6 +31,7 @@ layout: default
 | last_deployment_id  | string  | id of the last successful deployment             |
 | stack_id            | string  | id of the stack used                             |
 | data_access_consent | object  | object representing data access consent          |
+| hds_resource        | bool    | app being hds compliant                          |
 
 ||| col |||
 
@@ -49,6 +50,7 @@ Example object:
   "force_https": true,
   "sticky_session": false,
   "router_logs": true,
+  "hds_resource": false,
   "owner": {
     "username": "john",
     "email": "user@example.com",
