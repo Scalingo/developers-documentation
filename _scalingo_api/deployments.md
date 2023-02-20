@@ -53,7 +53,7 @@ Example object:
   "git_ref": "abcdef1234567890",
   "id": "123e4567-e89b-12d3-a456-426655440000",
   "image_size": 104857600,
-  "stack_base_image": "scalingo/ubuntu-20-4",
+  "stack_base_image": "scalingo/ubuntu-20:v4",
   "pusher": {
     "email": "user@example.com",
     "id": "54100245736f7563d5000000",
@@ -99,7 +99,7 @@ Returns 200 OK
             "status": "build-error",
             "id": "123e4567-e89b-12d3-a456-426655440000",
             "image_size": 104857600,
-            "stack_base_image": "scalingo/ubuntu-20-4",
+            "stack_base_image": "scalingo/ubuntu-20:v4",
             "pusher": {
                 "email": "user@example.com",
                 "id": "54100245736f7563d5000000",
@@ -149,7 +149,7 @@ Returns 200 OK
         "git_ref": "abcdef1234567890",
         "id": "123e4567-e89b-12d3-a456-426655440000",
         "image_size": 104857600,
-        "stack_base_image": "scalingo/ubuntu-20-4",
+        "stack_base_image": "scalingo/ubuntu-20:v4",
         "pusher": {
             "email": "user@example.com",
             "id": "54100245736f7563d5000000",
@@ -211,7 +211,7 @@ Returns 200 OK
     "previous_git_ref":"eb5454c314e2e9c8f98efa9b4422476b391df185",
     "duration":0,
     "image_size": 104857600,
-    "stack_base_image": "scalingo/ubuntu-20-4",
+    "stack_base_image": "scalingo/ubuntu-20:v4",
     "pusher": {
       "username":"user",
       "email":"user@example.com",
