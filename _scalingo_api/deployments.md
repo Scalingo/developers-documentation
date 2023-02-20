@@ -13,16 +13,17 @@ application are deployed.
 **Deployment attributes**
 
 {:.table}
-| field          | type    | description                                                     |
-| -------------- | ------- | --------------------------------------------------------------- |
-| id             | string  | unique ID                                                       |
-| app_id         | string  | unique ID referencing the app this deployment belongs to        |
-| created_at     | date    | date of creation                                                |
-| status         | string  | status of the deployment (building, success, aborted, \*-error) |
-| git_ref        | string  | git SHA                                                         |
-| pusher         | object  | embedded user who pushed the GIT reference                      |
-| links          | object  | hypermedia links about the deployment                           |
-| image_size     | integer | size of the deployment image (in bytes)                                |
+| field            | type    | description                                                     |
+| ---------------- | ------- | --------------------------------------------------------------- |
+| id               | string  | unique ID                                                       |
+| app_id           | string  | unique ID referencing the app this deployment belongs to        |
+| created_at       | date    | date of creation                                                |
+| status           | string  | status of the deployment (building, success, aborted, \*-error) |
+| git_ref          | string  | git SHA                                                         |
+| pusher           | object  | embedded user who pushed the GIT reference                      |
+| links            | object  | hypermedia links about the deployment                           |
+| image_size       | integer | size of the deployment image (in bytes)                         |
+| stack_base_image | string  | stack used as base image                                        |
 
 **Deployment pusher attributes**
 
@@ -52,6 +53,7 @@ Example object:
   "git_ref": "abcdef1234567890",
   "id": "123e4567-e89b-12d3-a456-426655440000",
   "image_size": 104857600,
+  "stack_base_image": "scalingo/ubuntu-20-4",
   "pusher": {
     "email": "user@example.com",
     "id": "54100245736f7563d5000000",
@@ -97,6 +99,7 @@ Returns 200 OK
             "status": "build-error",
             "id": "123e4567-e89b-12d3-a456-426655440000",
             "image_size": 104857600,
+            "stack_base_image": "scalingo/ubuntu-20-4",
             "pusher": {
                 "email": "user@example.com",
                 "id": "54100245736f7563d5000000",
@@ -146,6 +149,7 @@ Returns 200 OK
         "git_ref": "abcdef1234567890",
         "id": "123e4567-e89b-12d3-a456-426655440000",
         "image_size": 104857600,
+        "stack_base_image": "scalingo/ubuntu-20-4",
         "pusher": {
             "email": "user@example.com",
             "id": "54100245736f7563d5000000",
@@ -207,6 +211,7 @@ Returns 200 OK
     "previous_git_ref":"eb5454c314e2e9c8f98efa9b4422476b391df185",
     "duration":0,
     "image_size": 104857600,
+    "stack_base_image": "scalingo/ubuntu-20-4",
     "pusher": {
       "username":"user",
       "email":"user@example.com",
@@ -280,6 +285,7 @@ Returns 200 OK
     "type": "archive",
     "duration":0,
     "image_size": 104857600,
+    "stack_base_image": "scalingo/ubuntu-20-4",
     "pusher": {
       "username":"user",
       "email":"user@example.com",
