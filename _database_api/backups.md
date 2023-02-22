@@ -63,29 +63,32 @@ Returns 200 OK
     {
       "id": "5bde44904ffb096c714be89c",
       "created_at": "2018-11-04T02:00:00.154+01:00",
+      "started_at": "2018-11-04T02:01:00.154+01:00",
       "name": "20181104010000_kibana-3938",
       "size": 0,
       "status": "pending",
       "database_id": "597601234ffb097af4f3099b",
-      "type": "postgresql"
+      "method": "periodic"
     },
     {
       "id": "5bb95a904ffb096e9a2831b8",
       "created_at": "2018-10-07T03:00:00.150+02:00",
+      "started_at": "2018-10-07T03:05:00.154+01:00",
       "name": "20181007010000_kibana-3938",
       "size": 0,
       "status": "error",
       "database_id": "597601234ffb097af4f3099b",
-      "type": "postgresql"
+      "method": "manual"
     },
     {
       "id": "5b8b36104ffb090be1ac3ce1",
       "created_at": "2018-09-02T03:00:00.178+02:00",
+      "started_at": "2018-09-02T03:02:00.154+01:00",
       "name": "20180902010000_kibana-3938",
       "size": 17484513608,
       "status": "done",
       "database_id": "597601234ffb097af4f3099b",
-      "type": "postgresql"
+      "method": "periodic"
     }
   ]
 }
@@ -117,12 +120,13 @@ Returns 201 Created
 {
   "database_backup": {
     "id": "5b8b36104ffb090be1ac3ce1",
-    "created_at": "2019-07-18T03:00:00.178+02:00",
+    "created_at": "2018-09-02T03:00:00.178+02:00",
+    "started_at": null,
     "name": "20180902010000_kibana-3938",
-    "size": 0,
+    "size": null,
     "status": "scheduled",
     "database_id": "597601234ffb097af4f3099b",
-    "type": "postgresql"
+    "method": "periodic"
   }
 }
 
