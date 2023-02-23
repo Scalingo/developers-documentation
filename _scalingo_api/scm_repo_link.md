@@ -60,6 +60,7 @@ Example object:
   "hours_before_delete_on_close": 0,
   "delete_stale_enabled": false,
   "hours_before_delete_stale": 0,
+  "automatic_creation_from_forks_allowed": false,
   "last_auto_deploy_at":"2019-08-30T17:42:03.385+02:00"
 }
 ```
@@ -113,6 +114,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "hours_before_delete_on_close":0,
       "delete_stale_enabled":false,
       "hours_before_delete_stale":0,
+      "automatic_creation_from_forks_allowed": false,
       "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
     }, {
       "id":"0d7955a7-0c80-462a-84e7-bd06047103f4",
@@ -136,6 +138,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "hours_before_delete_on_close":0,
       "delete_stale_enabled":false,
       "hours_before_delete_stale":0,
+      "automatic_creation_from_forks_allowed": false,
       "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
     }
   ],
@@ -195,6 +198,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "auto_deploy_enabled": true,
       "deploy_review_apps_enabled":true,
       "delete_on_close_enabled":true,
+      "automatic_creation_from_forks_allowed": false,
       "hours_before_delete_on_close":0,
     }
   }'
