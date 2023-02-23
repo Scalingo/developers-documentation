@@ -12,25 +12,26 @@ Link your Scalingo application to an existing integration.
 **Integration link attributes**
 
 {:.table}
-| field                        | type    | description                                                                                         |
-| -----                        | -----   | -----                                                                                               |
-| id                           | string  | unique ID                                                                                           |
-| app_id                       | string  | application ID                                                                                      |
-| auth_integration_uuid        | string  | ID of the [scm integration](./scm_integrations) linked for authentication                        |
-| linker                       | object  | description of the user that linked this repository                                                 |
-| owner                        | string  | repository owner name                                                                               |
-| repo                         | string  | repository name                                                                                     |
-| branch                       | string  | branch used for auto deployment                                                                     |
-| scm_type                     | string  | integration type                                                                                    |
-| created_at                   | date    | creation date of the link                                                                           |
-| updated_at                   | date    | last time the link was updated                                                                      |
-| auto_deploy_enabled          | boolean | trigger a new deployment when the linked branch is updated                                          |
-| deploy_review_apps_enabled   | boolean | activation of the review apps feature                                                               |
-| delete_on_close_enabled      | boolean | review app: Delete the review app when the pull request is closed                                   |
-| hours_before_delete_on_close | int     | review app: Time to wait before deleting a review app linked to a closed pull request (in hours)    |
-| delete_stale_enabled         | boolean | review app: Delete the review app when there is no activity on the pull request                     |
-| hours_before_delete_stale    | int     | review app: Time to wait for activity on the pull request before deleting the review app (in hours) |
-| last_auto_deploy_at          | date    | date of the last deployment triggered by this link                                                  |
+| field                                 | type    | description                                                                                         |
+| -----                                 | -----   | -----                                                                                               |
+| id                                    | string  | unique ID                                                                                           |
+| app_id                                | string  | application ID                                                                                      |
+| auth_integration_uuid                 | string  | ID of the [scm integration](./scm_integrations) linked for authentication                           |
+| linker                                | object  | description of the user that linked this repository                                                 |
+| owner                                 | string  | repository owner name                                                                               |
+| repo                                  | string  | repository name                                                                                     |
+| branch                                | string  | branch used for auto deployment                                                                     |
+| scm_type                              | string  | integration type                                                                                    |
+| created_at                            | date    | creation date of the link                                                                           |
+| updated_at                            | date    | last time the link was updated                                                                      |
+| auto_deploy_enabled                   | boolean | trigger a new deployment when the linked branch is updated                                          |
+| deploy_review_apps_enabled            | boolean | activation of the review apps feature                                                               |
+| delete_on_close_enabled               | boolean | review app: Delete the review app when the pull request is closed                                   |
+| hours_before_delete_on_close          | int     | review app: Time to wait before deleting a review app linked to a closed pull request (in hours)    |
+| delete_stale_enabled                  | boolean | review app: Delete the review app when there is no activity on the pull request                     |
+| hours_before_delete_stale             | int     | review app: Time to wait for activity on the pull request before deleting the review app (in hours) |
+| automatic_creation_from_forks_allowed | boolean | review app: Allow automatic creation of review apps from forks                                      |
+| last_auto_deploy_at                   | date    | date of the last deployment triggered by this link                                                  |
 
 
 ||| col |||
@@ -59,6 +60,7 @@ Example object:
   "hours_before_delete_on_close": 0,
   "delete_stale_enabled": false,
   "hours_before_delete_stale": 0,
+  "automatic_creation_from_forks_allowed": false,
   "last_auto_deploy_at":"2019-08-30T17:42:03.385+02:00"
 }
 ```
@@ -112,6 +114,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "hours_before_delete_on_close":0,
       "delete_stale_enabled":false,
       "hours_before_delete_stale":0,
+      "automatic_creation_from_forks_allowed": false,
       "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
     }, {
       "id":"0d7955a7-0c80-462a-84e7-bd06047103f4",
@@ -135,6 +138,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "hours_before_delete_on_close":0,
       "delete_stale_enabled":false,
       "hours_before_delete_stale":0,
+      "automatic_creation_from_forks_allowed": false,
       "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
     }
   ],
@@ -175,6 +179,9 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   updated recently (optional)
 * `hours_before_delete_stale`: Time to wait for activity before considering the
   pull request stale (optional)
+* `automatic_creation_from_forks_allowed`: Allow automatic review app creation from forks
+  (optional, be aware of [security risks](https://doc.scalingo.com/platform/app/review-apps#addons-collaborators-and-environment-variables))
+
 
 ||| col |||
 
@@ -191,6 +198,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "auto_deploy_enabled": true,
       "deploy_review_apps_enabled":true,
       "delete_on_close_enabled":true,
+      "automatic_creation_from_forks_allowed": false,
       "hours_before_delete_on_close":0,
     }
   }'
@@ -219,6 +227,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   updated recently (optional)
 * `hours_before_delete_stale`: Time to wait for activity before considering the
   pull request stale (optional)
+* `automatic_creation_from_forks_allowed`: Allow automatic review app creation from forks
+  (optional, be aware of [security risks](https://doc.scalingo.com/platform/app/review-apps#addons-collaborators-and-environment-variables))
 
 ||| col |||
 
@@ -278,6 +288,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
     "hours_before_delete_on_close":0,
     "delete_stale_enabled":false,
     "hours_before_delete_stale":0,
+    "automatic_creation_from_forks_allowed": false,
     "last_auto_deploy_at":"2018-06-01T11:45:26.077+02:00"
   }
 }
