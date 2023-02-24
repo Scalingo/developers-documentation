@@ -1,0 +1,13 @@
+inherit_from: []
+
+inherit_gem:
+  standard: config/base.yml
+
+require:
+  - standard
+
+AllCops:
+  TargetRubyVersion: 3.2
+  SuggestExtensions: false
+  Exclude:
+    - '_site/**/*'
