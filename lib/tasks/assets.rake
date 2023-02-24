@@ -1,6 +1,6 @@
 namespace :assets do
-  desc 'assets precompilation'
+  desc "assets precompilation"
   task :precompile do
-    exec('jekyll build')
+    exec("jekyll build")
   end
 end
