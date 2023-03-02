@@ -115,7 +115,7 @@ Returns 200 OK
 		"address_state": null,
 		"address_country": "France",
 		"vat_number": "",
-        "invoice_additional_info": "",
+                "invoice_additional_info": "",
 		"company": "Scalingo",
 		"payment_method": "stripe",
 		"stripe_payment_method": {
