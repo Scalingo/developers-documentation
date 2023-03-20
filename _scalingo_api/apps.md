@@ -718,6 +718,11 @@ executed in the environment of your application.
 * `env` (*object*): Environment variables to inject into the container (additionally to those of your apps)
 * `size` (*string*, default `"M"`): Size of the container (e.g. S, M, etc)
 * `detached` (*boolean*, default `false`): Foreground task by default, set to `true` if the container has to be run in background.
+* `async` (*boolean*, default `false`): Create one-off synchronously by default, set to `true` if you want the one-off to be created asynchronously.
+
+For one-off started with the parameter `async` to `true`:<br>
+You can follow the operation progress by following the `Location` header,
+pointing to an [`operation` resource](/operations.html).
 
 ### Background vs Foreground One-off
 
