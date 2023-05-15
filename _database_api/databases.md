@@ -218,6 +218,7 @@ Headers:
 ```json
 {
   "message": "Database upgrade to 12.6.0-1 is pending",
+  "operation_id": "609145e66ffbd934f6745bb4",
   "build": 1,
   "created_at": "2021-03-23T10:00:09.498+01:00",
   "database_type_id": "5d0b95b801dcea2f34b18f1a",
