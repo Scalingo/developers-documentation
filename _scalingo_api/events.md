@@ -1281,6 +1281,101 @@ Example object:
 
 --- row ---
 
+* **Review App created event**
+
+_When:_ Each time a Review App is created
+`type=create_review_app`
+
+{:.table}
+| field                | type    | description                                               |
+| -------------------- | ------- | --------------------------------------------------------- |
+| review_app_name      | string  | Name of the Review App                                    |
+| review_app_url       | string  | Dashboard URL of the Review App                           |
+| source_repo_name     | string  | Name of the repository originating the Pull/Merge Request |
+| source_repo_url      | string  | URL of the repository originating the Pull/Merge Request  |
+| pr_name              | string  | Pull/Merge Request name                                   |
+| pr_number            | integer | Pull/Merge Request number                                 |
+| pr_url               | string  | Pull/Merge Request URL                                    |
+| pr_comes_from_a_fork | boolean | If the Pull/Merge Request comes from a fork repository    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:00:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "sample-go-martini",
+  "type": "create_review_app",
+  "type_data": {
+    "review_app_name": "sample-go-martini-pr2",
+    "review_app_url": "https://dashboard.scalingo.com/sample-go-martini-pr2",
+    "source_repo_name": "johndoe/sample-go-martini",
+    "source_repo_url": "https://github.com/johndoe/sample-go-martini",
+    "pr_name": "Update the name",
+    "pr_number": 3,
+    "pr_url": "https://github.com/johndoe/sample-go-martini/pull/3",
+    "pr_comes_from_a_fork": false
+  }
+}
+```
+
+--- row ---
+
+* **Review App destroyed event**
+
+_When:_ Each time a Review App is destroyed
+`type=destroy_review_app`
+
+{:.table}
+| field                | type    | description                                               |
+| -------------------- | ------- | --------------------------------------------------------- |
+| review_app_name      | string  | Name of the Review App                                    |
+| source_repo_name     | string  | Name of the repository originating the Pull/Merge Request |
+| source_repo_url      | string  | URL of the repository originating the Pull/Merge Request  |
+| pr_name              | string  | Pull/Merge Request name                                   |
+| pr_number            | integer | Pull/Merge Request number                                 |
+| pr_url               | string  | Pull/Merge Request URL                                    |
+| pr_comes_from_a_fork | boolean | If the Pull/Merge Request comes from a fork repository    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:00:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "sample-go-martini",
+  "type": "destroy_review_app",
+  "type_data": {
+    "review_app_name": "sample-go-martini-pr2",
+    "review_app_url": "https://dashboard.scalingo.com/sample-go-martini-pr2",
+    "source_repo_name": "johndoe/sample-go-martini",
+    "source_repo_url": "https://github.com/johndoe/sample-go-martini",
+    "pr_name": "Update the name",
+    "pr_number": 3,
+    "pr_url": "https://github.com/johndoe/sample-go-martini/pull/3",
+    "pr_comes_from_a_fork": false
+  }
+}
+```
+
+--- row ---
+
 * **Successful Login**
 
 _When:_ A successful login occurred
