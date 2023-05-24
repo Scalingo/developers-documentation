@@ -1349,6 +1349,8 @@ Example object:
 }
 ```
 
+--- row ---
+
 * **Successful Login**
 
 _When:_ A successful login occurred
