@@ -1287,16 +1287,16 @@ _When:_ Each time a Review App is created
 `type=create_review_app`
 
 {:.table}
-| field                | type    | description                                               |
-| -------------------- | ------- | --------------------------------------------------------- |
-| review_app_name      | string  | Name of the Review App                                    |
-| review_app_url       | string  | Dashboard URL of the Review App                           |
-| source_repo_name     | string  | Name of the repository originating the Pull/Merge Request |
-| source_repo_url      | string  | URL of the repository originating the Pull/Merge Request  |
-| pr_name              | string  | Pull/Merge Request name                                   |
-| pr_number            | integer | Pull/Merge Request number                                 |
-| pr_url               | string  | Pull/Merge Request URL                                    |
-| pr_comes_from_a_fork | boolean | If the Pull/Merge Request comes from a fork repository    |
+| field                | type    | description                                                            |
+| -------------------- | ------- | ---------------------------------------------------------------------- |
+| review_app_name      | string  | Name of the Review App                                                 |
+| review_app_url       | string  | Dashboard URL of the Review App                                        |
+| source_repo_name     | string  | Name of the repository the Pull/Merge Request originates from          |
+| source_repo_url      | string  | URL of the repository the Pull/Merge Request originates from           |
+| pr_name              | string  | Pull/Merge Request name                                                |
+| pr_number            | integer | Pull/Merge Request number                                              |
+| pr_url               | string  | Pull/Merge Request URL                                                 |
+| pr_comes_from_a_fork | boolean | Whether the Pull/Merge Request originates from a fork of the repository |
 
 ||| col |||
 
@@ -1335,15 +1335,15 @@ _When:_ Each time a Review App is destroyed
 `type=destroy_review_app`
 
 {:.table}
-| field                | type    | description                                               |
-| -------------------- | ------- | --------------------------------------------------------- |
-| review_app_name      | string  | Name of the Review App                                    |
-| source_repo_name     | string  | Name of the repository originating the Pull/Merge Request |
-| source_repo_url      | string  | URL of the repository originating the Pull/Merge Request  |
-| pr_name              | string  | Pull/Merge Request name                                   |
-| pr_number            | integer | Pull/Merge Request number                                 |
-| pr_url               | string  | Pull/Merge Request URL                                    |
-| pr_comes_from_a_fork | boolean | If the Pull/Merge Request comes from a fork repository    |
+| field                | type    | description                                                             |
+| -------------------- | ------- | ----------------------------------------------------------------------- |
+| review_app_name      | string  | Name of the Review App                                                  |
+| source_repo_name     | string  | Name of the repository the Pull/Merge Request originates from           |
+| source_repo_url      | string  | URL of the repository the Pull/Merge Request originates from            |
+| pr_name              | string  | Pull/Merge Request name                                                 |
+| pr_number            | integer | Pull/Merge Request number                                               |
+| pr_url               | string  | Pull/Merge Request URL                                                  |
+| pr_comes_from_a_fork | boolean | Whether the Pull/Merge Request originates from a fork of the repository |
 
 ||| col |||
 
