@@ -1211,19 +1211,19 @@ _When:_ Each time an SCM integration link is created to an app
 `type=link_scm`
 
 {:.table}
-| field                        | type    | description                                                                                          |
-| ---------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| repo_name                    | string  | Name of the repository                                                                               |
-| linker_username              | string  | Username of the linker                                                                               |
-| source                       | string  | Source URL of the repository                                                                         |
-| branch                       | string  | Branch on which the repository is tied                                                               |
-| auto_deploy                  | boolean | Auto-deploy the app when the parametered branches is updated                                         |
-| auto_deploy_review_apps      | boolean | Auto-deploy Review Apps when Pull/Merge Requests are opened                                          |
-| delete_on_close              | boolean | Delete the Review App when the related Pull/Merge Request is closed                                  |
-| delete_stale                 | boolean | Delete the Review App when the related Pull/Merge Request is staled                                  |
-| hours_before_delete_on_close | integer | Hours before deleting the Review Apps when the related Pull/Merge Request is closed                  |
-| hours_before_delete_stale    | integer | Hours before deleting the Review Apps when the related Pull/Merge Request is staled                  |
-| creation_from_forks_allowed  | boolean | Enable Pull/Merge Requests coming from forks of the related repository to be deployed as Review Apps |
+| field                        | type    | description                                                                                      |
+| ---------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| repo_name                    | string  | Name of the repository                                                                           |
+| linker_username              | string  | Username of the linker                                                                           |
+| source                       | string  | Source URL of the repository                                                                     |
+| branch                       | string  | Branch of the repository the integration link is made to                                         |
+| auto_deploy                  | boolean | Auto-deploy the app when the parametered branch is updated                                       |
+| auto_deploy_review_apps      | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened                                     |
+| delete_on_close              | boolean | Delete the Review App when the related Pull/Merge Request is closed                              |
+| delete_stale                 | boolean | Delete the Review App when the related Pull/Merge Request is staled                              |
+| hours_before_delete_on_close | integer | Hours before deleting the Review App when the related Pull/Merge Request is closed               |
+| hours_before_delete_stale    | integer | Hours before deleting the Review App when the related Pull/Merge Request is staled               |
+| creation_from_forks_allowed  | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened on a fork of the related repository |
 
 ||| col |||
 
@@ -1265,19 +1265,19 @@ _When:_ Each time an SCM integration link is created to an app
 `type=update_scm`
 
 {:.table}
-| field                        | type    | description                                                                                          |
-| ---------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| repo_name                    | string  | Name of the repository                                                                               |
-| linker_username              | string  | Username of the linker                                                                               |
-| source                       | string  | Source URL of the repository                                                                         |
-| branch                       | string  | Branch on which the repository is tied                                                               |
-| auto_deploy                  | boolean | Auto-deploy the app when the parametered branches is updated                                         |
-| auto_deploy_review_apps      | boolean | Auto-deploy Review Apps when Pull/Merge Requests are opened                                          |
-| delete_on_close              | boolean | Delete the Review App when the related Pull/Merge Request is closed                                  |
-| delete_stale                 | boolean | Delete the Review App when the related Pull/Merge Request is staled                                  |
-| hours_before_delete_on_close | integer | Hours before deleting the Review Apps when the related Pull/Merge Request is closed                  |
-| hours_before_delete_stale    | integer | Hours before deleting the Review Apps when the related Pull/Merge Request is staled                  |
-| creation_from_forks_allowed  | boolean | Enable Pull/Merge Requests coming from forks of the related repository to be deployed as Review Apps |
+| field                        | type    | description                                                                                      |
+| ---------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| repo_name                    | string  | Name of the repository                                                                           |
+| linker_username              | string  | Username of the linker                                                                           |
+| source                       | string  | Source URL of the repository                                                                     |
+| branch                       | string  | Branch of the repository the integration link is made to                                         |
+| auto_deploy                  | boolean | Auto-deploy the app when the parametered branch is updated                                       |
+| auto_deploy_review_apps      | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened                                     |
+| delete_on_close              | boolean | Delete the Review App when the related Pull/Merge Request is closed                              |
+| delete_stale                 | boolean | Delete the Review App when the related Pull/Merge Request is staled                              |
+| hours_before_delete_on_close | integer | Hours before deleting the Review App when the related Pull/Merge Request is closed               |
+| hours_before_delete_stale    | integer | Hours before deleting the Review App when the related Pull/Merge Request is staled               |
+| creation_from_forks_allowed  | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened on a fork of the related repository |
 
 ||| col |||
 
