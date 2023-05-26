@@ -1211,11 +1211,19 @@ _When:_ Each time an SCM integration link is created to an app
 `type=link_scm`
 
 {:.table}
-| field           | type   | description                                 |
-| --------------- | ------ | ------------------------------------------- |
-| repo_name       | string | Name of the repository                      |
-| linker_username | string | Username of the linker                      |
-| source          | string | Source URL of the repository                |
+| field                        | type    | description                                                                                      |
+| ---------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| repo_name                    | string  | Name of the repository                                                                           |
+| linker_username              | string  | Username of the linker                                                                           |
+| source                       | string  | Source URL of the repository                                                                     |
+| branch                       | string  | Branch of the repository the integration link is made to                                         |
+| auto_deploy                  | boolean | Auto-deploy the app when the parametered branch is updated                                       |
+| auto_deploy_review_apps      | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened                                     |
+| delete_on_close              | boolean | Delete the Review App when the related Pull/Merge Request is closed                              |
+| delete_stale                 | boolean | Delete the Review App when the related Pull/Merge Request is staled                              |
+| hours_before_delete_on_close | integer | Hours before deleting the Review App when the related Pull/Merge Request is closed               |
+| hours_before_delete_stale    | integer | Hours before deleting the Review App when the related Pull/Merge Request is staled               |
+| creation_from_forks_allowed  | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened on a fork of the related repository |
 
 ||| col |||
 
@@ -1236,7 +1244,69 @@ Example object:
   "type_data": {
     "repo_name": "johndoe/sample-go-martini",
     "linker_username": "johndoe",
-    "source": "https://github.com/johndoe/sample-go-martini"
+    "source": "https://github.com/johndoe/sample-go-martini",
+    "branch": "main",
+    "auto_deploy": true,
+    "auto_deploy_review_apps": true,
+    "delete_on_close": true,
+    "delete_stale": true,
+    "hours_before_delete_on_close": 5,
+    "hours_before_delete_stale": 0,
+    "creation_from_forks_allowed": false
+  }
+}
+```
+
+--- row ---
+
+* **Update an SCM integration from an App event**
+
+_When:_ Each time an SCM integration link is created to an app
+`type=update_scm`
+
+{:.table}
+| field                        | type    | description                                                                                      |
+| ---------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| repo_name                    | string  | Name of the repository                                                                           |
+| linker_username              | string  | Username of the linker                                                                           |
+| source                       | string  | Source URL of the repository                                                                     |
+| branch                       | string  | Branch of the repository the integration link is made to                                         |
+| auto_deploy                  | boolean | Auto-deploy the app when the parametered branch is updated                                       |
+| auto_deploy_review_apps      | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened                                     |
+| delete_on_close              | boolean | Delete the Review App when the related Pull/Merge Request is closed                              |
+| delete_stale                 | boolean | Delete the Review App when the related Pull/Merge Request is staled                              |
+| hours_before_delete_on_close | integer | Hours before deleting the Review App when the related Pull/Merge Request is closed               |
+| hours_before_delete_stale    | integer | Hours before deleting the Review App when the related Pull/Merge Request is staled               |
+| creation_from_forks_allowed  | boolean | Auto-deploy a Review App when a Pull/Merge Request is opened on a fork of the related repository |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2020-09-22T09:00:00.000Z",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "update_scm",
+  "type_data": {
+    "repo_name": "johndoe/sample-go-martini",
+    "linker_username": "johndoe",
+    "source": "https://github.com/johndoe/sample-go-martini",
+    "branch": "main",
+    "auto_deploy": true,
+    "auto_deploy_review_apps": true,
+    "delete_on_close": true,
+    "delete_stale": true,
+    "hours_before_delete_on_close": 5,
+    "hours_before_delete_stale": 0,
+    "creation_from_forks_allowed": false
   }
 }
 ```
