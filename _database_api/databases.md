@@ -27,6 +27,7 @@ layout: default
 | features                      | array   | list of all database features                  |
 | periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
 | periodic_backups_scheduled_at | array   | hours of the day of the periodic backup (UTC)  |
+| maintenance_window            | object  | database maintenance window                     |
 
 **Instance attributes**
 
@@ -38,6 +39,15 @@ layout: default
 | port     | integer | instance port                             |
 | status   | string  | status of the current instance            |
 | type     | string  | is this node a database node or a gateway |
+
+**Maintenance window attributes**
+
+{:.table}
+| field             | type    | description                                                 |
+| ----------------- | ------  | ----------------------------------------------------------- |
+| weekday_utc       | integer | day of the week on which the maintenance window will start  |
+| starting_hour_utc | integer | hour at which the maintenance window will start             |
+| duration_in_hour  | integer | duration of the maintenance window in hours (not updatable) |
 
 ||| col |||
 
@@ -57,6 +67,11 @@ Example object:
         "status": "ACTIVATED"
       }
     ],
+    "maintenance_window": {
+      "weekday_utc": 3,
+      "starting_hour_utc": 21,
+      "duration_in_hour": 8
+    },
     "plan": "free",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
@@ -118,6 +133,11 @@ Returns 200 OK
         "status": "ACTIVATED"
       }
     ],
+    "maintenance_window": {
+      "weekday_utc": 3,
+      "starting_hour_utc": 21,
+      "duration_in_hour": 8
+    },
     "plan": "free",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
@@ -177,6 +197,11 @@ Returns 200 OK
         "status": "ACTIVATED"
       }
     ],
+    "maintenance_window": {
+      "weekday_utc": 3,
+      "starting_hour_utc": 21,
+      "duration_in_hour": 8
+    },
     "plan": "free",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
@@ -226,6 +251,11 @@ Headers:
   "features": [
     "tls"
   ],
+  "maintenance_window": {
+    "weekday_utc": 3,
+    "starting_hour_utc": 21,
+    "duration_in_hour": 8
+  },
   "major": 12,
   "minor": 6,
   "patch": 0,
