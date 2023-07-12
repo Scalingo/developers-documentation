@@ -16,7 +16,7 @@ layout: default
 | database_id | string | database identifier              |
 | type        | string | type of the maintenance          |
 | status      | string | status of the maintenance        |
-| started_at  | date   | when the maintenance started |
+| started_at  | date   | when the maintenance started     |
 | ended_at    | date   | when the maintenance ended       |
 
 ||| col |||
