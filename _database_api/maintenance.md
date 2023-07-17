@@ -104,7 +104,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $DB_BEARER_TOKEN" \
-  -X GET https://$DB_API_URL/api/databases/my-db-123/maintenances/my-maintenance-123
+  -X GET https://$DB_API_URL/api/databases/my-db-123/maintenance/my-maintenance-123
 ```
 
 Returns 200 OK
