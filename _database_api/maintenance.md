@@ -79,11 +79,13 @@ Returns 200 OK
     }
   ],
   "meta": {
-    "current_page": 1,
-    "prev_page":null,
-    "next_page":null,
-    "total_pages":1,
-    "total_count":2
+    "pagination": {
+      "current_page": 1,
+      "prev_page":null,
+      "next_page":null,
+      "total_pages":1,
+      "total_count":2
+    }
   }
 }
 ```
