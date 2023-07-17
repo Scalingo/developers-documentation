@@ -41,9 +41,10 @@ Example object:
 
 --- row ---
 
-`GET https://$DB_API_URL/api/databases/[:db_id]/maintenances?page=[:page_number]&per_page=[:per_page_number]`
+`GET https://$DB_API_URL/api/databases/[:db_id]/maintenance
 
 List maintenance of a specific database.
+This endpoint supports [pagination](/#pagination).
 
 ||| col |||
 
@@ -52,7 +53,7 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $DB_BEARER_TOKEN" \
-  -X GET https://$DB_API_URL/api/databases/my-db-123/maintenances
+  -X GET https://$DB_API_URL/api/databases/my-db-123/maintenance
 ```
 
 Returns 200 OK
@@ -93,7 +94,7 @@ Returns 200 OK
 
 --- row ---
 
-`GET https://$DB_API_URL/api/databases/[:db_id]/maintenances/[:maintenance_id]`
+`GET https://$DB_API_URL/api/databases/[:db_id]/maintenance/[:maintenance_id]`
 
 Retrieve information of a specific maintenance.
 
