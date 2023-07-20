@@ -41,7 +41,7 @@ Example object:
 
 --- row ---
 
-`GET https://$DB_API_URL/api/databases/[:db_id]/maintenance
+`GET https://$DB_API_URL/api/databases/[:db_id]/maintenance`
 
 List maintenance of a specific database.
 This endpoint supports [pagination](/#pagination).
