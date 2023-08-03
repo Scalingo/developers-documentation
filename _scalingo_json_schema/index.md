@@ -27,20 +27,20 @@ All attributes are optional.
 **The manifest attributes**
 
 {:.table}
-| field                     | type   | description                                    |
-| ------------------------- | ------ | ---------------------------------------------- |
-| name                      | string | Complete name of the project                   |
-| repository                | string | Location of the GIT repository of the project  |
-| ref                       | string | Branch name or commit ID of the code to use    |
-| stack                     | string | Name of the stack to use                       |
-| description               | string | Description in one or two sentences of the app |
-| logo                      | string | URL to the logo of the project                 |
-| website                   | string | Official website of the application if any     |
-| copy_parent_database_urls | bool   | Copy database credentials from parent app      |
-| env                       | object | Environment of the application, see below      |
-| addons                    | array  | List of all the addons required to run the app |
-| scripts                   | object | Optional hook scripts, see below               |
-| formation                 | object | Formation of containers when an app is created |
+| field                     | type    | description                                    |
+| ------------------------- | ------  | ---------------------------------------------- |
+| name                      | string  | Complete name of the project                   |
+| repository                | string  | Location of the GIT repository of the project  |
+| ref                       | string  | Branch name or commit ID of the code to use    |
+| stack                     | string  | Name of the stack to use                       |
+| description               | string  | Description in one or two sentences of the app |
+| logo                      | string  | URL to the logo of the project                 |
+| website                   | string  | Official website of the application if any     |
+| copy_parent_database_urls | boolean | Copy database credentials from parent app      |
+| env                       | object  | Environment of the application, see below      |
+| addons                    | array   | List of all the addons required to run the app |
+| scripts                   | object  | Optional hook scripts, see below               |
+| formation                 | object  | Formation of containers when an app is created |
 
 **Environment**
 
@@ -55,12 +55,13 @@ add.
 Each of these keys has to respect the following properties:
 
 {:.table}
-| field          | type   | description                                                           |
-| -------------- | ------ | --------------------------------------------------------------------- |
-| description    | string | Description of the variable to explain what it does                   |
-| value          | string | (if no generator) Default value of the variable                       |
-| generator      | string | (if no value) Use a generator to define a default value               |
-| template       | string | (if generator is 'url' or 'template') Template to generate value from |
+| field          | type    | description                                                           |
+| -------------- | ------  | --------------------------------------------------------------------- |
+| description    | string  | Description of the variable to explain what it does                   |
+| value          | string  | (if no generator) Default value of the variable                       |
+| generator      | string  | (if no value) Use a generator to define a default value               |
+| template       | string  | (if generator is 'url' or 'template') Template to generate value from |
+| required       | boolean | Mandatory to fill the value before deploying the one-click            |
 
 _Note: supplying `null` or an empty string to `value` will remove the variable from the environment. It can be used to delete environment variables present in the parent app._
 
