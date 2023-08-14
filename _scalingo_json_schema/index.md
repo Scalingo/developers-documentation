@@ -71,8 +71,8 @@ Three generators are available `secret`, `template` or `url`:
   (Useful for instance when you've to generate a unique encryption seed key),
   example: `90ffea2d3071e8d86cafb89ff5060883`
 
-* `template`: will generate an environment variable based on the content of the
-  content of the `template` field, the following tokens will be substituted dynamically
+* `template`: will generate an environment variable based on the content of
+  the `template` field, the following tokens will be substituted dynamically
   by the expected values when surrounded by `%`:
 
   * `APP`
