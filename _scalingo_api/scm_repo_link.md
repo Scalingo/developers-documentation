@@ -376,3 +376,68 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
     "pull_request_id": 42
   }'
 ```
+
+--- row ---
+
+## List Review Apps
+
+List the review apps of the given application.
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/apps/example-app/scm_repo_link/review_apps`
+
+||| col |||
+
+```bash
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  https://$SCALINGO_API_URL/v1/apps/example-app/scm_repo_link/review_apps
+```
+
+```json
+{
+  "review_apps": [
+    {
+      "id": "1d6e59a0-5377-11e8-90e6-0242ac110052",
+      "repo_link_id": "29b4c829-4150-11eb-97f7-0242ac11000e",
+      "app_id": "5343eccd646173000a140000",
+      "app_name": "example-app-pr238",
+      "parent_app_id": "54100930736f7563d5030000",
+      "parent_app_name": "example-app",
+      "created_at": "2023-07-18T16:41:44Z",
+      "stale_deletion_date": "2023-07-18T16:43:39.85Z",
+      "on_close_deletion_date": "2135-01-17T08:41:44Z",
+      "pull_request": {
+        "number": 238,
+        "branch_name": "Scalingo:my-fix",
+        "source_repo_id": 0,
+        "source_repo_name": "",
+        "source_repo_url": "",
+        "target_repo_id": 0,
+        "title": "Sort by",
+        "url": "https://api.github.com/repos/Scalingo/example-app/pulls/238",
+        "html_url": "https://github.com/Scalingo/example-app/pull/238",
+        "ref": "0bc7322dc67167969fdc23d217adcfe8d1d6c089",
+        "base_ref": "",
+        "created_at": "2023-07-18T16:41:44Z",
+        "closed_at": "0001-01-01T00:00:00Z"
+      },
+      "last_deployment": {
+        "id": "54dcdd4a73636100011a0000",
+        "upstream_deployment_id": "82a3cac5-9b25-473e-b33d-6272b87e636e",
+        "created_at": "2023-07-18T16:43:39.82Z",
+        "status": "success",
+        "git_ref": "0bc7322dc67167969fdc23d217adcfe8d1d6c089",
+        "scm_link": "https://github.com/Scalingo/example-app/commit/0bc7322dc67167969fdc23d217adcfe8d1d6c089",
+        "github_link": "https://github.com/Scalingo/example-app/commit/0bc7322dc67167969fdc23d217adcfe8d1d6c089",
+        "pusher": {
+          "username": "scalingo-platform-scm",
+          "email": "deploy-scm@scalingo.com"
+        }
+      }
+    },
+    { ... }
+  ]
+}
+```
