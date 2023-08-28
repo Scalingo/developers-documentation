@@ -67,12 +67,12 @@ _Note: supplying `null` or an empty string to `value` will remove the variable f
 
 Three generators are available `secret`, `template` or `url`:
 
-* `secret`: will generate a unique token as a default value of the variable.
-  (Useful for instance when you've to generate a unique encryption seed key),
+* `secret`: generates a unique token as a default value of the variable.
+  Useful for instance when one need to generate a unique encryption seed key,
   example: `90ffea2d3071e8d86cafb89ff5060883`
 
-* `template`: will generate an environment variable based on the content of
-  the `template` field, the following tokens will be substituted dynamically
+* `template`: generates an environment variable based on the content of
+  the `template` field. The following tokens are substituted dynamically
   by the expected values when surrounded by `%`:
 
   * `APP`
@@ -83,8 +83,8 @@ Three generators are available `secret`, `template` or `url`:
 
   * `Pull Request Number %PR_NUMBER%` -> `Pull Request Number 10`
 
-* `url`: will automatically insert the URL of the application will have once
-  deployed. When this generator is used, the `template` property is taken into
+* `url`: automatically inserts the URL of the application after its deployment.
+  When this generator is used, the `template` property is taken into
   account, the token `%URL%` can be used to be replaced by the created app URL.
 
 ||| col |||
