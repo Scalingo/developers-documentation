@@ -441,3 +441,55 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   ]
 }
 ```
+
+--- row ---
+
+## List Merge / Pull Requests
+
+List the merge / pull requests of the repository attached to the given application.
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/apps/example-app/scm_repo_link/pulls`
+
+||| col |||
+
+```bash
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  https://$SCALINGO_API_URL/v1/apps/example-app/scm_repo_link/pulls
+```
+
+```json
+{
+	"pulls": [
+		{
+			"id": 1431362595,
+			"number": 186,
+			"title": "deps: upgrade Ruby",
+			"html_url": "https://github.com/Scalingo/example-app/pull/186",
+			"source_repo_name": "Scalingo/example-app",
+			"source_repo_html_url": "https://github.com/Scalingo/example-app",
+			"opened_from_a_forked_repo": false
+		},
+		{
+			"id": 1421681427,
+			"number": 185,
+			"title": "deps: upgrade Rails",
+			"html_url": "https://github.com/Scalingo/example-app/pull/185",
+			"source_repo_name": "Scalingo/example-app",
+			"source_repo_html_url": "https://github.com/Scalingo/example-app",
+			"opened_from_a_forked_repo": false
+		},
+		{
+			"id": 1474629658,
+			"number": 184,
+			"title": "Bump spring from 2.1.1 to 4.1.1",
+			"html_url": "https://github.com/Scalingo/example-app/pull/184",
+			"source_repo_name": "Scalingo/example-app",
+			"source_repo_html_url": "https://github.com/Scalingo/example-app",
+			"opened_from_a_forked_repo": false
+		}
+	]
+}
+```
