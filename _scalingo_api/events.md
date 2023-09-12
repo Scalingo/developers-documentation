@@ -1807,6 +1807,42 @@ Example object:
 }
 ```
 
+--- row ---
+
+* **Database Maintenance Started**
+
+_When:_ A maintenance began on your database
+`type=database_maintenance_started`
+
+{:.table}
+| field                         | type      | description                     |
+| ------------------------------| --------- | ------------------------------- |
+| maintenance_id                | string    | The related maintenance ID      |
+| addon_name                    | string    | The related addon name          |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id":"62d13ad1a5b6ec0001e553c8",
+  "created_at":"2022-07-15T10:00:49.703Z",
+  "type":"database_maintenance_started",
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "maintenance_id": "65004006a8acb50076cf9c1b",
+    "addon_name": "redis"
+  }
+}
+```
+
 
 --- row ---
 ## List the Events of an App
