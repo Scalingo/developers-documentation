@@ -1776,7 +1776,7 @@ Example object:
 * **Database Maintenance Planned**
 
 _When:_ A maintenance is scheduled on your database
-`type=database_maintenance_planned`
+`type=plan_database_maintenance`
 
 {:.table}
 | field                         | type      | description                     |
@@ -1792,14 +1792,9 @@ Example object:
 {
   "id":"62d13ad1a5b6ec0001e553c8",
   "created_at":"2022-07-15T10:00:49.703Z",
-  "type":"database_maintenance_planned",
+  "type":"plan_database_maintenance",
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "user": {
-    "username": "johndoe",
-    "email": "john@doe.com",
-    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
-  },
   "type_data": {
     "maintenance_id": "65004006a8acb50076cf9c1b",
     "addon_name": "redis"
@@ -1812,7 +1807,7 @@ Example object:
 * **Database Maintenance Started**
 
 _When:_ A maintenance began on your database
-`type=database_maintenance_started`
+`type=start_database_maintenance`
 
 {:.table}
 | field                         | type      | description                     |
@@ -1828,14 +1823,9 @@ Example object:
 {
   "id":"62d13ad1a5b6ec0001e553c8",
   "created_at":"2022-07-15T10:00:49.703Z",
-  "type":"database_maintenance_started",
+  "type":"start_database_maintenance",
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "user": {
-    "username": "johndoe",
-    "email": "john@doe.com",
-    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
-  },
   "type_data": {
     "maintenance_id": "65004006a8acb50076cf9c1b",
     "addon_name": "redis"
@@ -1848,7 +1838,7 @@ Example object:
 * **Database Maintenance Completed**
 
 _When:_ A maintenance as completed on your database
-`type=database_maintenance_completed`
+`type=complete_database_maintenance`
 
 {:.table}
 | field                         | type      | description                     |
@@ -1864,14 +1854,9 @@ Example object:
 {
   "id":"62d13ad1a5b6ec0001e553c8",
   "created_at":"2022-07-15T10:00:49.703Z",
-  "type":"database_maintenance_completed",
+  "type":"complete_database_maintenance",
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "user": {
-    "username": "johndoe",
-    "email": "john@doe.com",
-    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
-  },
   "type_data": {
     "maintenance_id": "65004006a8acb50076cf9c1b",
     "addon_name": "redis"
