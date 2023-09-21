@@ -1771,6 +1771,7 @@ Example object:
   }
 }
 ```
+
 --- row ---
 
 * **Database Maintenance Planned**
@@ -1779,13 +1780,13 @@ _When:_ A maintenance is scheduled on your database
 `type=plan_database_maintenance`
 
 {:.table}
-| field                       | type     | description                                   |
-| --------------------------- | -------- | --------------------------------------------- |
-| maintenance_id              | string   | The related maintenance ID                    |
-| addon_name                  | string   | The related addon name                        |
-| maintenance_type            | string   | The type of maintenance executed              |
-| maintenance_window_in_hours | integer  | The maintenance window length (in hours)      |
-| next_maintenance_window     | datetime | The beginning of your next maintenance window |
+| field                       | type     | description                                        |
+| --------------------------- | -------- | -------------------------------------------------- |
+| maintenance_id              | string   | The related maintenance ID                         |
+| addon_name                  | string   | The related addon name                             |
+| maintenance_type            | string   | The type of maintenance executed                   |
+| maintenance_window_in_hours | integer  | The maintenance window duration (in hours)         |
+| next_maintenance_window     | datetime | The beginning date of your next maintenance window |
 
 ||| col |||
 
@@ -1799,9 +1800,9 @@ Example object:
   "app_id": "649e9d0389bca600016ea61b",
   "app_name": "sample-go-martini",
   "user": {
-    "username": "scalingo-platform",
-    "email": "deploy@scalingo.com",
-    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
   },
   "type_data": {
     "addon_name": "Redis",
@@ -1821,13 +1822,13 @@ _When:_ A maintenance began on your database
 `type=start_database_maintenance`
 
 {:.table}
-| field                       | type     | description                                   |
-| --------------------------- | -------- | --------------------------------------------- |
-| maintenance_id              | string   | The related maintenance ID                    |
-| addon_name                  | string   | The related addon name                        |
-| maintenance_type            | string   | The type of maintenance executed              |
-| maintenance_window_in_hours | integer  | The maintenance window length (in hours)      |
-| next_maintenance_window     | datetime | The beginning of your next maintenance window |
+| field                       | type     | description                                        |
+| --------------------------- | -------- | -------------------------------------------------- |
+| maintenance_id              | string   | The related maintenance ID                         |
+| addon_name                  | string   | The related addon name                             |
+| maintenance_type            | string   | The type of maintenance executed                   |
+| maintenance_window_in_hours | integer  | The maintenance window duration (in hours)         |
+| next_maintenance_window     | datetime | The beginning date of your next maintenance window |
 
 ||| col |||
 
@@ -1841,9 +1842,9 @@ Example object:
   "app_id": "649e9d0389bca600016ea61b",
   "app_name": "sample-go-martini",
   "user": {
-    "username": "scalingo-platform",
-    "email": "deploy@scalingo.com",
-    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
   },
   "type_data": {
     "addon_name": "Redis",
@@ -1863,13 +1864,13 @@ _When:_ A maintenance as completed on your database
 `type=complete_database_maintenance`
 
 {:.table}
-| field                       | type     | description                                   |
-| --------------------------- | -------- | --------------------------------------------- |
-| maintenance_id              | string   | The related maintenance ID                    |
-| addon_name                  | string   | The related addon name                        |
-| maintenance_type            | string   | The type of maintenance executed              |
-| maintenance_window_in_hours | integer  | The maintenance window length (in hours)      |
-| next_maintenance_window     | datetime | The beginning of your next maintenance window |
+| field                       | type     | description                                        |
+| --------------------------- | -------- | -------------------------------------------------- |
+| maintenance_id              | string   | The related maintenance ID                         |
+| addon_name                  | string   | The related addon name                             |
+| maintenance_type            | string   | The type of maintenance executed                   |
+| maintenance_window_in_hours | integer  | The maintenance window duration (in hours)         |
+| next_maintenance_window     | datetime | The beginning date of your next maintenance window |
 
 ||| col |||
 
@@ -1883,9 +1884,9 @@ Example object:
   "app_id": "649e9d0389bca600016ea61b",
   "app_name": "sample-go-martini",
   "user": {
-    "username": "scalingo-platform",
-    "email": "deploy@scalingo.com",
-    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
   },
   "type_data": {
     "addon_name": "Redis",
