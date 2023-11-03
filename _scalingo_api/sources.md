@@ -61,14 +61,16 @@ Example request
 ```shell
 curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -H "Authorization: Bearer $BEARER_TOKEN" \
-  -X POST https://$SCALINGO_API_URL/v1/sources -d ''
+  -X POST https://$SCALINGO_API_URL/v1/sources
 ```
 
 Returns 201 Created
 
 ```json
 {
-  "upload_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d"
-  "download_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
+  "source": {
+    "upload_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=dc958153c3cd32659ffad5deeda9405d",
+    "download_url": "https://$SCALINGO_API_URL/v1/sources/123e4567-e89b-12d3-a456-426655440000?token=9df650a60014571abff0ee4e2d06a8fc"
+  }
 }
 ```
