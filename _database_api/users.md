@@ -10,10 +10,18 @@ layout: default
 **User attributes**
 
 {:.table}
-| field       | type    | description                      |
-| ----------- | ------- | -------------------------------- |
-| name        | string  | name of the user                 |
-| read_only   | boolean | true if the user is read only    |
+| field           | type    | description                         |
+| --------------- | ------- | ----------------------------------- |
+| name            | string  | name of the user                    |
+| read_only       | boolean | true if the user is read only       |
+| dbms_attributes | object  | data about the user in the database |
+
+**DBMS attributes**
+
+{:.table}
+| field               | type   | description                                                                             |
+| ------------------- | ------ | --------------------------------------------------------------------------------------- |
+| password_encryption | string | encryption algorithm used for the user password. can be either "SCRAM-SHA-256" or "MD5" |
 
 ||| col |||
 
@@ -22,7 +30,10 @@ Example object:
 ```json
 {
   "name": "metabase",
-  "read_only": true
+  "read_only": true,
+  "dbms_attributes" : {
+    "password_encryption" : "SCRAM-SHA-256"
+  }
 }
 ```
 
@@ -101,7 +112,10 @@ Returns 201 Created
 {
   "name": "my-user",
   "read_only": false,
-  "password": "K-j9UbDpdbok8Yy4sLcl"
+  "password": "K-j9UbDpdbok8Yy4sLcl",
+  "dbms_attributes" : {
+    "password_encryption" : "SCRAM-SHA-256"
+  }
 }
 
 ```
