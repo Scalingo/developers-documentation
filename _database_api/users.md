@@ -19,9 +19,9 @@ layout: default
 **DBMS attributes**
 
 {:.table}
-| field               | type   | description                                                                             |
-| ------------------- | ------ | --------------------------------------------------------------------------------------- |
-| password_encryption | string | encryption algorithm used for the user password. can be either "SCRAM-SHA-256" or "MD5" |
+| field               | type   | description                                                                                                                                |
+| ------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| password_encryption | string | (optional) encryption algorithm used for the user password. can be either `SCRAM-SHA-256` or `MD5`. currently only available for PostgreSQL databases |
 
 ||| col |||
 
@@ -62,11 +62,17 @@ Returns 200 OK
   "database-users": [
     {
       "name": "my-db-123",
-      "read_only": false
+      "read_only": false,
+      "dbms_attributes" : {
+        "password_encryption" : "SCRAM-SHA-256"
+      }
     },
     {
       "name": "metabase",
-      "read_only": true
+      "read_only": true,
+      "dbms_attributes" : {
+        "password_encryption" : "SCRAM-SHA-256"
+      }
     }
   ]
 }
