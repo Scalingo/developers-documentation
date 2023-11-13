@@ -10,11 +10,12 @@ layout: default
 **User attributes**
 
 {:.table}
-| field           | type    | description                         |
-| --------------- | ------- | ----------------------------------- |
-| name            | string  | name of the user                    |
-| read_only       | boolean | true if the user is read only       |
-| dbms_attributes | object  | data about the user in the database |
+| field           | type    | description                                                                         |
+| --------------- | ------- | ----------------------------------------------------------------------------------- |
+| name            | string  | name of the user                                                                    |
+| read_only       | boolean | true if the user is read only                                                       |
+| protected       | boolean | a protected user is important for the database good behavior, and cannot be updated |
+| dbms_attributes | object  | data about the user in the database                                                 |
 
 **DBMS attributes**
 
@@ -31,6 +32,7 @@ Example object:
 {
   "name": "metabase",
   "read_only": true,
+  "protected": false,
   "dbms_attributes" : {
     "password_encryption" : "SCRAM-SHA-256"
   }
@@ -63,6 +65,7 @@ Returns 200 OK
     {
       "name": "my-db-123",
       "read_only": false,
+      "protected": true,
       "dbms_attributes" : {
         "password_encryption" : "SCRAM-SHA-256"
       }
@@ -70,6 +73,7 @@ Returns 200 OK
     {
       "name": "metabase",
       "read_only": true,
+      "protected": false,
       "dbms_attributes" : {
         "password_encryption" : "SCRAM-SHA-256"
       }
@@ -118,6 +122,7 @@ Returns 201 Created
 {
   "name": "my-user",
   "read_only": false,
+  "protected": false,
   "password": "K-j9UbDpdbok8Yy4sLcl",
   "dbms_attributes" : {
     "password_encryption" : "SCRAM-SHA-256"
