@@ -19,9 +19,7 @@ layout: default
 
 **DBMS attributes**
 
-### Parameters
-
-- `password_encryption` : (optional) encryption algorithm used for the user password. can be either `SCRAM-SHA-256` or `MD5`. currently only available for PostgreSQL databases |
+- `password_encryption` : (optional) encryption algorithm used for the user password. can be either `SCRAM-SHA-256` or `MD5`. currently only available for PostgreSQL databases
 
 ||| col |||
 
