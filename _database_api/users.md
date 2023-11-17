@@ -10,19 +10,18 @@ layout: default
 **User attributes**
 
 {:.table}
-| field           | type    | description                                                                         |
-| --------------- | ------- | ----------------------------------------------------------------------------------- |
-| name            | string  | name of the user                                                                    |
-| read_only       | boolean | true if the user is read only                                                       |
-| protected       | boolean | a protected user is important for the database good behavior, and cannot be updated |
-| dbms_attributes | object  | data about the user in the database                                                 |
+| field           | type    | description                                              |
+| --------------- | ------- | -------------------------------------------------------- |
+| name            | string  | name of the user                                         |
+| read_only       | boolean | true if the user is read only                            |
+| protected       | boolean | true if the user is protected hence it cannot be updated |
+| dbms_attributes | object  | (optional) data about the user in the database           |
 
 **DBMS attributes**
 
-{:.table}
-| field               | type   | description                                                                                                                                |
-| ------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| password_encryption | string | (optional) encryption algorithm used for the user password. can be either `SCRAM-SHA-256` or `MD5`. currently only available for PostgreSQL databases |
+### Parameters
+
+- `password_encryption` : (optional) encryption algorithm used for the user password. can be either `SCRAM-SHA-256` or `MD5`. currently only available for PostgreSQL databases |
 
 ||| col |||
 
