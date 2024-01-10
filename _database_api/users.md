@@ -10,10 +10,16 @@ layout: default
 **User attributes**
 
 {:.table}
-| field       | type    | description                      |
-| ----------- | ------- | -------------------------------- |
-| name        | string  | name of the user                 |
-| read_only   | boolean | true if the user is read only    |
+| field           | type    | description                                              |
+| --------------- | ------- | -------------------------------------------------------- |
+| name            | string  | name of the user                                         |
+| read_only       | boolean | true if the user is read only                            |
+| protected       | boolean | true if the user is protected hence it cannot be updated |
+| dbms_attributes | object  | (optional) data about the user in the database           |
+
+**DBMS attributes**
+
+- `password_encryption` : (optional) encryption algorithm used for the user password. can be either `SCRAM-SHA-256` or `MD5`. currently only available for PostgreSQL databases
 
 ||| col |||
 
@@ -22,7 +28,11 @@ Example object:
 ```json
 {
   "name": "metabase",
-  "read_only": true
+  "read_only": true,
+  "protected": false,
+  "dbms_attributes" : {
+    "password_encryption" : "SCRAM-SHA-256"
+  }
 }
 ```
 
@@ -51,11 +61,19 @@ Returns 200 OK
   "database-users": [
     {
       "name": "my-db-123",
-      "read_only": false
+      "read_only": false,
+      "protected": true,
+      "dbms_attributes" : {
+        "password_encryption" : "SCRAM-SHA-256"
+      }
     },
     {
       "name": "metabase",
-      "read_only": true
+      "read_only": true,
+      "protected": false,
+      "dbms_attributes" : {
+        "password_encryption" : "SCRAM-SHA-256"
+      }
     }
   ]
 }
@@ -101,7 +119,11 @@ Returns 201 Created
 {
   "name": "my-user",
   "read_only": false,
-  "password": "K-j9UbDpdbok8Yy4sLcl"
+  "protected": false,
+  "password": "K-j9UbDpdbok8Yy4sLcl",
+  "dbms_attributes" : {
+    "password_encryption" : "SCRAM-SHA-256"
+  }
 }
 
 ```
