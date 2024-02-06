@@ -180,7 +180,7 @@ and the value should have the following structure:
 | field    | type    | description                                                            |
 | -------- | ------- | ---------------------------------------------------------------------- |
 | amount   | integer | Number of containers to start once the application is deployed         |
-| size     | string  | Container size `name` ([get the list of sizes](/container-sizes.html)) |
+| size     | string  | Container size `name` ([get the list of sizes](/container_sizes#list-the-container-sizes-available)) |
 
 Get the default list of sizes on the <a target="_blank" href="https://scalingo.com/pricing">pricing page</a>.
 
