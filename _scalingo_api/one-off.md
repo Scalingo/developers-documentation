@@ -16,19 +16,9 @@ you will receive a `attach_url`. This page explains how to use this endpoint.
 
 `CONNECT [:attach_url]`
 
-To use this endpoint you have to hijack the HTTP connection. It's pretty simple
-actually, when you're doing a HTTP request, a TCP connection is created. HTTP
-hijacking consist in turning this connection into a full bidirectional
-connection.
+To use this endpoint you have to hijack the HTTP connection. When a HTTP request is done, a TCP connection is created. HTTP hijacking consists in turning this connection into a full bidirectional connection.
 
-You can find an example of implementation in [this
-project](https://github.com/Soulou/go-http-hijack-client).
-
-For your information there is [an example of
-server](https://github.com/Soulou/go-http-echo-hijack) also.
-
-HTTP is used to handle the routing and the headers, then the connection is used
-rawly to exchange data.
+HTTP is used to handle the routing and the headers. Then the raw TCP connection is used to exchange data.
 
 --- row ---
 
