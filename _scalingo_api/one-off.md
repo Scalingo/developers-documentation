@@ -21,12 +21,6 @@ actually, when you're doing a HTTP request, a TCP connection is created. HTTP
 hijacking consist in turning this connection into a full bidirectional
 connection.
 
-You can find an example of implementation in [this
-project](https://github.com/Soulou/go-http-hijack-client).
-
-For your information there is [an example of
-server](https://github.com/Soulou/go-http-echo-hijack) also.
-
 HTTP is used to handle the routing and the headers, then the connection is used
 rawly to exchange data.
 
