@@ -322,7 +322,8 @@ Redis-specific features are:
 * `redis-cache`: Enable cache mode for Redis deployments (least used data are automatically dropped)
 
 A `status` is returned, its state can be one of the following:
-* `PENDING`: The feature is being enabled asynchronously, please poll the database resource to get updates
+* `PENDING_TO_ACTIVATE`: The feature is being enabled asynchronously, please poll the database resource to get updates
+* `PENDING_TO_REMOVE`: The feature is being disabled asynchronously, please poll the database resource to get updates
 * `ACTIVATED`: The feature has been successfuly enabled
 * `FAILED`: Something wrong happened, please reach our support to get more information
 
