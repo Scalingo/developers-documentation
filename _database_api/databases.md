@@ -343,7 +343,7 @@ Returns 200 OK
 ```json
 {
   "name": "force-ssl",
-  "status": "PENDING",
+  "status": "PENDING_TO_ACTIVATE",
   "message": "force-ssl feature is being enabled"
 }
 ```
