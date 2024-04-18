@@ -26,7 +26,8 @@ result in the presence of one resource domain.
 | validity (read-only)   | datetime | once a certificate has been submitted, display the validity of it |
 | ssl_status (read-only) | string   | SSL certificate status (pending, success, error)                  |
 | canonical              | boolean  | the domain is the canonical domain of this application            |
-| letsencrypt            | boolean  | the domain is using a Let's Encrypt certificate                   |
+| letsencrypt_enabled    | boolean  | automatic Let's Encrypt certificate generation status             |
+| letsencrypt            | boolean  | the domain is currently using a Let's Encrypt certificate         |
 | letsencrypt_status     | string   | Let's Encrypt certificate generation status                       |
 | acme_dns_fqdn          | string   | ACME DNS-01 TXT entry FQDN                                        |
 | acme_dns_value         | string   | ACME DNS-01 TXT entry value                                       |
@@ -54,6 +55,7 @@ Example object
   "tlskey": "RSA private key - 2048 bytes",
   "validity": "2015-08-05T19:57:21.000+02:00",
   "canonical": false,
+  "letsencrypt_enabled": true,
   "letsencrypt": false,
   "letsencrypt_status": "created"
 }
@@ -86,7 +88,10 @@ Returns 200 OK
             "id": "541067f7736f7504a5140000",
             "name": "example2.com",
             "ssl": false,
-            "canonical": true
+            "canonical": true,
+            "letsencrypt_enabled": true,
+            "letsencrypt": false,
+            "letsencrypt_status": "pending"
         },
         {
             "id": "541067ec736f7504a5110000",
@@ -95,7 +100,10 @@ Returns 200 OK
             "tlscert": "/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com",
             "tlskey": "RSA private key - 2048 bytes",
             "validity": "2015-08-05T19:57:21.000+02:00",
-            "canonical": false
+            "canonical": false,
+            "letsencrypt_enabled": true,
+            "letsencrypt": false,
+            "letsencrypt_status": "created"
         }
     ]
 }
@@ -127,7 +135,10 @@ Returns 200 OK
         "id": "541067ec736f7504a5110000",
         "name": "example.com",
         "ssl": false,
-        "canonical": false
+        "canonical": false,
+        "letsencrypt_enabled": true,
+        "letsencrypt": false,
+        "letsencrypt_status": "new"
     }
 }
 ```
@@ -168,6 +179,7 @@ Returns 204 No Content
 * `domain.tlscert` - optional: SSL Certificate you want to associate with the domain
 * `domain.tlskey` - optional: Private key used to create the SSL certificate
 * `domain.canonical` - optional: Set this domain as the canonical domain for this application
+* `domain.letsencrypt_enabled` - optional (true by default): Enable automatic certificate generation with Let's Encrypt
 
 If the certificate or the key is not valid, a 422 "unprocessable entity" is returned
 Otherwise return 201
@@ -200,7 +212,10 @@ Returns 201 Created
         "id": "541067ec736f7504a5110000",
         "name": "example.com",
         "ssl": false,
-        "canonical": false
+        "canonical": false,
+        "letsencrypt_enabled": true,
+        "letsencrypt": false,
+        "letsencrypt_status": "new"
     }
 }
 ```
@@ -231,7 +246,10 @@ Returns 201 Created
         "tlscert": "/C=FR/ST=Some-State/O=Internet Widgits Pty Ltd/CN=example.com",
         "tlskey": "RSA private key - 2048 bytes",
         "validity": "2015-08-05T19:57:21.000+02:00",
-        "canonical": false
+        "canonical": false,
+        "letsencrypt_enabled": true,
+        "letsencrypt": false,
+        "letsencrypt_status": "new"
     }
 }
 ```
@@ -249,6 +267,7 @@ Returns 201 Created
 * `domain.tlscert` - optional: SSL Certificate you want to associate with the domain
 * `domain.tlskey` - optional: Private key used to create the SSL certificate
 * `domain.canonical` - optional: Set this domain as the canonical domain for this application
+* `domain.letsencrypt_enabled` - optional (true by default): Enable automatic certificate generation with Let's Encrypt
 
 As you may have noticed you can't update the name itself, instead of modifying it just
 create another Domain and delete the one you wanted to modify.
@@ -281,6 +300,9 @@ Returns 200 OK
         "tlskey": "RSA private key - 2048 bytes",
         "validity": "2015-08-05T19:57:21.000+02:00",
         "canonical": false,
+        "letsencrypt_enabled": true,
+        "letsencrypt": false,
+        "letsencrypt_status": "new"
     }
 }
 ```
