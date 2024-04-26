@@ -719,7 +719,7 @@ executed in the environment of your application.
 * `size` (*string*, default `"M"`): Size of the container (e.g. S, M, etc)
 * `detached` (*boolean*, default `false`): Foreground task by default, set to `true` if the container has to be run in background.
 
-For one-off started with the parameter `detached` to `true`:<br>
+For one-off started with the parameter `detached` to `false`:<br>
 You can follow the operation progress by following the `Location` header,
 pointing to an [`operation` resource](/operations.html).
 
