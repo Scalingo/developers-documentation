@@ -738,6 +738,10 @@ background one-off container. In this case the container is started instantly
 logs from the job are aggregated to the total logs of the application. You have
 to make sure this job ends at some point.
 
+### Limit
+
+There is a hard limit of 10 containers per application and 50 per account as stated in [our documentation](https://doc.scalingo.com/platform/app/tasks#introduction). If you need more: [contact us](mailto:support@scalingo.com)
+
 ||| col |||
 
 Example request:
