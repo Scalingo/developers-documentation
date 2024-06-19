@@ -130,6 +130,31 @@ Returns 201 Created
 
 --- row ---
 
+## Update a User
+
+--- row ---
+
+`PATCH https://$DB_API_URL/api/databases/[:db]/users/[:username]`
+
+||| col |||
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
+  -X PATCH https://$DB_API_URL/api/databases/my-db-123/users/my-user -d \
+  '{
+    "database_user": {
+      "database_id": "my-db-123",
+      "password": "K-j9UbDpdbok8Yy4sLcl",
+      "password_confirmation": "K-j9UbDpdbok8Yy4sLcl"
+    }
+  }'
+```
+
+Returns 200 OK
+
+--- row ---
+
 ## Delete a User
 
 --- row ---
