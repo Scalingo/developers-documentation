@@ -74,7 +74,7 @@ Example object:
       "starting_hour_utc": 21,
       "duration_in_hour": 8
     },
-    "plan": "free",
+    "plan": "redis-sandbox",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
@@ -142,7 +142,7 @@ Returns 200 OK
       "starting_hour_utc": 21,
       "duration_in_hour": 8
     },
-    "plan": "free",
+    "plan": "redis-sandbox",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
@@ -208,7 +208,7 @@ Returns 200 OK
       "starting_hour_utc": 21,
       "duration_in_hour": 8
     },
-    "plan": "free",
+    "plan": "redis-sandbox",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
