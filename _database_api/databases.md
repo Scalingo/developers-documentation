@@ -28,6 +28,7 @@ layout: default
 | next_version_id               | string  | ID of the next database version to upgrade to  |
 | features                      | array   | list of all database features                  |
 | current_operation_id          | string  | ID of the operation currently being executed   |
+| cluster                       | boolean | is this database in a cluster setup            |
 | periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
 | periodic_backups_scheduled_at | array   | hours of the day of the periodic backup (UTC)  |
 | maintenance_window            | object  | database maintenance window                    |
@@ -93,6 +94,7 @@ Example object:
     "readable_version": "3.2.9-1",
     "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
     "current_operation_id": null,
+    "cluster": true,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [0]
   }
@@ -154,6 +156,7 @@ Returns 200 OK
     "readable_version": "3.2.9-1",
     "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
     "current_operation_id": null,
+    "cluster": true,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [0]
   }
@@ -221,6 +224,7 @@ Returns 200 OK
     "readable_version": "3.2.9-1",
     "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
     "current_operation_id": null,
+    "cluster": true,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [3]
   }
