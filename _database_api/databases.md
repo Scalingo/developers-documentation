@@ -25,6 +25,7 @@ layout: default
 | readable_version              | string  | human readable database version                |
 | hostname                      | string  | FQDN and port of the database                  |
 | instances                     | array   | list of all database instances                 |
+| next_version_id               | string  | ID of the next database version to upgrade to  |
 | features                      | array   | list of all database features                  |
 | current_operation_id          | string  | ID of the operation currently being executed   |
 | periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
@@ -88,6 +89,7 @@ Example object:
         "type": "db-node"
       }
     ],
+    "next_version_id": "668be5e8b07f4c00121ab5e6",
     "readable_version": "3.2.9-1",
     "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
     "current_operation_id": null,
@@ -148,6 +150,7 @@ Returns 200 OK
     "type_name": "redis",
     "version_id": "5bf30d1104c87f000161285b",
     "instances": [],
+    "next_version_id": "668be5e8b07f4c00121ab5e6",
     "readable_version": "3.2.9-1",
     "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
     "current_operation_id": null,
@@ -214,6 +217,7 @@ Returns 200 OK
     "type_name": "redis",
     "version_id": "5bf30d1104c87f000161285b",
     "instances": [],
+    "next_version_id": "668be5e8b07f4c00121ab5e6",
     "readable_version": "3.2.9-1",
     "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
     "current_operation_id": null,
