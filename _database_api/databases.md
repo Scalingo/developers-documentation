@@ -25,9 +25,10 @@ layout: default
 | readable_version              | string  | human readable database version                |
 | instances                     | array   | list of all database instances                 |
 | features                      | array   | list of all database features                  |
+| current_operation_id          | string  | ID of the operation currently being executed   |
 | periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
 | periodic_backups_scheduled_at | array   | hours of the day of the periodic backup (UTC)  |
-| maintenance_window            | object  | database maintenance window                     |
+| maintenance_window            | object  | database maintenance window                    |
 
 **Instance attributes**
 
@@ -87,6 +88,7 @@ Example object:
       }
     ],
     "readable_version": "3.2.9-1",
+    "current_operation_id": null,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [0]
   }
@@ -145,6 +147,7 @@ Returns 200 OK
     "version_id": "5bf30d1104c87f000161285b",
     "instances": [],
     "readable_version": "3.2.9-1",
+    "current_operation_id": null,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [0]
   }
@@ -209,6 +212,7 @@ Returns 200 OK
     "version_id": "5bf30d1104c87f000161285b",
     "instances": [],
     "readable_version": "3.2.9-1",
+    "current_operation_id": null,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [3]
   }
