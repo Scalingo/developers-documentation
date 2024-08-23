@@ -23,11 +23,15 @@ layout: default
 | type_name                     | string  | database type Name                             |
 | version_id                    | string  | database version ID                            |
 | readable_version              | string  | human readable database version                |
+| hostname                      | string  | FQDN and port of the database                  |
 | instances                     | array   | list of all database instances                 |
+| next_version_id               | string  | ID of the next database version to upgrade to  |
 | features                      | array   | list of all database features                  |
+| current_operation_id          | string  | ID of the operation currently being executed   |
+| cluster                       | boolean | is this database in a cluster setup            |
 | periodic_backups_enabled      | boolean | true if periodic backups are enabled           |
 | periodic_backups_scheduled_at | array   | hours of the day of the periodic backup (UTC)  |
-| maintenance_window            | object  | database maintenance window                     |
+| maintenance_window            | object  | database maintenance window                    |
 
 **Instance attributes**
 
@@ -72,7 +76,7 @@ Example object:
       "starting_hour_utc": 21,
       "duration_in_hour": 8
     },
-    "plan": "free",
+    "plan": "redis-sandbox",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
@@ -86,7 +90,11 @@ Example object:
         "type": "db-node"
       }
     ],
+    "next_version_id": "668be5e8b07f4c00121ab5e6",
     "readable_version": "3.2.9-1",
+    "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
+    "current_operation_id": null,
+    "cluster": true,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [0]
   }
@@ -138,13 +146,17 @@ Returns 200 OK
       "starting_hour_utc": 21,
       "duration_in_hour": 8
     },
-    "plan": "free",
+    "plan": "redis-sandbox",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
     "version_id": "5bf30d1104c87f000161285b",
     "instances": [],
+    "next_version_id": "668be5e8b07f4c00121ab5e6",
     "readable_version": "3.2.9-1",
+    "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
+    "current_operation_id": null,
+    "cluster": true,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [0]
   }
@@ -202,13 +214,17 @@ Returns 200 OK
       "starting_hour_utc": 21,
       "duration_in_hour": 8
     },
-    "plan": "free",
+    "plan": "redis-sandbox",
     "status": "running",
     "type_id": "5bf30d1104c87f000161285a",
     "type_name": "redis",
     "version_id": "5bf30d1104c87f000161285b",
     "instances": [],
+    "next_version_id": "668be5e8b07f4c00121ab5e6",
     "readable_version": "3.2.9-1",
+    "hostname": "my-db-123.redis.b.osc-fr1.scalingo-dbs.com:35123",
+    "current_operation_id": null,
+    "cluster": true,
     "periodic_backups_enabled": true,
     "periodic_backups_scheduled_at": [3]
   }
