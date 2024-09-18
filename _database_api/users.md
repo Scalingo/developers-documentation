@@ -92,8 +92,8 @@ Create a new user on the given database. The HTTP query returns 201.
 
 ### Parameters
 
-* `name`: Should have between 6 and 32 lower case alphanumerical characters and hyphens. It can't have an hyphen at the beginning or at the end, nor two hyphens in a row.
-* `password` and `password_confirmation`: (*Optional*) Password of the new user. If none is provided, Scalingo will generate one and display it in a toast notification.
+* `name`: Must have between 6 and 32 lower case alphanumerical characters and hyphens. It can't have an hyphen at the beginning or at the end, nor two hyphens in a row.
+* `password` and `password_confirmation`: (*Optional*) Password of the new user. Must be between 24 and 64 characters long. If none is provided, Scalingo will generate one and display it in a toast notification.
 * `read_only`: Should the new user be read only?
 
 ||| col |||
@@ -120,7 +120,7 @@ Returns 201 Created
   "name": "my-user",
   "read_only": false,
   "protected": false,
-  "password": "K-j9UbDpdbok8Yy4sLcl",
+  "password": "K_gaef6ripo7Ao4Uaxai6Kiey",
   "dbms_attributes" : {
     "password_encryption" : "SCRAM-SHA-256"
   }
@@ -145,8 +145,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   '{
     "database_user": {
       "database_id": "my-db-123",
-      "password": "K-j9UbDpdbok8Yy4sLcl",
-      "password_confirmation": "K-j9UbDpdbok8Yy4sLcl"
+      "password": "K_gaef6ripo7Ao4Uaxai6Kiey",
+      "password_confirmation": "K_gaef6ripo7Ao4Uaxai6Kiey"
     }
   }'
 ```
