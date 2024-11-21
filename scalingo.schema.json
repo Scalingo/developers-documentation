@@ -1,0 +1,274 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "scalingo.json schema https://doc.scalingo.com/platform/app/app-manifest",
+  "description": "Extracted from https://developers.scalingo.com/scalingo-json-schema/",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": {
+      "description": "Complete name of the project",
+      "type": "string",
+      "default": "NameOfMyApp"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description in one or two sentences of the app"
+    },
+    "website": {
+      "type": "string",
+      "description": "Official website of the application if any"
+    },
+    "logo": {
+      "type": "string",
+      "description": "URL to the logo of the project"
+    },
+    "repository": {
+      "type": "string",
+      "description": "Location of the GIT repository of the project"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Branch name or commit ID of the code to use"
+    },
+    "stack": {
+      "description": "Name of the stack to use : https://doc.scalingo.com/platform/internals/stacks/stacks",
+      "type": "string",
+      "enum": ["scalingo-22", "scalingo-20", "scalingo-18", "scalingo-14"],
+      "default": "scalingo-22"
+    },
+    "copy_parent_database_urls": {
+      "enum": ["true", "false", true, false],
+      "description": "Copy database credentials from parent app"
+    },
+    "formation": {
+      "$ref": "#/definitions/formation",
+      "default": {
+        "web": { "amount": 1, "size": "S" }
+      }
+    },
+    "env": {
+      "$ref": "#/definitions/env",
+      "default": {
+        "APP_VAR1": {
+          "description": "Some custom variable",
+          "value": "some value"
+        },
+        "APP_VAR2": {
+          "description": "Example of a variable from a template",
+          "generator": "template",
+          "template": "Pull Request Number %PR_NUMBER%"
+        },
+        "APP_SECRET": {
+          "description": "Example of a generated secret",
+          "generator": "secret"
+        },
+        "APP_URL": {
+          "description": "Example of a generated URL",
+          "generator": "url"
+        }
+      }
+    },
+    "scripts": {
+      "description": "The scripts.postdeploy key is now deprecated in favor of postdeploy hook in the Procfile.\n\nMore information on the dedicated page : https://doc.scalingo.com/platform/app/review-apps#run-a-task-after-the-first-deployment-of-a-review-app",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "first-deploy": {
+          "description": "Job to run as postdeploy hook at the first deployment of a review app or one-click deployed app",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "default": {
+        "first-deploy": "bundle exec rake db:deploy db:seed"
+      }
+    },
+    "addons": {
+      "$ref": "#/definitions/addons",
+      "default": [
+        {
+          "plan": "postgresql:postgresql-sandbox"
+        }
+      ]
+    }
+  },
+  "required": ["name"],
+  "definitions": {
+    "addons": {
+      "description": "If no addons key is specified, the default behaviour is to duplicate the addons from the parent application.\n\nThe addons field contains an array of object describing the addons you need to deploy for your review app.\n\nSee https://doc.scalingo.com/addons",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "plan": {
+            "description": "The plan uses the format addon-name:plan-id. E.g. mongodb:mongo-starter-256 or redis:redis-sandbox.\n\nSee https://doc.scalingo.com/addons",
+            "type": "string",
+            "examples": [
+              "postgresql:postgresql-sandbox",
+              "postgresql:postgresql-starter-256",
+              "postgresql:postgresql-starter-512",
+              "postgresql:postgresql-starter-1024",
+              "redis:redis-sandbox",
+              "redis:redis-starter-256",
+              "redis:redis-starter-512",
+              "mongodb:mongo-sandbox",
+              "mongodb:mongo-starter-256",
+              "mongodb:mongo-starter-256"
+            ]
+          },
+          "options": {
+            "description": "The only options field is version which contains the version to deploy (e.g. 4.0.16-1).",
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "version": {
+                "description": "The version to deploy (e.g. 4.0.16-1)",
+                "type": "string",
+                "examples": ["4.0.16-1"]
+              }
+            }
+          }
+        },
+        "required": ["plan"]
+      }
+    },
+    "formation": {
+      "description": "Formation of containers when an app is created\n\nThe formation is the definition of the container which will be started once the application is deployed. (Either coming from a one-click deployment button, or a review app from the GitHub integration)\n\nSee https://doc.scalingo.com/platform/app/scaling",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "description": "Number of containers to start once the application is deployed",
+            "type": "number"
+          },
+          "size": {
+            "description": "Container size name. see https://doc.scalingo.com/platform/internals/container-sizes",
+            "enum": ["S", "M", "L", "XL", "2XL"]
+          }
+        },
+        "required": ["amount", "size"]
+      }
+    },
+    "env": {
+      "description": "The keys of the environment object are the name of the variables you want to add.\n\nNote: supplying null or an empty string to value will remove the variable from the environment.\n\nIt can be used to delete environment variables present in the parent app.\n\nSee https://doc.scalingo.com/platform/app/environment",
+      "markdownDescription": "The keys of the environment object are the name of the variables you want to add.\n\nNote: supplying null or an empty string to value will remove the variable from the environment.\n\nIt can be used to delete environment variables present in the parent app.\n\nSee https://doc.scalingo.com/platform/app/environment",
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "description": "Name of the env variable",
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "description": "Description of the variable to explain what it does",
+                "type": "string"
+              },
+              "generator": {
+                "description": "Generates a unique token as a default value of the variable\n\nUseful for instance when one need to generate a unique encryption seed key, example: `90ffea2d3071e8d86cafb89ff5060883`.",
+                "markdownDescription": "Generates a unique token as a default value of the variable\n\nUseful for instance when one need to generate a unique encryption seed key, example: `90ffea2d3071e8d86cafb89ff5060883`.",
+                "const": "secret"
+              },
+              "required": {
+                "description": "Mandatory to fill the value before deploying the one-click",
+                "enum": ["true", "false", true, false]
+              }
+            },
+            "required": ["generator"]
+          },
+          {
+            "type": "object",
+            "description": "Name of the env variable",
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "description": "Description of the variable to explain what it does",
+                "type": "string"
+              },
+              "generator": {
+                "description": "Automatically inserts the URL of the application after its deployment.\n\nWhen this generator is used, the template property is taken into account, the token `%URL%` can be used to be replaced by the created app URL",
+                "markdownDescription": "Automatically inserts the URL of the application after its deployment.\n\nWhen this generator is used, the template property is taken into account, the token `%URL%` can be used to be replaced by the created app URL",
+                "const": "url"
+              },
+              "template": {
+                "description": "Template to generate value from\n\nGenerates an environment variable based on the content of the template field.\n\nThe following tokens are substituted dynamically by the expected values when surrounded by %: `APP, PARENT_APP, PR_NUMBER, URL`",
+                "markdownDescription": "Template to generate value from\n\nGenerates an environment variable based on the content of the template field.\n\nThe following tokens are substituted dynamically by the expected values when surrounded by %: `APP, PARENT_APP, PR_NUMBER, URL`",
+                "examples": ["Pull Request Number %PR_NUMBER%"],
+                "type": "string"
+              },
+              "required": {
+                "description": "Mandatory to fill the value before deploying the one-click",
+                "enum": ["true", "false", true, false]
+              }
+            },
+            "required": ["generator"]
+          },
+          {
+            "type": "object",
+            "description": "Name of the env variable",
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "description": "Description of the variable to explain what it does",
+                "type": "string"
+              },
+              "value": {
+                "description": "Default value of the variable",
+                "type": "string"
+              },
+              "required": {
+                "description": "Mandatory to fill the value before deploying the one-click",
+                "enum": ["true", "false", true, false]
+              }
+            },
+            "required": ["value"]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "description": "Description of the variable to explain what it does",
+                "type": "string"
+              },
+              "generator": {
+                "description": "Use a template, see template property\n\n`url`: automatically inserts the URL of the application after its deployment. When this generator is used, the template property is taken into account, the token `%URL%` can be used to be replaced by the created app URL",
+                "markdownDescription": "Use a template, see template property\n\n`url`: automatically inserts the URL of the application after its deployment. When this generator is used, the template property is taken into account, the token `%URL%` can be used to be replaced by the created app URL",
+                "const": "template"
+              },
+              "template": {
+                "description": "(if generator is `url` or `template`) Template to generate value from\n\nGenerates an environment variable based on the content of the template field.\n\nThe following tokens are substituted dynamically by the expected values when surrounded by %: `APP, PARENT_APP, PR_NUMBER`",
+                "markdownDescription": "(if generator is `url` or `template`) Template to generate value from\n\nGenerates an environment variable based on the content of the template field.\n\nThe following tokens are substituted dynamically by the expected values when surrounded by %: `APP, PARENT_APP, PR_NUMBER`",
+                "examples": ["Pull Request Number %PR_NUMBER%"],
+                "type": "string"
+              },
+              "required": {
+                "description": "Mandatory to fill the value before deploying the one-click",
+                "enum": ["true", "false", true, false]
+              }
+            },
+            "required": ["generator", "template"]
+          }
+        ],
+        "examples": [
+          {
+            "description": "Some text variable",
+            "value": "some value"
+          },
+          {
+            "description": "Some generated token",
+            "generator": "secret"
+          },
+          {
+            "description": "Some template",
+            "generator": "template",
+            "template": "Pull Request Number %PR_NUMBER%"
+          }
+        ]
+      }
+    }
+  }
+}
