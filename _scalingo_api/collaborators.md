@@ -198,3 +198,87 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 ```
 
 Returns 204 No Content
+
+--- row ---
+
+# ExtendedCollaborators
+
+--- row ---
+
+**ExtendedCollaborator attributes**
+
+{:.table}
+| field          | type   | description                                                                          |
+| -------------- | ------ | ------------------------------------------------------------------------------------ |
+| id             | string | unique ID                                                                            |
+| email          | string | email address                                                                        |
+| user_id        | string | unique ID to the user (null: invitation is still pending)                            |
+| username       | string | username (null: invitation is still pending)                                         |
+| status         | string | __pending__: invitation not yet accepted, __accepted__: invitation has been accepted |
+| app_id         | string | unique ID of application the collaborator was invited/added to                       |
+| app_name       | string | name of application the collaborator was invited/added to                            |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54101e25736f7563d5060000",
+  "email": "foo@example.com",
+  "user_id": "54101e25736f7563d5060000",
+  "username": "soulou",
+  "status": "accepted",
+  "app_id": "54101e25736f7563d5060000",
+  "app_name": "my-app"
+}
+```
+
+--- row ---
+
+## List owned applications collaborators
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/collaborators`
+
+List all collaborators assigned to any application owned by current user. 
+As ExtendedCollaborator is an extension of Collaborator it displays all Collaborator's values 
+and also displays the application name on which the collaborator is assigned.
+
+||| col |||
+
+Example Request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/collaborators
+```
+
+Returns 200 OK
+
+```json
+{
+    "collaborators": [
+        {
+            "id": "54101e25736f7563d5060000",
+            "email": "foo@example.com",
+            "status": "accepted",
+            "user_id": "54101e25736f7563d5060000",
+            "username": "soulou",
+            "app_id": "54101e25736f7563d5060000",
+            "app_name": "my-app"
+        },
+        {
+            "id": "54102274736f7563d5070000",
+            "email": "bar@example.com",
+            "status": "pending",
+            "user_id": null,
+            "username": null,
+            "app_id":  "54101e25736f7563d5060000",
+            "app_name": "my-app"
+        }
+    ]
+}
+```
