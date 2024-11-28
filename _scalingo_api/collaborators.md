@@ -201,50 +201,15 @@ Returns 204 No Content
 
 --- row ---
 
-# ExtendedCollaborators
-
---- row ---
-
-**ExtendedCollaborator attributes**
-
-{:.table}
-| field          | type   | description                                                                          |
-| -------------- | ------ | ------------------------------------------------------------------------------------ |
-| id             | string | unique ID                                                                            |
-| email          | string | email address                                                                        |
-| user_id        | string | unique ID to the user (null: invitation is still pending)                            |
-| username       | string | username (null: invitation is still pending)                                         |
-| status         | string | __pending__: invitation not yet accepted, __accepted__: invitation has been accepted |
-| app_id         | string | unique ID of application the collaborator was invited/added to                       |
-| app_name       | string | name of application the collaborator was invited/added to                            |
-
-||| col |||
-
-Example object:
-
-```json
-{
-  "id": "54101e25736f7563d5060000",
-  "email": "foo@example.com",
-  "user_id": "54101e25736f7563d5060000",
-  "username": "soulou",
-  "status": "accepted",
-  "app_id": "54101e25736f7563d5060000",
-  "app_name": "my-app"
-}
-```
-
---- row ---
-
 ## List owned applications collaborators
 
 --- row ---
 
 `GET https://$SCALINGO_API_URL/v1/collaborators`
 
-List all collaborators assigned to any application owned by current user. 
-As ExtendedCollaborator is an extension of Collaborator it displays all Collaborator's values 
-and also displays the application name on which the collaborator is assigned.
+List all collaborators assigned to any application owned by current user.
+The resources returned are Collaborators enhanced with the name of the application 
+which the collaborator is assigned on: `app_name`.
 
 ||| col |||
 
