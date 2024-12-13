@@ -773,7 +773,8 @@ Returns 200 OK
     "state" : "booting",
     "app" : { "name": "example-app", ... }
   },
-  "attach_url": "http://run-1.scalingo.com:5000/f15d8c7fb4170c4ef14b63b2b265c8fa3dbf4a5882de19682a21f6243ae332c6"
+  "operation_url": "http://run-1.scalingo.com:5000/v1/apps/674eeba9884fef001f43d352/operations/675bf2409307d58e1b1bc595",
+  "operation": "675bf2409307d58e1b1bc595"
 }
 ```
 
