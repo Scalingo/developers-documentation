@@ -5,8 +5,7 @@ layout: default
 
 # One-off Containers
 
-When you [request to one-off container](/apps.html#run-a-one-off-container),
-you will receive a `attach_url`. This page explains how to use this endpoint.
+When you [request to one-off container](/apps.html#run-a-one-off-container), you will receive an `operation` and an `operation_url`. This page explains how to use this endpoint.
 
 --- row ---
 
@@ -14,11 +13,16 @@ you will receive a `attach_url`. This page explains how to use this endpoint.
 
 --- row ---
 
-`CONNECT [:attach_url]`
+To access your container, you need to poll the `operation_url`. The response will include the status of the operation. When the status is `done`, an `attach_url` attribute will be provided, which you can use to attach to the container.
 
-To use this endpoint you have to hijack the HTTP connection. When a HTTP request is done, a TCP connection is created. HTTP hijacking consists in turning this connection into a full bidirectional connection.
+Example:
 
-HTTP is used to handle the routing and the headers. Then the raw TCP connection is used to exchange data.
+```sh
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
+  [:operation_url]
+```
+
+Once the operation status is `done`, use the `attach_url` to connect to the container.
 
 --- row ---
 
