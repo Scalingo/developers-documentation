@@ -773,7 +773,7 @@ Returns 200 OK
     "state" : "booting",
     "app" : { "name": "example-app", ... }
   },
-  "operation_url": "http://$SCALINGO_API_URL/v1/apps/6054bcc56d80de00682f7a18/operations/675bf2409307d58e1b1bc595",
+  "operation_url": "http://$SCALINGO_API_URL/v1/apps/example-app/operations/675bf2409307d58e1b1bc595",
   "operation": "675bf2409307d58e1b1bc595"
 }
 ```
