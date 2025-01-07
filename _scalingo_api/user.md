@@ -30,6 +30,7 @@ layout: default
 | referral_clicks       | integer | number of clicks on the user referral link          |
 | flags                 | object  | list of flags associated to the account             |
 | limits                | object  | custom limits associated to the account             |
+| role                  | string  | user role chosen during the signup process          |
 
 ||| col |||
 
@@ -289,3 +290,44 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 ```
 
 Returns 204 No Content
+
+--- row ---
+
+## Retrieve available roles
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/users/roles`
+
+Retrieve a list of all available roles applicable to user accounts.
+
+||| col |||
+
+Example Request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/users/roles
+```
+
+Returns 200 OK
+
+```json
+{
+  "roles": [
+    "freelancer",
+    "student",
+    "hobbyist",
+    "entrepreneur",
+    "developer",
+    "devops",
+    "it_consultant",
+    "web_agency",
+    "cto_engineering_manager",
+    "founder",
+    "other",
+    "no_answer"
+  ]
+}
+```
