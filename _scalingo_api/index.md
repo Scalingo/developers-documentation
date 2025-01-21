@@ -298,6 +298,15 @@ fmt.Println(date)
 
 --- row ---
 
+# Rate Limit
+
+In order to prevent abuse and denial-of-service attacks, the number of API requests you can
+make on a specific amount of time is limited. It ensures that the API remains available for all users.
+
+The limit is 60 requests per minutes. If you exceed that limit, the API will returns HTTP status 429: Too Many Requests.
+
+--- row ---
+
 # Errors
 
 ## Client errors - Status codes: 4xx
@@ -406,6 +415,28 @@ Returns HTTP/1.1 422 Unprocessable Entity
     "app": [ "missing field" ]
   }
 }
+```
+
+--- row ---
+
+### Rate Limit Exceeded - 429 Too Many Requests
+
+--- row ---
+
+You have exceeded the rate limit of 60 requests per minute
+
+||| col |||
+
+```shell
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/apps
+```
+
+Returns HTTP/1.1 429 Too Many Requests
+
+```plain
+Retry later
 ```
 
 --- row ---
