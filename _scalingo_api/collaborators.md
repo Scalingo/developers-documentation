@@ -198,3 +198,52 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
 ```
 
 Returns 204 No Content
+
+--- row ---
+
+## List owned applications collaborators
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/collaborators`
+
+List all collaborators assigned to any application owned by current user.
+The resources returned are Collaborators enhanced with the name of the application 
+which the collaborator is assigned on: `app_name`.
+
+||| col |||
+
+Example Request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/collaborators
+```
+
+Returns 200 OK
+
+```json
+{
+    "collaborators": [
+        {
+            "id": "54101e25736f7563d5060000",
+            "email": "foo@example.com",
+            "status": "accepted",
+            "user_id": "54101e25736f7563d5060000",
+            "username": "soulou",
+            "app_id": "54101e25736f7563d5060000",
+            "app_name": "my-app"
+        },
+        {
+            "id": "54102274736f7563d5070000",
+            "email": "bar@example.com",
+            "status": "pending",
+            "user_id": null,
+            "username": null,
+            "app_id":  "54101e25736f7563d5060000",
+            "app_name": "my-app"
+        }
+    ]
+}
+```

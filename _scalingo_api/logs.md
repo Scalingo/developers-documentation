@@ -14,7 +14,8 @@ To get an authenticated URL, see [Application#logs](/apps.html#access-to-the-app
 ### Parameters
 
 * `n`: How many lines of the history should be returned
-* `stream` (default false): toggle streaming
+* `filter`: Filter containers logs by container type
+* `stream`: Enable streaming (default false)
 
 --- row ---
 
@@ -22,6 +23,8 @@ To get an authenticated URL, see [Application#logs](/apps.html#access-to-the-app
 
 If `stream=false` or is not set, the response will be simple text containing
 the logs.
+
+The `filter` parameter can contain a container name (e.g. `web-1`), a container type (e.g. `web`) or a simple regexp (e.g. `web|worker`).
 
 ||| col |||
 

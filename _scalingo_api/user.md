@@ -30,6 +30,7 @@ layout: default
 | referral_clicks       | integer | number of clicks on the user referral link          |
 | flags                 | object  | list of flags associated to the account             |
 | limits                | object  | custom limits associated to the account             |
+| role                  | string  | user role chosen during the signup process          |
 
 ||| col |||
 

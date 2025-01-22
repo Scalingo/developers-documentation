@@ -5,8 +5,7 @@ layout: default
 
 # One-off Containers
 
-When you [request to one-off container](/apps.html#run-a-one-off-container),
-you will receive a `attach_url`. This page explains how to use this endpoint.
+When you [request to one-off container](/apps.html#run-a-one-off-container), you will receive an `operation` and an `operation_url`. This page explains how to use this endpoint.
 
 --- row ---
 
@@ -14,21 +13,16 @@ you will receive a `attach_url`. This page explains how to use this endpoint.
 
 --- row ---
 
-`CONNECT [:attach_url]`
+To access your container, you need to poll the `operation_url`. The response will include the status of the operation. When the status is `done`, an `attach_url` attribute will be provided, which you can use to attach to the container.
 
-To use this endpoint you have to hijack the HTTP connection. It's pretty simple
-actually, when you're doing a HTTP request, a TCP connection is created. HTTP
-hijacking consist in turning this connection into a full bidirectional
-connection.
+Example:
 
-You can find an example of implementation in [this
-project](https://github.com/Soulou/go-http-hijack-client).
+```sh
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' \
+  [:operation_url]
+```
 
-For your information there is [an example of
-server](https://github.com/Soulou/go-http-echo-hijack) also.
-
-HTTP is used to handle the routing and the headers, then the connection is used
-rawly to exchange data.
+Once the operation status is `done`, use the `attach_url` to connect to the container.
 
 --- row ---
 
