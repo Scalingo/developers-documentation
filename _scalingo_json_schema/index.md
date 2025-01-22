@@ -22,6 +22,8 @@ deploy](https://doc.scalingo.com/platform/deployment/one-click-deploy).
 
 All attributes are optional.
 
+You can use [the provided scalingo.schema.json](https://github.com/Scalingo/developers-documentation/raw/refs/heads/master/scalingo.schema.json) to validate your `scalingo.json` file.
+
 --- row ---
 
 **The manifest attributes**
