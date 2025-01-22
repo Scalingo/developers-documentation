@@ -303,7 +303,7 @@ fmt.Println(date)
 In order to prevent abuse and denial-of-service attacks, the number of API requests you can
 make on a specific amount of time is limited. It ensures that the API remains available for all users.
 
-The limit is 60 requests per minutes. If you exceed that limit, the API will returns HTTP status 429: Too Many Requests.
+The limit is 60 requests per minute. If you exceed that limit, the API returns HTTP status 429: Too Many Requests.
 
 --- row ---
 
