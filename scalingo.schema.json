@@ -97,13 +97,46 @@
   "definitions": {
     "addons": {
       "description": "If no addons key is specified, the default behaviour is to duplicate the addons from the parent application.\n\nThe addons field contains an array of object describing the addons you need to deploy for your review app.\n\nSee https://doc.scalingo.com/addons",
+
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "plan": {
-            "description": "The plan uses the format addon-name:plan-id. E.g. mongodb:mongo-starter-256 or redis:redis-sandbox.\n\nSee https://doc.scalingo.com/addons",
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "plan": {
+                "description": "The plan uses the format addon-name:plan-id. E.g. mongodb:mongo-starter-256 or redis:redis-sandbox.\n\nSee https://doc.scalingo.com/addons",
+                "type": "string",
+                "examples": [
+                  "postgresql:postgresql-sandbox",
+                  "postgresql:postgresql-starter-256",
+                  "postgresql:postgresql-starter-512",
+                  "postgresql:postgresql-starter-1024",
+                  "redis:redis-sandbox",
+                  "redis:redis-starter-256",
+                  "redis:redis-starter-512",
+                  "mongodb:mongo-sandbox",
+                  "mongodb:mongo-starter-256",
+                  "mongodb:mongo-starter-256"
+                ]
+              },
+              "options": {
+                "description": "The only options field is version which contains the version to deploy (e.g. 4.0.16-1).",
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "version": {
+                    "description": "The version to deploy (e.g. 4.0.16-1)",
+                    "type": "string",
+                    "examples": ["4.0.16-1"]
+                  }
+                }
+              }
+            },
+            "required": ["plan"]
+          },
+          {
             "type": "string",
             "examples": [
               "postgresql:postgresql-sandbox",
@@ -117,21 +150,8 @@
               "mongodb:mongo-starter-256",
               "mongodb:mongo-starter-256"
             ]
-          },
-          "options": {
-            "description": "The only options field is version which contains the version to deploy (e.g. 4.0.16-1).",
-            "type": "object",
-            "additionalProperties": true,
-            "properties": {
-              "version": {
-                "description": "The version to deploy (e.g. 4.0.16-1)",
-                "type": "string",
-                "examples": ["4.0.16-1"]
-              }
-            }
           }
-        },
-        "required": ["plan"]
+        ]
       }
     },
     "formation": {
@@ -158,6 +178,22 @@
       "type": "object",
       "additionalProperties": {
         "oneOf": [
+          {
+            "type": "object",
+            "description": "Name of the env variable",
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "description": "Description of the variable to explain what it does",
+                "type": "string"
+              },
+              "required": {
+                "description": "Mandatory to fill the value before deploying the one-click",
+                "const": false
+              }
+            },
+            "required": ["description"]
+          },
           {
             "type": "object",
             "description": "Name of the env variable",
