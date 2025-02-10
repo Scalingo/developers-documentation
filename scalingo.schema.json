@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "scalingo.json schema https://doc.scalingo.com/platform/app/app-manifest",
-  "description": "Extracted from https://developers.scalingo.com/scalingo-json-schema/",
+  "description": "Extracted from https://developers.scalingo.com",
   "type": "object",
   "additionalProperties": false,
   "properties": {
