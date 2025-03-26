@@ -5,7 +5,11 @@ updates:
     allow:
       - dependency-type: "all"
     versioning-strategy: lockfile-only
+    open-pull-requests-limit: 10
     schedule:
       interval: "monthly"
+      time: "06:00"
+      timezone: "Europe/Paris"
     reviewers:
-      - "aurelien-reeves-scalingo"
+      - "samiFakhfakhScalingo"
+      - "TheoPouletSouchard"
