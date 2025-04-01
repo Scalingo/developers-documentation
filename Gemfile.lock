@@ -80,7 +80,7 @@ GEM
       forwardable-extended (~> 2.6)
     prism (1.4.0)
     public_suffix (6.0.1)
-    puma (6.5.0)
+    puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.13)
