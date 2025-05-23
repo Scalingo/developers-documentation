@@ -9,7 +9,4 @@ updates:
     schedule:
       interval: "monthly"
       time: "06:00"
-      timezone: "Europe/Paris"
-    reviewers:
-      - "samiFakhfakhScalingo"
-      - "TheoPouletSouchard"
+      timezone: "Europe/Paris"      
