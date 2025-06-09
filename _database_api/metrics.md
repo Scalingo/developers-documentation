@@ -154,7 +154,7 @@ Returns 200 OK
 | field   | type      | description                               |
 | --      | --        | --                                        |
 | epoch   | Timestamp | Timestamp of the reported health status   |
-| statos  | String    | Elasticsearch status (green, yellow, red) |
+| status  | String    | Elasticsearch status (green, yellow, red) |
 | cluster | string    | Name of the cluster                       |
 | shards  | integer   | total shards count                        |
 
