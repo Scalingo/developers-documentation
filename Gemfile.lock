@@ -84,7 +84,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     prism (1.4.0)
-    public_suffix (6.0.1)
+    public_suffix (6.0.2)
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
