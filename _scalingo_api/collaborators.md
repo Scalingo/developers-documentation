@@ -10,12 +10,13 @@ layout: default
 **Collaborator attributes**
 
 {:.table}
-| field          | type   | description                                                                          |
-| -------------- | ------ | ------------------------------------------------------------------------------------ |
-| id             | string | unique ID                                                                            |
-| email          | string | email address                                                                        |
-| username       | string | username ("n/a": invitation is still pending)                                        |
-| status         | string | __pending__: invitation not yet accepted, __accepted__: invitation has been accepted |
+| field          | type    | description                                                                          |
+| -------------- | ------  | ------------------------------------------------------------------------------------ |
+| id             | string  | unique ID                                                                            |
+| email          | string  | email address                                                                        |
+| username       | string  | username ("n/a": invitation is still pending)                                        |
+| status         | string  | __pending__: invitation not yet accepted, __accepted__: invitation has been accepted |
+| is_limited     | boolean | collaborator have a limited role                                                     |
 
 ||| col |||
 
@@ -26,7 +27,8 @@ Example object:
   "email": "foo@example.com",
   "id": "54101e25736f7563d5060000",
   "status": "accepted",
-  "username": "soulou"
+  "username": "soulou",
+  "is_limited": "false",
 }
 ```
 
@@ -60,15 +62,54 @@ Returns 200 OK
             "email": "foo@example.com",
             "id": "54101e25736f7563d5060000",
             "status": "accepted",
-            "username": "soulou"
+            "username": "soulou",
+            "is_limited": "false",
         },
         {
             "email": "bar@example.com",
             "id": "54102274736f7563d5070000",
             "status": "pending",
-            "username": "n/a"
+            "username": "n/a",
+            "is_limited": "true",
         }
     ]
+}
+```
+
+--- row ---
+
+## Update a Collaborator
+
+--- row ---
+
+`PATCH https://$SCALINGO_API_URL/v1/apps/[:app_id]/collaborators/[:id]`
+
+Only the `is_limited` field is allowed to be modified.
+The endpoint does **not** allow changing email, status, or username.
+It's not allowed to change the role of the SCM Linker.
+
+||| col |||
+
+Example Request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X PATCH https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators/[:collaborator_id] \
+  -d '{"collaborator": {"is_limited": true}}'
+```
+
+Returns 200 OK
+
+```json
+{
+  "collaborator": {
+    "email": "foo@example.com",
+    "id": "54101e25736f7563d5060000",
+    "status": "accepted",
+    "username": "soulou",
+    "is_limited": true
+  }
 }
 ```
 
@@ -120,7 +161,8 @@ Returns 201 Created
             "status": "pending",
             "username": "n/a",
             "invitation_link": "https://my.scalingo.com/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c",
-            "app_id": "5343eccd646173000a140000"
+            "app_id": "5343eccd646173000a140000",
+            "is_limited": "false",
         }
     ]
 }
