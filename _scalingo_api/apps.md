@@ -137,11 +137,15 @@ Returns 201 Created
         "last_deployed_at": "2017-02-02T10:17:53.690+02:00",
         "last_deployed_by": "john",
         "last_deployment_id": "58c2b15af1453a0001e24d23",
-         "owner": {
-            "username": "john",
-            "email": "user@example.com",
-            "id": "54100245736f7563d5000000"
+        "owner": {
+          "username": "john",
+          "email": "user@example.com",
+          "id": "54100245736f7563d5000000"
         },
+        "project": {
+          "id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+          "name": "example-project"
+        }
         "updated_at": "2014-09-10T10:17:52.690+02:00",
         "url": "https://example-app.scalingo.io",
         "links": {
@@ -230,6 +234,10 @@ Returns 200 OK
        "email" : "user@example.com",
        "id" : "51d73c1e6edfeab537000001",
        "username" : "example-user"
+    },
+    "project": {
+      "id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+      "name": "example-project"
     },
     "git_url" : "git@scalingo.com:example-app.git",
     "last_deployed_at" : "2014-11-16T12:17:16.137+01:00",
