@@ -145,7 +145,7 @@ Returns 201 Created
         "project": {
           "id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
           "name": "example-project"
-        }
+        },
         "updated_at": "2014-09-10T10:17:52.690+02:00",
         "url": "https://example-app.scalingo.io",
         "links": {
