@@ -95,6 +95,7 @@ Returns 201 Created
     "flags": {
       "beta_user": true
     }
+  }
 }
 ```
 
@@ -200,6 +201,7 @@ Returns 200 OK
     "flags": {
       "beta_user": true
     }
+  }
 }
 ```
 
