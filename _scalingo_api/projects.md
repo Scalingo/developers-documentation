@@ -18,6 +18,7 @@ layout: default
 | created_at           | date    | creation date of the project                        |
 | updated_at           | date    | last time the project has been updated              |
 | owner                | object  | information about the owner of the project          |
+| flags                | object  | list of flags associated to the project             |
 
 ||| col |||
 
@@ -37,6 +38,9 @@ Example object:
     "flags": {
       "beta_user": true
     }
+  },
+  "flags": {
+    "beta_user": true
   }
 }
 ```
@@ -87,8 +91,10 @@ Returns 201 Created
       "flags": {
         "beta_user": true
       }
+    },
+    "flags": {
+      "beta_user": true
     }
-  }
 }
 ```
 
@@ -130,7 +136,10 @@ Returns 200 OK
         "flags": {
           "beta_user": true
         }
-      }
+      },
+      "flags": {
+        "beta_user": true
+    }
     }, {
       "id": "pr-91b4dbd6-2c36-584f-c44d-7383c98f747g",
       "name": "another-project",
@@ -187,8 +196,10 @@ Returns 200 OK
       "flags": {
         "beta_user": true
       }
+    },
+    "flags": {
+      "beta_user": true
     }
-  }
 }
 ```
 
@@ -238,6 +249,9 @@ Returns 200 OK
       "flags": {
         "beta_user": true
       }
+    },
+    "flags": {
+      "beta_user": true
     }
   }
 }
