@@ -783,6 +783,48 @@ Example object:
 
 --- row ---
 
+* **Change Collaborator Role event**
+
+_When:_ The collaborator role has been changed for the app
+`type="change_collaborator_role"`
+
+{:.table}
+| field                         | type    | description                        |
+| ----------------------------- | ------  | ---------------------------------- |
+| collaborator.id               | string  | ID of the collaborator             |
+| collaborator.email            | string  | Email of the collaborator          |
+| collaborator.username         | string  | Username of the collaborator       |
+| collaborator.is_limited       | boolean | Is the collaborator limited or not |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "delete_collaborator",
+  "type_data": {
+    "collaborator": {
+      "id": "51e6bc626edfe40bbb000002",
+      "username": "test-example",
+      "email": "test@example.com",
+      "is_limited": true,
+    }
+  }
+}
+```
+
+--- row ---
+
 * **New Variable event**
 
 _When:_ Each time a variable is added to the application
