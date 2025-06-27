@@ -275,7 +275,8 @@ Returns 200 OK
             "user_id": "54101e25736f7563d5060000",
             "username": "soulou",
             "app_id": "54101e25736f7563d5060000",
-            "app_name": "my-app"
+            "app_name": "my-app",
+            "is_limited": false,
         },
         {
             "id": "54102274736f7563d5070000",
@@ -284,7 +285,8 @@ Returns 200 OK
             "user_id": null,
             "username": null,
             "app_id":  "54101e25736f7563d5060000",
-            "app_name": "my-app"
+            "app_name": "my-app",
+            "is_limited": true,
         }
     ]
 }
