@@ -162,7 +162,7 @@ Returns 200 OK
 
 --- row ---
 
-## Get a Precise Project
+## Get a precise Project
 
 --- row ---
 
