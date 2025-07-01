@@ -596,6 +596,7 @@ Returns 200 OK
 * `app.sticky_session`: boolean to enable or disable sticky session on the application
 * `app.router_logs`: boolean to enable or disable the router logs on the application
 * `app.stack_id`: string that changes your application stack
+* `app.project_id`: ID of the project to which the application belongs.
 
 ||| col |||
 
@@ -608,7 +609,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   '{
     "app": {
       "force_https": true,
-      "router_logs": false
+      "router_logs": false,
+      "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f"
     }
   }'
 ```
