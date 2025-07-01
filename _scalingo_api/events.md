@@ -665,11 +665,10 @@ _When:_ Each time a collaboration invitation is sent
 `type="new_collaborator"`
 
 {:.table}
-| field                 | type   | description                            |
-| --------------------- | ------ | -------------------------------------- |
-| collaborator.id       | string | ID of the invited user if user exists  |
-| collaborator.username | string | Username of the invited user if exists |
-| collaborator.email    | string | Email of the invited person            |
+| field                    | type   | description                            |
+| ------------------------ | ------ | -------------------------------------- |
+| collaborator.email       | string | Email of the invited person            |
+| collaborator.is_limited  | string | Is limited collaborator                |
 
 ||| col |||
 
@@ -689,7 +688,8 @@ Example object:
   "type": "new_collaborator",
   "type_data": {
     "collaborator": {
-      "email": "test@example.com"
+      "email": "test@example.com",
+      "is_limited": false,
     }
   }
 }
@@ -710,6 +710,8 @@ _When:_ The invitee accepts the collaboration invitation for an app
 | collaborator.username         | string | Username of the invited person         |
 | collaborator.inviter.email    | string | Email of the inviter                   |
 | collaborator.inviter.username | string | Username of the inviter                |
+| collaborator.is_limited       | string | Is limited collaborator                |
+
 
 ||| col |||
 
@@ -735,7 +737,8 @@ Example object:
       "inviter": {
         "email": "john@doe.com",
         "username": "johndoe"
-      }
+      },
+      "is_limited": false,
     }
   }
 }
@@ -749,11 +752,11 @@ _When:_ The collaborator has been removed from the app
 `type="delete_collaborator"`
 
 {:.table}
-| field                         | type   | description                  |
-| ----------------------------- | ------ | ---------------------------- |
-| collaborator.id               | string | ID of the collaborator       |
-| collaborator.email            | string | Email of the collaborator    |
-| collaborator.username         | string | Username of the collaborator |
+| field                         | type   | description                                              |
+| ----------------------------- | ------ | -------------------------------------------------------- |
+| collaborator.id               | string | ID of the collaborator                                   |
+| collaborator.email            | string | Email of the collaborator (if collaboration accepted)    |
+| collaborator.username         | string | Username of the collaborator (if collaboration accepted) |
 
 ||| col |||
 
