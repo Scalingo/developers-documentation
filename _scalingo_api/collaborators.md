@@ -133,6 +133,7 @@ collaborator. Hence you should never share this link publicly.
 ### Parameters
 
 * `collaborator.email`: Email address of the collaborator to invite
+* `collaborator.is_limited`: Whether the collaborator should have limited access (default: true)
 
 ||| col |||
 
@@ -145,7 +146,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -X POST https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators -d \
   '{
      "collaborator": {
-       "email":"collaborator@example.com"
+       "email":"collaborator@example.com",
+       "is_limited": false
       }
    }'
 ```
