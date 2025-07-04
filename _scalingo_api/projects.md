@@ -218,6 +218,10 @@ Returns 200 OK
 * `project.name`: (*Optional*) New name of the project
 * `project.default`: (*Optional*) Set to true to make this the default project
 
+Note: `project.default` cannot be changed from `true` to `false`.
+To change the default project, update an existing project to be the new default
+one, or create a new default project.
+
 ||| col |||
 
 Example request
