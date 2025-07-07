@@ -1977,6 +1977,37 @@ Example object:
 }
 ```
 
+--- row ---
+
+* **Project Deleted**
+
+_When:_ A project has been deleted
+`type=delete_project`
+
+{:.table}
+| field   | type    | description                                     |
+| ------- | ------- | ----------------------------------------------- |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "delete_project",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {}
+}
+```
+
 
 --- row ---
 ## List the Events of an App
