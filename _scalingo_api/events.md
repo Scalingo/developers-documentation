@@ -2008,7 +2008,6 @@ Example object:
 }
 ```
 
-
 --- row ---
 ## List the Events of an App
 
