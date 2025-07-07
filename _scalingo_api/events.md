@@ -1943,6 +1943,40 @@ Example object:
 }
 ```
 
+--- row ---
+
+* **New Project Created**
+
+_When:_ A new project has been created
+`type=new_project`
+
+{:.table}
+| field   | type    | description                                     |
+| ------- | ------- | ----------------------------------------------- |
+| default | boolean | Whether the project is a default project or not |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "new_project",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "default": true
+  }
+}
+```
+
 
 --- row ---
 ## List the Events of an App
