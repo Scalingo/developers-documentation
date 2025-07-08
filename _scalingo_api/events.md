@@ -1987,7 +1987,7 @@ _When:_ A project is renamed and/or switched from/to default
 {:.table}
 | field                      | type    | description                        |
 | ------------------------   | ------- | ---------------------------------- |
-| updated_values             | array   | List of the updated variables      |
+| updated_values             | array   | List of the updated attributes     |
 | updated_values[].name      | string  | Name of the attribute              |
 | updated_values[].value     | string  | New value of the updated attribute |
 | updated_values[].old_value | string  | Old value of the updated attribute |
