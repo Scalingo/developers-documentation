@@ -1984,10 +1984,6 @@ Example object:
 _When:_ A project has been deleted
 `type=delete_project`
 
-{:.table}
-| field   | type    | description                                     |
-| ------- | ------- | ----------------------------------------------- |
-
 ||| col |||
 
 Example object:
