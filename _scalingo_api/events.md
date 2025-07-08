@@ -1981,7 +1981,7 @@ Example object:
 
 * **Project Edited**
 
-_When:_ A project is renamed and/or switched from/to default
+_When:_ A project is renamed and/or switched to default
 `type=edit_project`
 
 {:.table}
