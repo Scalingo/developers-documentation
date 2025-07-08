@@ -1979,10 +1979,10 @@ Example object:
 
 --- row ---
 
-* **Move app event**
+* **Update app project event**
 
 _When:_ the application is moved from a project to another
-`type=move_app`
+`type=update_app_project`
 
 {:.table}
 | field            | type   | description                 |
@@ -2005,7 +2005,7 @@ Example object:
   },
   "app_id": "5343eccd646173000a140000",
   "app_name": "appname",
-  "type": "move_app",
+  "type": "update_app_project",
   "type_data": {
     "old_project_name": "old-project-name",
     "new_project_name": "new-project-name"
