@@ -1977,6 +1977,41 @@ Example object:
 }
 ```
 
+--- row ---
+
+* **Move app event**
+
+_When:_ the application is moved from a project to another
+`type=move_app`
+
+{:.table}
+| field            | type   | description                 |
+| ---------------- | ------ | --------------------------- |
+| old_project_name | string | Old name of the project     |
+| new_project_name | string | New name of the project     |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "move_app",
+  "type_data": {
+    "old_project_name": "old-project-name",
+    "new_project_name": "new-project-name"
+  }
+}
+```
 
 --- row ---
 ## List the Events of an App
