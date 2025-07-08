@@ -1991,6 +1991,7 @@ _When:_ A project is renamed and/or switched from/to default
 | updated_values[].name      | string  | Name of the attribute              |
 | updated_values[].value     | string  | New value of the updated attribute |
 | updated_values[].old_value | string  | Old value of the updated attribute |
+
 ||| col |||
 
 Example object:
