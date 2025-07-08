@@ -1979,6 +1979,45 @@ Example object:
 
 --- row ---
 
+* **Project Edited**
+
+_When:_ A project is renamed and/or switched from/to default
+`type=edit_project`
+
+{:.table}
+| field                      | type    | description                        |
+| ------------------------   | ------- | ---------------------------------- |
+| updated_values             | array   | List of the updated variables      |
+| updated_values[].name      | string  | Name of the attribute              |
+| updated_values[].value     | string  | New value of the updated attribute |
+| updated_values[].old_value | string  | Old value of the updated attribute |
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "edit_project",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "updated_values": [
+      {"name": "name", "value": "new-project-name", "old_value": "initial-project-name"},
+      {"name": "default", "value": false, "old_value": true}
+    ]
+  }
+}
+```
+
+--- row ---
+
 * **Project Deleted**
 
 _When:_ A project has been deleted
