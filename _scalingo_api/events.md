@@ -1979,16 +1979,14 @@ Example object:
 
 --- row ---
 
-* **Update app project event**
+* **Project Deleted**
 
-_When:_ the application is moved from a project to another
-`type=update_app_project`
+_When:_ A project has been deleted
+`type=delete_project`
 
 {:.table}
-| field            | type   | description                 |
-| ---------------- | ------ | --------------------------- |
-| old_project_name | string | Old name of the project     |
-| new_project_name | string | New name of the project     |
+| field   | type    | description                                     |
+| ------- | ------- | ----------------------------------------------- |
 
 ||| col |||
 
@@ -1996,20 +1994,17 @@ Example object:
 
 ```json
 {
-  "id": "54dcdd4a73636100011a0000",
-  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "delete_project",
   "user": {
     "username": "johndoe",
     "email": "john@doe.com",
     "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
   },
-  "app_id": "5343eccd646173000a140000",
-  "app_name": "appname",
-  "type": "update_app_project",
-  "type_data": {
-    "old_project_name": "old-project-name",
-    "new_project_name": "new-project-name"
-  }
+  "type_data": {}
 }
 ```
 
