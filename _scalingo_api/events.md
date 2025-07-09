@@ -2043,7 +2043,7 @@ Example object:
     "old_project_name": "old-project-name",
     "old_project_id": "prj-1234567890abcdef",
     "new_project_name": "new-project-name",
-    "new_project_id": "pr-abcdef1234567890"
+    "new_project_id": "prj-abcdef1234567890"
   }
 }
 ```
