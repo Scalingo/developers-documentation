@@ -2041,7 +2041,7 @@ Example object:
   "type": "update_app_project",
   "type_data": {
     "old_project_name": "old-project-name",
-    "old_project_id": "pr-1234567890abcdef",
+    "old_project_id": "prj-1234567890abcdef",
     "new_project_name": "new-project-name",
     "new_project_id": "pr-abcdef1234567890"
   }
