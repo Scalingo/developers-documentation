@@ -2018,8 +2018,10 @@ _When:_ the application is moved from a project to another
 {:.table}
 | field            | type   | description                 |
 | ---------------- | ------ | --------------------------- |
-| old_project_name | string | Old name of the project     |
+| old_project_name | string | Previous name of the project|
+| old_project_id   | string | Previous ID of the project  |
 | new_project_name | string | New name of the project     |
+| new_project_id   | string | New ID of the project       |
 
 ||| col |||
 
@@ -2039,7 +2041,9 @@ Example object:
   "type": "update_app_project",
   "type_data": {
     "old_project_name": "old-project-name",
-    "new_project_name": "new-project-name"
+    "old_project_id": "pr-1234567890abcdef",
+    "new_project_name": "new-project-name",
+    "new_project_id": "pr-abcdef1234567890"
   }
 }
 ```
