@@ -262,3 +262,32 @@ Returns 200 OK
   }
 }
 ```
+
+--- row ---
+
+## Delete a Project
+
+--- row ---
+
+`DELETE https://$SCALINGO_API_URL/v1/projects/[:project_id]`
+
+Delete a project
+
+Note: The project must not contain any applications.
+If the project contains applications, you must delete them first.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X DELETE "https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f"
+```
+
+Returns 204 No Content
+
+```json
+{}
+```
