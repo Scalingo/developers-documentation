@@ -393,6 +393,30 @@ Returns HTTP/1.1 404 Not Found
 
 --- row ---
 
+### Conflict - 409 Conflict
+
+--- row ---
+
+The resource already exists, the resource has been modified since last fetch, or the operation is blocked by the resource state (e.g. project contains apps).
+
+||| col |||
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X DELETE "https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f"
+```
+
+Returns HTTP/1.1 409 Conflict
+
+```json
+{
+  "error": "Cannot delete project with existing apps"
+}
+```
+
+--- row ---
+
 ### Invalid field - 422 Unprocessable Entity
 
 --- row ---
