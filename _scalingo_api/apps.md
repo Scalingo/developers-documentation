@@ -90,6 +90,7 @@ Example object:
 
 `POST https://$SCALINGO_API_URL/v1/apps`
 
+
 ### Parameters
 
 * `app.name`: Should have between 6 and 48 lower case alphanumerical characters
@@ -98,6 +99,7 @@ Example object:
 * `app.git_source`: (*Optional*) URL to the future GitHub repository if your need
   to deploy from there without going through the `git push` workflow
 * `app.stack_id`: (*Optional*) ID of the stack that will be used for your app
+* `app.project_id`: (*Optional*) ID of the project to assign the application to. If not provided, the app will be assigned to your default project.
 
 ### Custom Header
 
@@ -120,7 +122,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -X POST https://$SCALINGO_API_URL/v1/apps -d \
   '{
     "app": {
-      "name": "example-app"
+      "name": "example-app",
     }
   }'
 ```
