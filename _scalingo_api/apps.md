@@ -90,7 +90,6 @@ Example object:
 
 `POST https://$SCALINGO_API_URL/v1/apps`
 
-
 ### Parameters
 
 * `app.name`: Should have between 6 and 48 lower case alphanumerical characters
