@@ -10,13 +10,18 @@ layout: default
 **Collaborator attributes**
 
 {:.table}
-| field          | type    | description                                                                          |
-| -------------- | ------  | ------------------------------------------------------------------------------------ |
-| id             | string  | unique ID                                                                            |
-| email          | string  | email address                                                                        |
-| username       | string  | username ("n/a": invitation is still pending)                                        |
-| status         | string  | __pending__: invitation not yet accepted, __accepted__: invitation has been accepted |
-| is_limited     | boolean | collaborator have a limited role                                                     |
+| field           | type    | description                                                                           |
+| --------------- | ------  | ------------------------------------------------------------------------------------- |
+| id              | string  | unique ID                                                                             |
+| email           | string  | email address                                                                         |
+| user_id         | string  | unique ID of the user who has accepted the collaboration                              |
+| username        | string  | username ("n/a": invitation is still pending)                                         |
+| tfa_status      | boolean | "true" if the user has enabled multi-factor authentication, "false" otherwise         |
+| status          | string  | __pending__: invitation not yet accepted, __accepted__: invitation has been accepted  |
+| is_limited      | boolean | collaborator have a limited role                                                      |
+| invitation_link | string  | invitation link. "" (empty string) if invitation has been accepted or user is limited |
+| app_id          | string  | unique ID of the app the user is collaborating to                                     |
+| app_name        | string  | name of the app the user is collaborating to                                          |
 
 ||| col |||
 
@@ -24,11 +29,16 @@ Example object:
 
 ```json
 {
-  "email": "foo@example.com",
   "id": "54101e25736f7563d5060000",
-  "status": "accepted",
+  "email": "foo@example.com",
+  "user_id": "us-8ba226e5-93e0-4545-8363-9c16b2d68d67",
   "username": "soulou",
-  "is_limited": "false",
+  "tfa_status": true,
+  "status": "accepted",
+  "is_limited": false,
+  "invitation_link": "",
+  "app_id": "54100930736f7563d5030000",
+  "app_name": "my-app"
 }
 ```
 
@@ -57,22 +67,32 @@ Returns 200 OK
 
 ```json
 {
-    "collaborators": [
-        {
-            "email": "foo@example.com",
-            "id": "54101e25736f7563d5060000",
-            "status": "accepted",
-            "username": "soulou",
-            "is_limited": "false",
-        },
-        {
-            "email": "bar@example.com",
-            "id": "54102274736f7563d5070000",
-            "status": "pending",
-            "username": "n/a",
-            "is_limited": "true",
-        }
-    ]
+  "collaborators": [
+    {
+      "id": "54101e25736f7563d5060000",
+      "email": "foo@example.com",
+      "user_id": "us-8ba226e5-93e0-4545-8363-9c16b2d68d67",
+      "username": "soulou",
+      "tfa_status": true,
+      "status": "accepted",
+      "is_limited": false,
+      "invitation_link": "",
+      "app_id": "54100930736f7563d5030000",
+      "app_name": "my-app"
+    },
+    {
+      "id": "54101e25736f7563d5060001",
+      "email": "bar@example.com",
+      "user_id": null,
+      "username": "n/a",
+      "tfa_status": null,
+      "status": "pending",
+      "is_limited": true,
+      "invitation_link": "https://my.scalingo.com/apps/collaboration?token=abc",
+      "app_id": "54100930736f7563d5030000",
+      "app_name": "my-app"
+    }
+  ]
 }
 ```
 
@@ -104,12 +124,17 @@ Returns 200 OK
 ```json
 {
   "collaborator": {
-    "email": "foo@example.com",
     "id": "54101e25736f7563d5060000",
-    "status": "accepted",
+    "email": "foo@example.com",
+    "user_id": "us-8ba226e5-93e0-4545-8363-9c16b2d68d67",
     "username": "soulou",
-    "is_limited": true
-  }
+    "tfa_status": true,
+    "status": "accepted",
+    "is_limited": true,
+    "invitation_link": "",
+    "app_id": "54100930736f7563d5030000",
+    "app_name": "my-app"
+  },
 }
 ```
 
@@ -156,17 +181,20 @@ Returns 201 Created
 
 ```json
 {
-    "collaborator": [
-        {
-            "email": "collaborator@example.com",
-            "id": "54101e25736f7563d5060000",
-            "status": "pending",
-            "username": "n/a",
-            "invitation_link": "https://my.scalingo.com/apps/collaboration?token=8415965b809c928c807dc99790e5745d97f05b8c",
-            "app_id": "5343eccd646173000a140000",
-            "is_limited": "false",
-        }
-    ]
+  "collaborator": [
+    {
+      "id": "54101e25736f7563d5060000",
+      "email": "collaborator@example.com",
+      "user_id": null,
+      "username": "n/a",
+      "tfa_status": null,
+      "status": "pending",
+      "is_limited": false,
+      "invitation_link": "https://my.scalingo.com/apps/collaboration?token=abc",
+      "app_id": "54100930736f7563d5030000",
+      "app_name": "my-app"
+    }
+  ]
 }
 ```
 
@@ -196,25 +224,27 @@ Returns 200 OK
 
 ```json
 {
-  "id": "54100930736f7563d5030000",
-  "name": "example-app",
-  "created_at": "2014-09-10T10:17:52.690+02:00",
-  "updated_at": "2014-09-10T10:17:52.690+02:00",
-  "git_url": "git@scalingo.com:example-app.git",
-  "last_deployed_at": "2017-02-02T10:17:53.690+02:00",
-  "last_deployed_by": "john",
-  "last_deployment_id": "58c2b15af1453a0001e24d23",
-  "force_https": true,
-  "sticky_session": false,
-  "router_logs": true,
-  "owner": {
-    "username": "john",
-    "email": "user@example.com",
-    "id": "54100245736f7563d5000000"
-  },
-  "url": "https://example-app.scalingo.io",
-  "links": {
-    "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
+  "app": {
+    "id": "54100930736f7563d5030000",
+    "name": "example-app",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T10:17:52.690+02:00",
+    "git_url": "git@scalingo.com:example-app.git",
+    "last_deployed_at": "2017-02-02T10:17:53.690+02:00",
+    "last_deployed_by": "john",
+    "last_deployment_id": "58c2b15af1453a0001e24d23",
+    "force_https": true,
+    "sticky_session": false,
+    "router_logs": true,
+    "owner": {
+      "username": "john",
+      "email": "user@example.com",
+      "id": "54100245736f7563d5000000"
+    },
+    "url": "https://example-app.scalingo.io",
+    "links": {
+      "deployments_stream": "wss://deployments.scalingo.com/apps/example-app"
+    }
   }
 }
 ```
@@ -251,9 +281,7 @@ Returns 204 No Content
 
 `GET https://$SCALINGO_API_URL/v1/collaborators`
 
-List all collaborators assigned to any application owned by current user.
-The resources returned are Collaborators enhanced with the name of the application 
-which the collaborator is assigned on: `app_name`.
+List all collaborators assigned to any application owned by the current user.
 
 ||| col |||
 
@@ -269,27 +297,43 @@ Returns 200 OK
 
 ```json
 {
-    "collaborators": [
-        {
-            "id": "54101e25736f7563d5060000",
-            "email": "foo@example.com",
-            "status": "accepted",
-            "user_id": "54101e25736f7563d5060000",
-            "username": "soulou",
-            "app_id": "54101e25736f7563d5060000",
-            "app_name": "my-app",
-            "is_limited": false,
-        },
-        {
-            "id": "54102274736f7563d5070000",
-            "email": "bar@example.com",
-            "status": "pending",
-            "user_id": null,
-            "username": null,
-            "app_id":  "54101e25736f7563d5060000",
-            "app_name": "my-app",
-            "is_limited": true,
-        }
-    ]
+  "collaborators": [
+    {
+      "id": "54101e25736f7563d5060000",
+      "email": "foo@example.com",
+      "user_id": "us-8ba226e5-93e0-4545-8363-9c16b2d68d67",
+      "username": "soulou",
+      "tfa_status": true,
+      "status": "accepted",
+      "is_limited": false,
+      "invitation_link": "",
+      "app_id": "54100930736f7563d5030000",
+      "app_name": "my-app"
+    },
+    {
+      "id": "54101e25736f7563d5060001",
+      "email": "bar@example.com",
+      "user_id": null,
+      "username": "n/a",
+      "tfa_status": null,
+      "status": "pending",
+      "is_limited": true,
+      "invitation_link": "https://my.scalingo.com/apps/collaboration?token=abc",
+      "app_id": "54100930736f7563d5030000",
+      "app_name": "my-app"
+    },
+    {
+      "id": "54101e25736f7563d5060000",
+      "email": "foo@example.com",
+      "user_id": "us-8ba226e5-93e0-4545-8363-9c16b2d68d67",
+      "username": "soulou",
+      "tfa_status": true,
+      "status": "accepted",
+      "is_limited": true,
+      "invitation_link": "",
+      "app_id": "24100930736f7563d5030099",
+      "app_name": "another-app"
+    },
+  ]
 }
 ```
