@@ -56,7 +56,7 @@ Example request
 
 ```shell
 curl -H 'Accept: application/json' -H 'Content-Type: application/json' -u ":$AUTH_TOKEN" \
-  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/data_access_consents -d \
+  -X POST https://$SCALINGO_API_URL/v1/apps/example-app/data_access_consent -d \
   '{
     "data_access_consent": {
       "databases_until": "2022-07-06T00:00:00.000+00:00",
