@@ -10,12 +10,12 @@ layout: default
 **DataAccessConsent attributes**
 
 {:.table}
-| field               | type        | description                                            |
-| ------------------- | ----------- | ------------------------------------------------------ |
-| app_id              | string      | unique ID of the app, format uuid                      |
-| user_id             | string      | unique ID of the user, format uuid                     |
-| databases_until     | datetime    | deadline of DataAccessConsent for databases ISO 8601   |
-| containers_until    | datetime    | deadline of DataAccessConsent for containers ISO 8601  |
+| field               | type        | description                                                    |
+| ------------------- | ----------- | -------------------------------------------------------------- |
+| app_id              | string      | unique ID of the app, format uuid                              |
+| user_id             | string      | unique ID of the user, format uuid                             |
+| databases_until     | datetime    | deadline of DataAccessConsent for databases, format ISO 8601   |
+| containers_until    | datetime    | deadline of DataAccessConsent for containers, format ISO 8601  |
 
 ||| col |||
 
