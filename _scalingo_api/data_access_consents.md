@@ -81,6 +81,8 @@ Returns 200 OK
 - `databases_until`: deadline of DataAccessConsent for databases ISO 8601
 - `containers_until`: deadline of DataAccessConsent for containers ISO 8601
 
+The values of these parameters cannot refer to dates more than 30 days in the future.
+
 ||| col |||
 
 Example request
