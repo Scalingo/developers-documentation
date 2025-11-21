@@ -1960,7 +1960,6 @@ _When:_ A database backup has been successfully completed
 | backup_status  | string   | The status of the backup                       |
 | started_at     | datetime | The date and time when the backup started      |
 | ended_at       | datetime | The date and time when the backup completed    |
-| is_retryable   | boolean  | Whether the backup operation can be retried    |
 
 ||| col |||
 
@@ -1985,8 +1984,7 @@ Example object:
     "backup_id": "692025a88e61d0039cf25ea3",
     "backup_status": "done",
     "started_at": "2025-11-21T08:41:15.516Z",
-    "ended_at": "2025-11-21T08:41:27.287Z",
-    "is_retryable": true
+    "ended_at": "2025-11-21T08:41:27.287Z"
   }
 }
 ```
@@ -1999,16 +1997,17 @@ _When:_ A database backup has failed
 `type=database_backup_failed`
 
 {:.table}
-| field          | type     | description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| addon_name     | string   | The related addon name                         |
-| resource_id    | string   | The related addon resource ID                  |
-| addon_uuid     | string   | The related addon UUID                         |
-| backup_id      | string   | The ID of the failed backup                    |
-| backup_status  | string   | The status of the backup                       |
-| started_at     | datetime | The date and time when the backup started      |
-| ended_at       | datetime | The date and time when the backup failed       |
-| is_retryable   | boolean  | Whether the backup operation can be retried    |
+| field              | type     | description                                  |
+| ------------------ | -------- | -------------------------------------------- |
+| addon_name         | string   | The related addon name                       |
+| resource_id        | string   | The related addon resource ID                |
+| addon_uuid         | string   | The related addon UUID                       |
+| backup_id          | string   | The ID of the failed backup                  |
+| backup_status      | string   | The status of the backup                     |
+| started_at         | datetime | The date and time when the backup started    |
+| ended_at           | datetime | The date and time when the backup failed     |
+| is_retriable       | boolean  | Whether the backup operation can be retried  |
+| remaining_attempts | integer  | Number of remaining backup attempts          |
 
 ||| col |||
 
@@ -2034,7 +2033,8 @@ Example object:
     "backup_status": "error",
     "started_at": "2025-11-21T08:41:15.516Z",
     "ended_at": "2025-11-21T08:41:27.287Z",
-    "is_retryable": true
+    "is_retriable": true,
+    "remaining_attempts": 4
   }
 }
 ```
