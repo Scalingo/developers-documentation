@@ -2006,8 +2006,6 @@ _When:_ A database backup has failed
 | backup_status      | string   | The status of the backup                     |
 | started_at         | datetime | The date and time when the backup started    |
 | ended_at           | datetime | The date and time when the backup failed     |
-| is_retriable       | boolean  | Whether the backup operation can be retried  |
-| remaining_attempts | integer  | Number of remaining backup attempts          |
 
 ||| col |||
 
@@ -2032,9 +2030,7 @@ Example object:
     "backup_id": "692025a88e61d0039cf25ea3",
     "backup_status": "error",
     "started_at": "2025-11-21T08:41:15.516Z",
-    "ended_at": "2025-11-21T08:41:27.287Z",
-    "is_retriable": true,
-    "remaining_attempts": 4
+    "ended_at": "2025-11-21T08:41:27.287Z"
   }
 }
 ```
