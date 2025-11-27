@@ -1945,6 +1945,98 @@ Example object:
 
 --- row ---
 
+* **Database Backup Succeeded**
+
+_When:_ A database backup has been successfully completed
+`type=database_backup_succeeded`
+
+{:.table}
+| field          | type     | description                                    |
+| -------------- | -------- | ---------------------------------------------- |
+| addon_name     | string   | The related addon name                         |
+| resource_id    | string   | The related addon resource ID                  |
+| addon_uuid     | string   | The related addon UUID                         |
+| backup_id      | string   | The ID of the completed backup                 |
+| backup_status  | string   | The status of the backup                       |
+| started_at     | datetime | The date and time when the backup started      |
+| ended_at       | datetime | The date and time when the backup completed    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "692025dad488619977f4baff",
+  "created_at": "2025-11-21T08:42:02.103Z",
+  "type": "database_backup_succeeded",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "scalingo-platform",
+    "email": "deploy@scalingo.com",
+    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+  },
+  "type_data": {
+    "addon_name": "Redis",
+    "resource_id": "sample-go-martini-6184",
+    "addon_uuid": "ad-75364c08-2e76-4018-8db4-d7ebbd7537c8",
+    "backup_id": "692025a88e61d0039cf25ea3",
+    "backup_status": "done",
+    "started_at": "2025-11-21T08:41:15.516Z",
+    "ended_at": "2025-11-21T08:41:27.287Z"
+  }
+}
+```
+
+--- row ---
+
+* **Database Backup Failed**
+
+_When:_ A database backup has failed
+`type=database_backup_failed`
+
+{:.table}
+| field              | type     | description                                  |
+| ------------------ | -------- | -------------------------------------------- |
+| addon_name         | string   | The related addon name                       |
+| resource_id        | string   | The related addon resource ID                |
+| addon_uuid         | string   | The related addon UUID                       |
+| backup_id          | string   | The ID of the failed backup                  |
+| backup_status      | string   | The status of the backup                     |
+| started_at         | datetime | The date and time when the backup started    |
+| ended_at           | datetime | The date and time when the backup failed     |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "692025dad488619977f4baff",
+  "created_at": "2025-11-21T08:42:02.103Z",
+  "type": "database_backup_failed",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "scalingo-platform",
+    "email": "deploy@scalingo.com",
+    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+  },
+  "type_data": {
+    "addon_name": "Redis",
+    "resource_id": "sample-go-martini-6184",
+    "addon_uuid": "ad-75364c08-2e76-4018-8db4-d7ebbd7537c8",
+    "backup_id": "692025a88e61d0039cf25ea3",
+    "backup_status": "error",
+    "started_at": "2025-11-21T08:41:15.516Z",
+    "ended_at": "2025-11-21T08:41:27.287Z"
+  }
+}
+```
+
+--- row ---
+
 * **New Project Created**
 
 _When:_ A new project has been created
