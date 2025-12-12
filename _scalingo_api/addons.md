@@ -20,6 +20,7 @@ layout: default
 | status           | string | current status of the addon                   |
 | plan             | object | embedded reference to Plan resource           |
 | addon_provider   | object | embedded reference to AddonProvider resource  |
+| updated_at       | date   | when the addon has been last updated          |
 
 ||| col |||
 
@@ -49,7 +50,8 @@ Example object:
     "id" : "scalingo-redis",
     "name" : "Scalingo Redis",
     "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
-  }
+  },
+  "updated_at": "2015-02-22T18:55:02.766+01:00"
 }
 ```
 
@@ -100,7 +102,8 @@ Returns 200 OK
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
       "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
-    }
+    },
+    "updated_at": "2015-02-22T18:55:02.766+01:00"
   }]
 }
 ```
@@ -224,7 +227,8 @@ Returns 200 OK
       "id" : "scalingo-redis",
       "name" : "Scalingo Redis",
       "logo_url" : "//cdn.scalingo.com/addons/Scalingo_Redis_20171006.svg"
-    }
+    },
+    "updated_at": "2015-02-22T18:55:02.766+01:00"
   }
 }
 ```
