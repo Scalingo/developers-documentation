@@ -300,7 +300,7 @@ Returns 204 No Content
 
 `GET https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations`
 
-Project transfer invitations let a project owner transfer ownership to another collaborator. Each invitation automatically expires after 3 days and includes a token that can be used in Dashboard links such as `projects/transfers?token=:token`.
+Project transfer invitations let a project owner transfer ownership to another collaborator.
 
 By default only `pending` invitations are returned. Pass the `status` query parameter (for example `?status=all`) to disable the pending-only filter.
 
@@ -317,7 +317,6 @@ By default only `pending` invitations are returned. Pass the `status` query para
 | inviter         | object  | user who created the invitation                                            |
 | status          | string  | one of `pending`, `accepted`, `declined`, `canceled`, `failed`              |
 | status_reason   | string  | optional rationale for the current status                                   |
-| token           | string  | token usable in Dashboard transfer links                                   |
 | expires_at      | date    | expiration date of the invitation                                           |
 | created_at      | date    | creation date                                                               |
 | updated_at      | date    | last update date                                                            |
@@ -352,7 +351,6 @@ Returns 200 OK
       },
       "status": "pending",
       "status_reason": "Please confirm the transfer.",
-      "token": "transfer-token-abc123",
       "expires_at": "2014-09-13T10:17:52.690+02:00",
       "created_at": "2014-09-10T10:17:52.690+02:00",
       "updated_at": "2014-09-10T10:17:52.690+02:00"
@@ -400,7 +398,6 @@ Returns 200 OK
     },
     "status": "pending",
     "status_reason": "Please confirm the transfer.",
-    "token": "transfer-token-abc123",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "updated_at": "2014-09-10T10:17:52.690+02:00"
@@ -458,7 +455,6 @@ Returns 201 Created
     },
     "status": "pending",
     "status_reason": "Transfer ownership to alice",
-    "token": "transfer-token-abc123",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "updated_at": "2014-09-10T10:17:52.690+02:00"
@@ -516,7 +512,6 @@ Returns 200 OK
     },
     "status": "accepted",
     "status_reason": "Confirmed ownership transfer",
-    "token": "transfer-token-abc123",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "updated_at": "2014-09-10T11:00:00.000+02:00"
