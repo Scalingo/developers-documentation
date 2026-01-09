@@ -521,6 +521,52 @@ Returns 200 OK
 
 --- row ---
 
+## Accept a project transfer invitation (member of project)
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations/[:id]/accept`
+
+The invited collaborator can accept a project transfer invitation.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations/tin-01234567-89ab-cdef-0123-456789abcdef/accept
+```
+
+Returns 200 OK
+
+```json
+{
+  "transfer_invitation": {
+    "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "invited_user": {
+      "id": "54100245736f7563d5000000",
+      "username": "alice",
+      "email": "alice@example.com"
+    },
+    "inviter": {
+      "id": "54100245736f7563d5000000",
+      "username": "john",
+      "email": "user@example.com"
+    },
+    "status": "accepted",
+    "status_reason": "Accepted by invited collaborator",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T11:00:00.000+02:00"
+  }
+}
+```
+
+--- row ---
+
 ## Decline a project transfer invitation (member of project)
 
 --- row ---
