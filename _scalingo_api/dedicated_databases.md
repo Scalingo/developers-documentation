@@ -3,7 +3,7 @@ title: Databases
 layout: default
 ---
 
-# Databases NG
+# Databases
 
 --- row ---
 
