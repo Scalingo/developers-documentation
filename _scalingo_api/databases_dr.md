@@ -27,8 +27,8 @@ Example object:
   "id": "54100930736f7563d5030000",
   "name": "my-postgres-db",
   "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-  "technology": "postgresql",
-  "plan": "postgresql-starter-512"
+  "technology": "postgresql-ng",
+  "plan": "postgresql-ng-starter-4096"
 }
 ```
 
@@ -45,8 +45,8 @@ Example object:
 * `database.name`: Database name. Should have between 6 and 48 lower case alphanumerical characters
   and hyphens, it can't have an hyphen at the beginning or at the end, nor two
   hyphens in a row.
-* `database.technology`: Database technology identifier (e.g., `postgresql`, `mysql`, `mongodb`, `redis`, `elasticsearch`, `influxdb`)
-* `database.plan_id`: Plan identifier (e.g., `postgresql-starter-512`, `mysql-business-1024`)
+* `database.technology`: Database technology identifier (only `postgresql-ng` is supported for now)
+* `database.plan`: Plan identifier (e.g., `postgresql-ng-starter-4096`). Available plans can be retrieved via the [Addon Providers endpoint](/addon_providers).
 * `database.project_id`: (*Optional*) ID of the project to assign the database to. If not provided, the database will be assigned to your default project.
 
 ||| col |||
@@ -60,8 +60,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   '{
     "database": {
       "name": "my-postgres-db",
-      "technology": "postgresql",
-      "plan": "postgresql-starter-512",
+      "technology": "postgresql-ng",
+      "plan": "postgresql-ng-starter-4096",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f"
     }
   }'
@@ -75,8 +75,8 @@ Returns 201 Created
     "id": "54100930736f7563d5030000",
     "name": "my-postgres-db",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "technology": "postgresql",
-    "plan": "postgresql-starter-512"
+    "technology": "postgresql-ng",
+    "plan": "postgresql-ng-starter-4096"
   }
 }
 ```
@@ -110,8 +110,8 @@ Returns 200 OK
       "id": "54100930736f7563d5030000",
       "name": "my-postgres-db",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-      "technology": "postgresql",
-      "plan": "postgresql-starter-512"
+      "technology": "postgresql-ng",
+      "plan": "postgresql-ng-starter-4096"
     },
     {
       "id": "54100930736f7563d5030001",
@@ -152,8 +152,8 @@ Returns 200 OK
     "id": "54100930736f7563d5030000",
     "name": "my-postgres-db",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "technology": "postgresql",
-    "plan": "postgresql-starter-512"
+    "technology": "postgresql-ng",
+    "plan": "postgresql-ng-starter-4096"
   }
 }
 ```
