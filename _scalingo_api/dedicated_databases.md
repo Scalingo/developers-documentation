@@ -1,5 +1,5 @@
 ---
-title: Databases NG
+title: Databases
 layout: default
 ---
 
