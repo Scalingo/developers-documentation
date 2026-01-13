@@ -15,8 +15,8 @@ layout: default
 | id          | string | unique ID                                             |
 | name        | string | name of the database                                  |
 | project_id  | string | ID of the project the database belongs to             |
-| technology  | string | database technology (e.g., postgresql, mysql, mongodb)|
-| plan        | string | plan name (e.g., postgresql-starter-512, mysql-business-1024) |
+| technology  | string | database technology (e.g., postgresql-ng)|
+| plan        | string | plan name (e.g., postgresql-ng-starter-4096) |
 
 ||| col |||
 
@@ -115,10 +115,10 @@ Returns 200 OK
     },
     {
       "id": "54100930736f7563d5030001",
-      "name": "my-redis-db",
+      "name": "backup-db",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-      "technology": "redis",
-      "plan": "redis-starter-256"
+      "technology": "postgresql-ng",
+      "plan": "postgresql-ng-starter-4096"
     }
   ]
 }
