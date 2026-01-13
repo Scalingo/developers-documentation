@@ -42,12 +42,12 @@ Example object:
 
 ### Parameters
 
-* `database.name`: Database name. Should have between 6 and 48 lower case alphanumerical characters
-  and hyphens, it can't have an hyphen at the beginning or at the end, nor two
-  hyphens in a row.
-* `database.technology`: Database technology identifier (only `postgresql-ng` is supported for now)
+* `database.name`: Database name. Should have between 6 and 48 lower case alphanumerical characters and hyphens.
+* `database.technology`: Database technology identifier. Only `postgresql-ng` is supported for now.
 * `database.plan`: Plan identifier (e.g., `postgresql-ng-starter-4096`). Available plans can be retrieved via the [Addon Providers endpoint](/addon_providers).
 * `database.project_id`: (*Optional*) ID of the project to assign the database to. If not provided, the database will be assigned to your default project.
+
+**Note:** To provision other database types (MySQL, MongoDB, Redis, etc.), please use the [Addons provisioning endpoint](/addons#provision-an-addon).
 
 ||| col |||
 
