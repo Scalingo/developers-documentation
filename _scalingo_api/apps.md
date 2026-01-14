@@ -99,6 +99,7 @@ Example object:
   to deploy from there without going through the `git push` workflow
 * `app.stack_id`: (*Optional*) ID of the stack that will be used for your app
 * `app.project_id`: (*Optional*) ID of the project to assign the application to. If not provided, the app will be assigned to your default project.
+* `app.hds_resource`: (*Optional*) Whether the application should be created with HDS compliance
 
 ### Custom Header
 
