@@ -2126,7 +2126,7 @@ _When:_ Common attributes for project transfer invitation events.
 | inviter.email                 | string | Email of the inviter                          |
 | inviter.username              | string | Username of the inviter                       |
 | status                        | string | Invitation status                             |
-| status_reason                 | string | Optional status rationale                     |
+| status_reason                 | string | Reason of transfer action failure                     |
 | expires_at                    | date   | Expiration date of the invitation             |
 
 --- row ---
@@ -2165,7 +2165,7 @@ Example object:
       "email": "user@example.com"
     },
     "status": "accepted",
-    "status_reason": "Confirmed ownership transfer",
+    "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00"
   }
 }
@@ -2255,7 +2255,7 @@ Example object:
       "email": "user@example.com"
     },
     "status": "canceled",
-    "status_reason": "Canceled by inviter",
+    "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00"
   }
 }
@@ -2297,7 +2297,7 @@ Example object:
       "email": "user@example.com"
     },
     "status": "declined",
-    "status_reason": "Declined by invited collaborator",
+    "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00"
   }
 }
