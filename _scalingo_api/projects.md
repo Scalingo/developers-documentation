@@ -291,3 +291,292 @@ Returns 204 No Content
 ```json
 {}
 ```
+
+--- row ---
+
+## Project transfer invitations
+
+--- row ---
+
+Project transfer invitations let a project owner transfer ownership to another collaborator.
+
+
+**Transfer invitation attributes**
+
+{:.table}
+| field           | type    | description                                                                |
+| --------------- | ------- | -------------------------------------------------------------------------- |
+| id              | string  | unique ID of the invitation                                                |
+| project_id      | string  | ID of the project targeted by the transfer                                 |
+| invited_user_id    | string  | invited collaborator                                                        |
+| invited_user_name  | string  | username of the invited collaborator                                        |
+| inviter_user_id    | string  | user who created the invitation                                            |
+| status          | string  | one of `pending`, `accepted`, `declined`, `canceled`, `failed`              |
+| status_reason   | string  | reason of transfer action failure                                          |
+| expires_at      | date    | expiration date of the invitation                                           |
+| created_at      | date    | creation date                                                               |
+| updated_at      | date    | last update date                                                            |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+  "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+  "invited_user_id": "54100245736f7563d5000000",
+  "invited_user_name": "alice",
+  "inviter_user_id": "54100245736f7563d5000000",
+  "status": "pending",
+  "status_reason": "",
+  "expires_at": "2014-09-13T10:17:52.690+02:00",
+  "created_at": "2014-09-10T10:17:52.690+02:00",
+  "updated_at": "2014-09-10T10:17:52.690+02:00"
+}
+```
+
+--- row ---
+
+## List all your project transfer invitations
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations`
+
+By default only not expired `pending` invitations are returned. Pass the `status` query parameter (for example `?status=all`) to disable the pending-only filter.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations
+```
+
+Returns 200 OK
+
+```json
+{
+  "transfer_invitations": [
+    {
+      "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+      "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+      "invited_user_id": "54100245736f7563d5000000",
+      "invited_user_name": "alice",
+      "inviter_user_id": "54100245736f7563d5000000",
+      "status": "pending",
+      "status_reason": "",
+      "expires_at": "2014-09-13T10:17:52.690+02:00",
+      "created_at": "2014-09-10T10:17:52.690+02:00",
+      "updated_at": "2014-09-10T10:17:52.690+02:00"
+    }
+  ]
+}
+```
+
+--- row ---
+
+## Get a project transfer invitation
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations/[:id]`
+
+Retrieve a specific project transfer invitation. The invitation is visible to the inviter or the invited collaborator.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations/tin-01234567-89ab-cdef-0123-456789abcdef
+```
+
+Returns 200 OK
+
+```json
+{
+  "transfer_invitation": {
+    "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_name": "alice",
+    "inviter_user_id": "54100245736f7563d5000000",
+    "status": "pending",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T10:17:52.690+02:00"
+  }
+}
+```
+
+--- row ---
+
+## Create a project transfer invitation
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations`
+
+Project owners can create a transfer invitation for a collaborator who has access to all applications in the project. The API sets the expiration (`expires_at`) to `now + 3 days` and fails if a `pending` invitation already exists for the project.
+
+### Parameters
+
+* `transfer_invitation.invited_user_id`: ID of the collaborator to invite
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations -d \
+  '{
+    "transfer_invitation": {
+      "invited_user_id": "54100245736f7563d5000000"
+    }
+  }'
+```
+
+Returns 201 Created
+
+```json
+{
+  "transfer_invitation": {
+    "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_name": "alice",
+    "inviter_user_id": "54100245736f7563d5000000",
+    "status": "pending",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T10:17:52.690+02:00"
+  }
+}
+```
+
+--- row ---
+
+## Accept a project transfer invitation
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations/[:id]/accept`
+
+The invited collaborator can accept a project transfer invitation.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations/tin-01234567-89ab-cdef-0123-456789abcdef/accept
+```
+
+Returns 200 OK
+
+```json
+{
+  "transfer_invitation": {
+    "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_name": "alice",
+    "inviter_user_id": "54100245736f7563d5000000",
+    "status": "accepted",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T11:00:00.000+02:00"
+  }
+}
+```
+
+--- row ---
+
+## Decline a project transfer invitation
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations/[:id]/decline`
+
+The invited collaborator can decline a project transfer invitation.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations/tin-01234567-89ab-cdef-0123-456789abcdef/decline
+```
+
+Returns 200 OK
+
+```json
+{
+  "transfer_invitation": {
+    "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_name": "alice",
+    "inviter_user_id": "54100245736f7563d5000000",
+    "status": "declined",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T11:00:00.000+02:00"
+  }
+}
+```
+
+--- row ---
+
+## Cancel a project transfer invitation
+
+--- row ---
+
+`POST https://$SCALINGO_API_URL/v1/projects/[:project_id]/transfer_invitations/[:id]/cancel`
+
+The project's owner can cancel a project transfer invitation.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations/tin-01234567-89ab-cdef-0123-456789abcdef/cancel
+```
+
+Returns 200 OK
+
+```json
+{
+  "transfer_invitation": {
+    "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_name": "alice",
+    "inviter_user_id": "54100245736f7563d5000000",
+    "status": "canceled",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "created_at": "2014-09-10T10:17:52.690+02:00",
+    "updated_at": "2014-09-10T11:00:00.000+02:00"
+  }
+}
+```
