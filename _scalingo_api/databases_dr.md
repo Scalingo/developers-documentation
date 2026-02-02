@@ -21,7 +21,7 @@ Standard addon databases should be managed via the [Addons endpoints](/addons).
 | id          | string | unique ID                                             |
 | name        | string | name of the database                                  |
 | project_id  | string | ID of the project the database belongs to             |
-| technology  | string | database technology (e.g., postgresql-dr)|
+| technology  | string | database technology (e.g., postgresql-ng)|
 | plan        | string | plan name (e.g., postgresql-dr-starter-4096) |
 
 ||| col |||
@@ -33,7 +33,7 @@ Example object:
   "id": "54100930736f7563d5030000",
   "name": "my-postgres-db",
   "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-  "technology": "postgresql-dr",
+  "technology": "postgresql-ng",
   "plan": "postgresql-dr-starter-4096"
 }
 ```
@@ -49,7 +49,7 @@ Example object:
 ### Parameters
 
 * `database.name`: Database name. Should have between 6 and 48 lower case alphanumerical characters and hyphens.
-* `database.technology`: Database technology identifier. Only `postgresql-dr` is supported for now.
+* `database.technology`: Database technology identifier. Only `postgresql-ng` is supported for now.
 * `database.plan`: Plan identifier (e.g., `postgresql-dr-starter-4096`). Available plans can be retrieved via the [Addon Providers endpoint](/addon_providers).
 * `database.project_id`: (*Optional*) ID of the project to assign the database to. If not provided, the database will be assigned to your default project.
 
@@ -66,7 +66,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   '{
     "database": {
       "name": "my-postgres-db",
-      "technology": "postgresql-dr",
+      "technology": "postgresql-ng",
       "plan": "postgresql-dr-starter-4096",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f"
     }
@@ -81,7 +81,7 @@ Returns 201 Created
     "id": "54100930736f7563d5030000",
     "name": "my-postgres-db",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "technology": "postgresql-dr",
+    "technology": "postgresql-ng",
     "plan": "postgresql-dr-starter-4096"
   }
 }
@@ -116,14 +116,14 @@ Returns 200 OK
       "id": "54100930736f7563d5030000",
       "name": "my-postgres-db",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-      "technology": "postgresql-dr",
+      "technology": "postgresql-ng",
       "plan": "postgresql-dr-starter-4096"
     },
     {
       "id": "54100930736f7563d5030001",
       "name": "backup-db",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-      "technology": "postgresql-dr",
+      "technology": "postgresql-ng",
       "plan": "postgresql-dr-business-4096"
     }
   ]
@@ -160,7 +160,7 @@ Returns 200 OK
     "id": "54100930736f7563d5030000",
     "name": "my-postgres-db",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "technology": "postgresql-dr",
+    "technology": "postgresql-ng",
     "plan": "postgresql-dr-starter-4096"
   }
 }
