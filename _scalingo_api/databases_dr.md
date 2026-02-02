@@ -3,7 +3,7 @@ title: Databases
 layout: default
 ---
 
-# Databases
+# Databases as Dedicated Resources
 
 Databases endpoints allows you to manage Databases provisioned as Dedicated Resources.
 
@@ -40,7 +40,7 @@ Example object:
 
 --- row ---
 
-## Create a Database
+## Create a Database as a Dedicated Resource
 
 --- row ---
 
@@ -89,13 +89,13 @@ Returns 201 Created
 
 --- row ---
 
-## List Your Databases
+## List Your Dedicated Resource Databases
 
 --- row ---
 
 `GET https://$SCALINGO_API_URL/v1/databases`
 
-List all your databases of postgresql-dr technology, including those where you are a collaborator.
+List all your databases of postgresql-ng technology, including those where you are a collaborator.
 
 ||| col |||
 
@@ -132,13 +132,13 @@ Returns 200 OK
 
 --- row ---
 
-## Get a Precise Database
+## Get a Dedicated Resource Database
 
 --- row ---
 
 `GET https://$SCALINGO_API_URL/v1/databases/[:database]`
 
-Display a precise database of postgresql-dr technology.
+Display a precise database of postgresql-ng technology.
 
 The `[:database]` parameter can be either the database ID or the database name.
 
