@@ -2111,6 +2111,200 @@ Example object:
 
 --- row ---
 
+* **Project transfer invitation event base**
+
+_When:_ Common attributes for project transfer invitation events.
+
+{:.table}
+| field                         | type   | description                                   |
+| ----------------------------- | ------ | --------------------------------------------- |
+| transfer_invitation_id        | string | ID of the transfer invitation                 |
+| invited_user.id               | string | ID of the invited collaborator                |
+| invited_user.email            | string | Email of the invited collaborator             |
+| invited_user.username         | string | Username of the invited collaborator          |
+| inviter.id                    | string | ID of the inviter                             |
+| inviter.email                 | string | Email of the inviter                          |
+| inviter.username              | string | Username of the inviter                       |
+| status                        | string | Invitation status                             |
+| status_reason                 | string | Reason of transfer action failure                     |
+| expires_at                    | date   | Expiration date of the invitation             |
+
+--- row ---
+
+* **Accept project transfer invitation event**
+
+_When:_ A project transfer invitation is accepted
+`type=accept_project_transfer_invitation`
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "accept_project_transfer_invitation",
+  "user": {
+    "username": "alice",
+    "email": "alice@example.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "transfer_invitation_id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "invited_user": {
+      "id": "54100245736f7563d5000000",
+      "username": "alice",
+      "email": "alice@example.com"
+    },
+    "inviter": {
+      "id": "54100245736f7563d5000000",
+      "username": "john",
+      "email": "user@example.com"
+    },
+    "status": "accepted",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00"
+  }
+}
+```
+
+--- row ---
+
+* **Accept project transfer invitation error event**
+
+_When:_ Accepting a project transfer invitation fails
+`type=accept_project_transfer_invitation_error`
+
+{:.table}
+| field | type   | description                      |
+| ----- | ------ | -------------------------------- |
+| error | string | Error message for the failure    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "accept_project_transfer_invitation_error",
+  "user": {
+    "username": "alice",
+    "email": "alice@example.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "transfer_invitation_id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "invited_user": {
+      "id": "54100245736f7563d5000000",
+      "username": "alice",
+      "email": "alice@example.com"
+    },
+    "inviter": {
+      "id": "54100245736f7563d5000000",
+      "username": "john",
+      "email": "user@example.com"
+    },
+    "status": "failed",
+    "status_reason": "Transfer ownership failed",
+    "expires_at": "2014-09-13T10:17:52.690+02:00",
+    "error": "Project transfer invitation already expired."
+  }
+}
+```
+
+--- row ---
+
+* **Cancel project transfer invitation event**
+
+_When:_ A project transfer invitation is canceled by the inviter
+`type=cancel_project_transfer_invitation`
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "cancel_project_transfer_invitation",
+  "user": {
+    "username": "john",
+    "email": "user@example.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "transfer_invitation_id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "invited_user": {
+      "id": "54100245736f7563d5000000",
+      "username": "alice",
+      "email": "alice@example.com"
+    },
+    "inviter": {
+      "id": "54100245736f7563d5000000",
+      "username": "john",
+      "email": "user@example.com"
+    },
+    "status": "canceled",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00"
+  }
+}
+```
+
+--- row ---
+
+* **Decline project transfer invitation event**
+
+_When:_ A project transfer invitation is declined by the invited collaborator
+`type=decline_project_transfer_invitation`
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "project_id": "649e9d0389bca600016ea61b",
+  "project_name": "project-1",
+  "type": "decline_project_transfer_invitation",
+  "user": {
+    "username": "alice",
+    "email": "alice@example.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "transfer_invitation_id": "tin-01234567-89ab-cdef-0123-456789abcdef",
+    "invited_user": {
+      "id": "54100245736f7563d5000000",
+      "username": "alice",
+      "email": "alice@example.com"
+    },
+    "inviter": {
+      "id": "54100245736f7563d5000000",
+      "username": "john",
+      "email": "user@example.com"
+    },
+    "status": "declined",
+    "status_reason": "",
+    "expires_at": "2014-09-13T10:17:52.690+02:00"
+  }
+}
+```
+
+--- row ---
+
 * **Project Deleted**
 
 _When:_ A project has been deleted
