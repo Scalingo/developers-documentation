@@ -2125,7 +2125,7 @@ _When:_ Common attributes for project transfer invitation events.
 | inviter.id                    | string | ID of the inviter                             |
 | inviter.email                 | string | Email of the inviter                          |
 | inviter.username              | string | Username of the inviter                       |
-| status                        | string | Invitation status                             |
+| status                        | string | Invitation status (`pending`, `accepted`, `declined`, `canceled`, `failed`, `error`) |
 | status_reason                 | string | Reason of transfer action failure                     |
 | expires_at                    | date   | Expiration date of the invitation             |
 
@@ -2178,11 +2178,6 @@ Example object:
 _When:_ Accepting a project transfer invitation fails
 `type=accept_project_transfer_invitation_error`
 
-{:.table}
-| field | type   | description                      |
-| ----- | ------ | -------------------------------- |
-| error | string | Error message for the failure    |
-
 ||| col |||
 
 Example object:
@@ -2212,9 +2207,8 @@ Example object:
       "email": "user@example.com"
     },
     "status": "failed",
-    "status_reason": "Transfer ownership failed",
+    "status_reason": "You must be collaborator on all resources",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
-    "error": "Project transfer invitation already expired."
   }
 }
 ```

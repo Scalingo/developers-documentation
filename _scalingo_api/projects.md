@@ -311,11 +311,13 @@ Project transfer invitations let a project owner transfer ownership to another c
 | invited_user_id    | string  | invited collaborator                                                        |
 | invited_user_name  | string  | username of the invited collaborator                                        |
 | inviter_user_id    | string  | user who created the invitation                                            |
-| status          | string  | one of `pending`, `accepted`, `declined`, `canceled`, `failed`              |
+| status          | string  | one of `pending`, `accepted`, `declined`, `canceled`, `failed`, `error`     |
 | status_reason   | string  | reason of transfer action failure                                          |
 | expires_at      | date    | expiration date of the invitation                                           |
 | created_at      | date    | creation date                                                               |
 | updated_at      | date    | last update date                                                            |
+
+Note: If the invitation status is `error` after acceptance, you'll need to contact support to fix the transfer.
 
 ||| col |||
 
