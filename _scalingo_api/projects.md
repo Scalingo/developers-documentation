@@ -420,6 +420,43 @@ Returns 200 OK
 
 --- row ---
 
+## List Eligible New Owners for Project Transfer
+
+--- row ---
+
+`GET https://$SCALINGO_API_URL/v1/projects/[:project_id]/eligible_new_owners`
+
+List all users eligible to become the new owner of a project. Only the current project owner can call this endpoint. To be eligible, a user must be a collaborator on all resources within the project.
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/eligible_new_owners
+```
+
+Returns 200 OK
+
+```json
+{
+  "eligible_new_owners": [
+    {
+      "user_name": "john",
+      "user_id": "us-82a3cac5-9b25-473e-b33d-6272b87e636f"
+    },
+    {
+      "user_name": "alice",
+      "user_id": "us-91b4dbd6-2c36-584f-c44d-7383c98f747g"
+    }
+  ]
+}
+```
+
+--- row ---
+
 ## Create a project transfer invitation
 
 --- row ---
