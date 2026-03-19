@@ -32,7 +32,7 @@ Example object:
   "created_at": "2014-09-10T10:17:52.690+02:00",
   "updated_at": "2014-09-10T10:17:52.690+02:00",
   "owner": {
-    "id": "54100245736f7563d5000000",
+    "id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
     "username": "john",
     "email": "user@example.com",
     "flags": {
@@ -85,7 +85,7 @@ Returns 201 Created
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "updated_at": "2014-09-10T10:17:52.690+02:00",
     "owner": {
-      "id": "54100245736f7563d5000000",
+      "id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
       "username": "john",
       "email": "user@example.com",
       "flags": {
@@ -131,7 +131,7 @@ Returns 200 OK
       "created_at": "2014-09-10T10:17:52.690+02:00",
       "updated_at": "2014-09-10T10:17:52.690+02:00",
       "owner": {
-        "id": "54100245736f7563d5000000",
+        "id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
         "username": "john",
         "email": "user@example.com",
         "flags": {
@@ -148,7 +148,7 @@ Returns 200 OK
       "created_at": "2014-09-11T10:17:52.690+02:00",
       "updated_at": "2014-09-11T10:17:52.690+02:00",
       "owner": {
-        "id": "54100245736f7563d5000000",
+        "id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
         "username": "john",
         "email": "user@example.com",
         "flags": {
@@ -191,7 +191,7 @@ Returns 200 OK
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "updated_at": "2014-09-10T10:17:52.690+02:00",
     "owner": {
-      "id": "54100245736f7563d5000000",
+      "id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
       "username": "john",
       "email": "user@example.com",
       "flags": {
@@ -249,7 +249,7 @@ Returns 200 OK
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "updated_at": "2014-09-10T11:25:30.123+02:00",
     "owner": {
-      "id": "54100245736f7563d5000000",
+      "id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
       "username": "john",
       "email": "user@example.com",
       "flags": {
@@ -327,9 +327,9 @@ Example object:
 {
   "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
   "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-  "invited_user_id": "54100245736f7563d5000000",
+  "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
   "invited_user_name": "alice",
-  "inviter_user_id": "54100245736f7563d5000000",
+  "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
   "status": "pending",
   "status_reason": "",
   "expires_at": "2014-09-13T10:17:52.690+02:00",
@@ -366,9 +366,9 @@ Returns 200 OK
     {
       "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-      "invited_user_id": "54100245736f7563d5000000",
+      "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
       "invited_user_name": "alice",
-      "inviter_user_id": "54100245736f7563d5000000",
+      "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
       "status": "pending",
       "status_reason": "",
       "expires_at": "2014-09-13T10:17:52.690+02:00",
@@ -406,9 +406,9 @@ Returns 200 OK
   "transfer_invitation": {
     "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
     "invited_user_name": "alice",
-    "inviter_user_id": "54100245736f7563d5000000",
+    "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
     "status": "pending",
     "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
@@ -445,11 +445,11 @@ Returns 200 OK
   "eligible_new_owners": [
     {
       "user_name": "john",
-      "user_id": "us-82a3cac5-9b25-473e-b33d-6272b87e636f"
+      "user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63"
     },
     {
       "user_name": "alice",
-      "user_id": "us-91b4dbd6-2c36-584f-c44d-7383c98f747g"
+      "user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a"
     }
   ]
 }
@@ -479,7 +479,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
   -X POST https://$SCALINGO_API_URL/v1/projects/pr-82a3cac5-9b25-473e-b33d-6272b87e636f/transfer_invitations -d \
   '{
     "transfer_invitation": {
-      "invited_user_id": "54100245736f7563d5000000"
+      "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a"
     }
   }'
 ```
@@ -491,9 +491,9 @@ Returns 201 Created
   "transfer_invitation": {
     "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
     "invited_user_name": "alice",
-    "inviter_user_id": "54100245736f7563d5000000",
+    "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
     "status": "pending",
     "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
@@ -530,9 +530,9 @@ Returns 200 OK
   "transfer_invitation": {
     "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
     "invited_user_name": "alice",
-    "inviter_user_id": "54100245736f7563d5000000",
+    "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
     "status": "accepted",
     "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
@@ -569,9 +569,9 @@ Returns 200 OK
   "transfer_invitation": {
     "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
     "invited_user_name": "alice",
-    "inviter_user_id": "54100245736f7563d5000000",
+    "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
     "status": "declined",
     "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
@@ -608,9 +608,9 @@ Returns 200 OK
   "transfer_invitation": {
     "id": "tin-01234567-89ab-cdef-0123-456789abcdef",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
-    "invited_user_id": "54100245736f7563d5000000",
+    "invited_user_id": "us-f456a6c1-54d8-4a32-9d61-5f3c8e9d016a",
     "invited_user_name": "alice",
-    "inviter_user_id": "54100245736f7563d5000000",
+    "inviter_user_id": "us-c1a410ff-d68f-4c94-9a83-c3dedf866d63",
     "status": "canceled",
     "status_reason": "",
     "expires_at": "2014-09-13T10:17:52.690+02:00",
