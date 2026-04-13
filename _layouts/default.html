@@ -5,8 +5,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-2 sidebar-nav">
-          {% include search.html %}
           <a href="/"><img src="https://cdn.scalingo.com/branding/logo/scalingo-logo-dark.svg" class="h1 logo img-responsive"></a>
+          {% include search.html %}
           {% for c in site.collections %}
             {% if c.label == page.collection %}
               {% assign cur_collection = c%}
