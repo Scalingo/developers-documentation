@@ -179,9 +179,17 @@ _When:_ The application or some containers have been restarted
 | -------------- | ------ | ----------------------------------------------------- |
 | scope          | array  | The scope of the restart, null is all                 |
 | addon_provider | string | The name of the addon which restarted the application |
+| reason         | string | The reason of the restart                             |
 
 **Note:** If an addon restart the application, the user array won't be present.
 And if an user restart the application, the addon_name will be blank.
+
+Possible values for `reason`:
+
+- `user_restart`: the restart was explicitly triggered by a user.
+- `unexpected_failure`: the restart happened because of an unexpected failure.
+- `rebalancing_operation`: the restart was caused by a platform rebalancing operation.
+- `security_maintenance`: the restart was performed as part of a security maintenance operation.
 
 ||| col |||
 
