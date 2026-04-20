@@ -16,13 +16,14 @@ Standard addon databases should be managed via the [Addons endpoints](/addons).
 **Database attributes**
 
 {:.table}
-| field       | type   | description                                           |
-| ----------- | ------ | ----------------------------------------------------- |
-| id          | string | unique ID                                             |
-| name        | string | name of the database                                  |
-| project_id  | string | ID of the project the database belongs to             |
-| technology  | string | database technology (e.g., postgresql-ng)|
-| plan        | string | plan name (e.g., postgresql-dr-starter-4096) |
+| field         | type    | description                                           |
+| ------------- | ------- | ----------------------------------------------------- |
+| id            | string  | unique ID                                             |
+| name          | string  | name of the database                                  |
+| project_id    | string  | ID of the project the database belongs to             |
+| technology    | string  | database technology (e.g., postgresql-ng)             |
+| plan          | string  | plan name (e.g., postgresql-dr-starter-4096)          |
+| hds_resource  | boolean | whether the database is an HDS resource               |
 
 ||| col |||
 
@@ -34,7 +35,8 @@ Example object:
   "name": "my-postgres-db",
   "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
   "technology": "postgresql-ng",
-  "plan": "postgresql-dr-starter-4096"
+  "plan": "postgresql-dr-starter-4096",
+  "hds_resource": false
 }
 ```
 
@@ -52,6 +54,7 @@ Example object:
 * `database.technology`: Database technology identifier. Only `postgresql-ng` is supported for now.
 * `database.plan`: Plan identifier (e.g., `postgresql-dr-starter-4096`). Available plans can be retrieved via the [Addon Providers endpoint](/addon_providers).
 * `database.project_id`: (*Optional*) ID of the project to assign the database to. If not provided, the database will be assigned to your default project.
+* `database.hds_resource`: (*Optional*) Set to `true` to create the database as an HDS resource.
 
 **Note:** To provision other database types (MySQL, MongoDB, Redis, etc.), please use the [Addons provisioning endpoint](/addons#provision-an-addon).
 
@@ -68,7 +71,8 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" \
       "name": "my-postgres-db",
       "technology": "postgresql-ng",
       "plan": "postgresql-dr-starter-4096",
-      "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f"
+      "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
+      "hds_resource": false
     }
   }'
 ```
@@ -82,7 +86,8 @@ Returns 201 Created
     "name": "my-postgres-db",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
     "technology": "postgresql-ng",
-    "plan": "postgresql-dr-starter-4096"
+    "plan": "postgresql-dr-starter-4096",
+    "hds_resource": false
   }
 }
 ```
@@ -117,14 +122,16 @@ Returns 200 OK
       "name": "my-postgres-db",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
       "technology": "postgresql-ng",
-      "plan": "postgresql-dr-starter-4096"
+      "plan": "postgresql-dr-starter-4096",
+      "hds_resource": false
     },
     {
       "id": "54100930736f7563d5030001",
       "name": "backup-db",
       "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
       "technology": "postgresql-ng",
-      "plan": "postgresql-dr-business-4096"
+      "plan": "postgresql-dr-business-4096",
+      "hds_resource": true
     }
   ]
 }
@@ -161,7 +168,8 @@ Returns 200 OK
     "name": "my-postgres-db",
     "project_id": "pr-82a3cac5-9b25-473e-b33d-6272b87e636f",
     "technology": "postgresql-ng",
-    "plan": "postgresql-dr-starter-4096"
+    "plan": "postgresql-dr-starter-4096",
+    "hds_resource": false
   }
 }
 ```
