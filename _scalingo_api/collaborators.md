@@ -257,8 +257,8 @@ Returns 200 OK
 
 `DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/collaborators/[:collaborator_id]`
 
-This action completely remove a collaborator from an app. Only the owner of the
-app can execute it. The user won't be able to access, nor to deploy it.
+This action completely remove a collaborator from an app. 
+The user won't be able to access, nor to deploy it.
 
 ||| col |||
 
