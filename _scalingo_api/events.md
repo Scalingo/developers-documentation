@@ -2045,6 +2045,120 @@ Example object:
 
 --- row ---
 
+* **Database Continuous Backup Healthy**
+
+_When:_ Point-in-time recovery is available and restore points are up to date
+`type=database_continuousbackup_healthy`
+
+{% include scalingo_api/events/database_continuousbackup_type_data_table.md %}
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "682ee9400d6f86026b179c53",
+  "created_at": "2026-05-22T08:00:01.103Z",
+  "type": "database_continuousbackup_healthy",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "scalingo-platform",
+    "email": "deploy@scalingo.com",
+    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+  },
+  "type_data": {
+    "addon_name": "PostgreSQL",
+    "resource_id": "sample-go-martini-6184",
+    "addon_uuid": "ad-b48f347e-2e3d-4b48-8dee-40eed0539ee1",
+    "status": "healthy",
+    "error": null,
+    "recoverable": true,
+    "checked_at": "2026-05-22T08:00:00.000Z",
+    "unrecoverable_duration_seconds": 0
+  }
+}
+```
+
+--- row ---
+
+* **Database Continuous Backup Delayed**
+
+_When:_ The latest restorable point is more than 12 hours behind
+`type=database_continuousbackup_delayed`
+
+{% include scalingo_api/events/database_continuousbackup_type_data_table.md %}
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "682ee9400d6f86026b179c54",
+  "created_at": "2026-05-22T08:00:01.103Z",
+  "type": "database_continuousbackup_delayed",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "scalingo-platform",
+    "email": "deploy@scalingo.com",
+    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+  },
+  "type_data": {
+    "addon_name": "PostgreSQL",
+    "resource_id": "sample-go-martini-6184",
+    "addon_uuid": "ad-b48f347e-2e3d-4b48-8dee-40eed0539ee1",
+    "status": "pgbackrest_error",
+    "error": "pgBackRest archive-push has been failing for 12h",
+    "recoverable": false,
+    "checked_at": "2026-05-22T08:00:00.000Z",
+    "unrecoverable_duration_seconds": 43201
+  }
+}
+```
+
+--- row ---
+
+* **Database Continuous Backup Stale**
+
+_When:_ The latest restorable point is more than 24 hours behind
+`type=database_continuousbackup_stale`
+
+{% include scalingo_api/events/database_continuousbackup_type_data_table.md %}
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "682ee9400d6f86026b179c55",
+  "created_at": "2026-05-22T08:00:01.103Z",
+  "type": "database_continuousbackup_stale",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "scalingo-platform",
+    "email": "deploy@scalingo.com",
+    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+  },
+  "type_data": {
+    "addon_name": "PostgreSQL",
+    "resource_id": "sample-go-martini-6184",
+    "addon_uuid": "ad-b48f347e-2e3d-4b48-8dee-40eed0539ee1",
+    "status": "wal_error",
+    "error": "WAL archiving has been stale for more than 24h",
+    "recoverable": false,
+    "checked_at": "2026-05-22T08:00:00.000Z",
+    "unrecoverable_duration_seconds": 86401
+  }
+}
+```
+
+--- row ---
+
 * **New Project Created**
 
 _When:_ A new project has been created
