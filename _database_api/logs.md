@@ -11,7 +11,7 @@ layout: default
 
 --- row ---
 
-`GET https://$DB_API_URL/dapi/databases/[:database_id]/logs`
+`GET https://$DB_API_URL/api/databases/[:database_id]/logs`
 
 {:.table}
 | field | type   | description                              |
@@ -36,6 +36,6 @@ Returns 200 OK
 
 ```json
 {
-  "url": "https://logs.scalingo.com/apps/59e6641ab8c6f11f89d0b950/logs?token=authentication_token"
+  "url": "https://logs.shard-0.osc-fr1.scalingo.com/apps/59e6641ab8c6f11f89d0b950/logs?token=authentication_token"
 }
 ```

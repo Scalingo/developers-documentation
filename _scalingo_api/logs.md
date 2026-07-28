@@ -7,7 +7,7 @@ layout: default
 
 ## Dump and stream logs
 
-`GET https://logs.scalingo.com/apps/[:app]/logs?token=[:token]`
+`GET https://logs.shard-0.osc-fr1.scalingo.com/apps/[:app]/logs?token=[:token]`
 
 To get an authenticated URL, see [Application#logs](/apps.html#access-to-the-application-logs)
 
@@ -31,7 +31,7 @@ The `filter` parameter can contain a container name (e.g. `web-1`), a container 
 Example request:
 
 ```sh
-curl -X GET 'https://logs.scalingo.com/apps/example-app/logs?n=10'
+curl -X GET 'https://logs.shard-0.osc-fr1.scalingo.com/apps/example-app/logs?n=10'
 ```
 
 Response 200 OK
@@ -76,7 +76,7 @@ Websocket example:
 
 ```sh
 curl -H "Connection: Upgrade" -H "Upgrade: websocket" -v \
- -X GET 'https://logs.scalingo.com/apps/example-app/logs?n=0&stream=true'
+ -X GET 'https://logs.shard-0.osc-fr1.scalingo.com/apps/example-app/logs?n=0&stream=true'
 ```
 
 Return 101 Switching Protocol

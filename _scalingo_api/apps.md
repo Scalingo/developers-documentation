@@ -668,7 +668,7 @@ Returns 200 OK
 ```json
 {
   "app": { … },
-  "logs_url": "https://logs.scalingo.com/apps/example-app/logs?token=0123456789"
+  "logs_url": "https://logs.shard-0.osc-fr1.scalingo.com/apps/example-app/logs?token=0123456789"
 }
 ```
 
