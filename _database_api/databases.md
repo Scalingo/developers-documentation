@@ -286,6 +286,38 @@ Headers:
 
 --- row ---
 
+## Recovery window for Point-in-Time Restoration
+
+--- row ---
+
+`GET https://$DB_API_URL/api/databases/[:db_id]/pitr/recovery_window`
+
+Fetch the recovery window for a given database, to then use the restore endpoint. This is currently only
+available for PostgreSQL databases.
+
+||| col |||
+
+Example request
+
+```shell
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $DB_BEARER_TOKEN" \
+  -X GET https://$DB_API_URL/api/databases/my-db-123/pitr/recovery_window
+```
+
+Returns 200 OK
+
+```json
+{
+  "recovery_window": {
+    "earliest_recoverable_at": "2026-04-23T08:00:00Z",
+    "latest_recoverable_at": "2026-04-30T22:00:00Z"
+  }
+}
+```
+
+--- row ---
+
 ## Point-in-Time Restoration
 
 --- row ---
