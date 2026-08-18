@@ -75,6 +75,7 @@ Returns 200 OK
 {
   "operation": {
     "id": "54100930736f7563d5030000",
+    "database_id": "my-db-123",
     "created_at": "2014-09-10T10:17:52.690+02:00",
     "finished_at": "2014-09-10T10:17:59.120+02:00",
     "status": "pending",
