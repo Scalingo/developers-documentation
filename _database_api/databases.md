@@ -344,7 +344,12 @@ Returns 201 Created
 
 ```json
 {
-  "operation_id": "5c10e85ca506b701f42f92dc"
+  "operation": {
+    "id": "54100930736f7563d5030000",
+    "created_at": "2019-07-19T10:17:52.690+02:00",
+    "status": "pending",
+    "type": "pitr_restore"
+  }
 }
 ```
 
