@@ -1913,7 +1913,7 @@ Example object:
 
 * **Database Maintenance Completed**
 
-_When:_ A maintenance as completed on your database
+_When:_ A maintenance has completed on your database
 `type=complete_database_maintenance`
 
 {:.table}
@@ -1934,6 +1934,48 @@ Example object:
   "id": "650312574002c001afcdf988",
   "created_at": "2023-09-14T14:01:59.916Z",
   "type": "complete_database_maintenance",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "addon_name": "Redis",
+    "maintenance_id": "6503020ba8acb51a3278cf81",
+    "maintenance_type": "no-op",
+    "maintenance_window_in_hours": 8,
+    "next_maintenance_window": "2023-09-14T21:00:00.000Z"
+  }
+}
+```
+
+--- row ---
+
+* **Database Maintenance Missed**
+
+_When:_ A maintenance has been postponed to a later window
+`type=missed_database_maintenance`
+
+{:.table}
+| field                       | type     | description                                        |
+| --------------------------- | -------- | -------------------------------------------------- |
+| maintenance_id              | string   | The related maintenance ID                         |
+| addon_name                  | string   | The related addon name                             |
+| maintenance_type            | string   | The type of maintenance executed                   |
+| maintenance_window_in_hours | integer  | The maintenance window duration (in hours)         |
+| next_maintenance_window     | datetime | The beginning date of your next maintenance window |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "type": "missed_database_maintenance",
   "app_id": "649e9d0389bca600016ea61b",
   "app_name": "sample-go-martini",
   "user": {
