@@ -2539,7 +2539,7 @@ _When:_ A Redis to Valkey migration has been completed
 | field      | type     | description             |
 | -----------| -------- | ------------------------|
 | from_plan  | string   | Redis source plan name  |
-| plan_name  | string   | Valkey new plan name    |
+| to_plan    | string   | Valkey new plan name    |
 
 ||| col |||
 
@@ -2559,7 +2559,7 @@ Example object:
   },
   "type_data": {
     "from_plan": "redis-starter-256",
-    "plan_name": "valkey-starter-256"
+    "to_plan": "valkey-starter-256"
   }
 }
 ```
