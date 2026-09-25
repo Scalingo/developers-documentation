@@ -2532,8 +2532,8 @@ Example object:
 
 * **Migration from Redis to Valkey completed**
 
-_When:_ A maintenance has been postponed to a later window
-`type=complete_redis_to_valkey_migration`
+_When:_ A Redis to Valkey migration has been completed
+`type=redis_to_valkey_migration_completed`
 
 {:.table}
 | field      | type     | description             |
@@ -2549,7 +2549,7 @@ Example object:
 {
   "id": "650312574002c001afcdf988",
   "created_at": "2023-09-14T14:01:59.916Z",
-  "type": "complete_redis_to_valkey_migration",
+  "type": "redis_to_valkey_migration_completed",
   "app_id": "649e9d0389bca600016ea61b",
   "app_name": "sample-go-martini",
   "user": {
