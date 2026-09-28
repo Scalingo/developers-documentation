@@ -2529,6 +2529,43 @@ Example object:
 ```
 
 --- row ---
+
+* **Migration from Redis to Valkey completed**
+
+_When:_ A Redis to Valkey migration has been completed
+`type=redis_to_valkey_migration_completed`
+
+{:.table}
+| field      | type     | description             |
+| -----------| -------- | ------------------------|
+| from_plan  | string   | Redis source plan name  |
+| to_plan    | string   | Valkey new plan name    |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "650312574002c001afcdf988",
+  "created_at": "2023-09-14T14:01:59.916Z",
+  "type": "redis_to_valkey_migration_completed",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "type_data": {
+    "from_plan": "redis-starter-256",
+    "to_plan": "valkey-starter-256"
+  }
+}
+```
+
+--- row ---
+
 ## List the Events of an App
 
 --- row ---
