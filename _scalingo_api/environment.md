@@ -96,7 +96,7 @@ Response
 
 ## Add environment variables to an app
 
-There is a limit of 64 characters for the name of the variables and 8192 for values.
+There is a limit of 64 characters for the name of the variables and 32,768 for values.
 
 --- row ---
 
