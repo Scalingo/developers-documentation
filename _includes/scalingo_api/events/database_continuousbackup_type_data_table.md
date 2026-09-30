@@ -4,7 +4,7 @@
 | addon_name                      | string   | The related addon name                                             |
 | resource_id                     | string   | The related addon resource ID                                      |
 | addon_uuid                      | string   | The related addon UUID                                             |
-| status                          | string   | Continuous backup status. Possible values: `healthy`, `pgbackrest_error`, `wal_error` |
+| status                          | string   | Continuous backup status. Possible values: `healthy`, `pgbackrest_error` and `wal_error` (PostgreSQL), `myhoard_error` (MySQL) |
 | error                           | string or null | Error message returned by the continuous backup checker       |
 | recoverable                     | boolean  | Whether point-in-time recovery is currently available              |
 | checked_at                      | datetime | The date and time when the continuous backup status was checked    |

@@ -2199,6 +2199,33 @@ Example object:
 }
 ```
 
+Example object for a MySQL database:
+
+```json
+{
+  "id": "682ee9400d6f86026b179c56",
+  "created_at": "2026-05-22T08:00:01.103Z",
+  "type": "database_continuousbackup_stale",
+  "app_id": "649e9d0389bca600016ea61b",
+  "app_name": "sample-go-martini",
+  "user": {
+    "username": "scalingo-platform",
+    "email": "deploy@scalingo.com",
+    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
+  },
+  "type_data": {
+    "addon_name": "MySQL",
+    "resource_id": "sample-go-martini-7291",
+    "addon_uuid": "ad-9f2c6e1a-4b7d-4e3a-8c5f-1d2e3f4a5b6c",
+    "status": "myhoard_error",
+    "error": "MyHoard reports no completed non-broken backup",
+    "recoverable": false,
+    "checked_at": "2026-05-22T08:00:00.000Z",
+    "unrecoverable_duration_seconds": 86401
+  }
+}
+```
+
 --- row ---
 
 * **New Project Created**
