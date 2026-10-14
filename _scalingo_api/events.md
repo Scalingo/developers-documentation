@@ -2089,7 +2089,7 @@ Example object:
 
 * **Database Continuous Backup Healthy**
 
-_When:_ Point-in-time recovery is available and restore points are up to date, or recovery was lost less than 12 hours ago (in that case `recoverable` is `false` and `status` is `unhealthy`)
+_When:_ Point-in-time recovery is available and restore points are up to date
 `type=database_continuousbackup_healthy`
 
 {% include scalingo_api/events/database_continuousbackup_type_data_table.md %}
