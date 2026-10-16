@@ -2152,8 +2152,8 @@ Example object:
     "addon_name": "PostgreSQL",
     "resource_id": "sample-go-martini-6184",
     "addon_uuid": "ad-b48f347e-2e3d-4b48-8dee-40eed0539ee1",
-    "status": "pgbackrest_error",
-    "error": "pgBackRest archive-push has been failing for 12h",
+    "status": "unhealthy",
+    "error": "Continuous backup is currently unavailable.",
     "recoverable": false,
     "checked_at": "2026-05-22T08:00:00.000Z",
     "unrecoverable_duration_seconds": 43201
@@ -2190,35 +2190,8 @@ Example object:
     "addon_name": "PostgreSQL",
     "resource_id": "sample-go-martini-6184",
     "addon_uuid": "ad-b48f347e-2e3d-4b48-8dee-40eed0539ee1",
-    "status": "wal_error",
-    "error": "WAL archiving has been stale for more than 24h",
-    "recoverable": false,
-    "checked_at": "2026-05-22T08:00:00.000Z",
-    "unrecoverable_duration_seconds": 86401
-  }
-}
-```
-
-Example object for a MySQL database:
-
-```json
-{
-  "id": "682ee9400d6f86026b179c56",
-  "created_at": "2026-05-22T08:00:01.103Z",
-  "type": "database_continuousbackup_stale",
-  "app_id": "649e9d0389bca600016ea61b",
-  "app_name": "sample-go-martini",
-  "user": {
-    "username": "scalingo-platform",
-    "email": "deploy@scalingo.com",
-    "id": "us-b32ca09d-1608-4e6f-8f14-302b447b0e14"
-  },
-  "type_data": {
-    "addon_name": "MySQL",
-    "resource_id": "sample-go-martini-7291",
-    "addon_uuid": "ad-9f2c6e1a-4b7d-4e3a-8c5f-1d2e3f4a5b6c",
-    "status": "myhoard_error",
-    "error": "MyHoard reports no completed non-broken backup",
+    "status": "unhealthy",
+    "error": "Continuous backup is currently unavailable.",
     "recoverable": false,
     "checked_at": "2026-05-22T08:00:00.000Z",
     "unrecoverable_duration_seconds": 86401
