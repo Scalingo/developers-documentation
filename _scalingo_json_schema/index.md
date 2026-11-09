@@ -29,21 +29,21 @@ You can use [the provided scalingo.schema.json](https://github.com/Scalingo/deve
 **The manifest attributes**
 
 {:.table}
-| field                     | type    | description                                    |
-| ------------------------- | ------  | ---------------------------------------------- |
-| name                      | string  | Complete name of the project                   |
-| repository                | string  | Location of the GIT repository of the project  |
-| ref                       | string  | Branch name or commit ID of the code to use    |
-| stack                     | string  | Name of the stack to use                       |
-| description               | string  | Description in one or two sentences of the app |
-| logo                      | string  | URL to the logo of the project                 |
-| website                   | string  | Official website of the application if any     |
-| copy_parent_database_urls | boolean | Copy database credentials from parent app      |
-| env                       | object  | Environment of the application, see below      |
+| field                     | type    | description                                           |
+| ------------------------- | ------- | ----------------------------------------------------- |
+| name                      | string  | Complete name of the project                          |
+| repository                | string  | Location of the GIT repository of the project         |
+| ref                       | string  | Branch name or commit ID of the code to use           |
+| stack                     | string  | Name of the stack to use                              |
+| description               | string  | Description in one or two sentences of the app        |
+| logo                      | string  | URL to the logo of the project                        |
+| website                   | string  | Official website of the application if any            |
+| copy_parent_database_urls | boolean | Copy database credentials from parent app             |
+| env                       | object  | Environment of the application, see below             |
 | firewall_rules            | array   | Application firewall rules for review apps, see below |
-| addons                    | array   | List of all the addons required to run the app |
-| scripts                   | object  | Optional hook scripts, see below               |
-| formation                 | object  | Formation of containers when an app is created |
+| addons                    | array   | List of all the addons required to run the app        |
+| scripts                   | object  | Optional hook scripts, see below                      |
+| formation                 | object  | Formation of containers when an app is created        |
 
 **Environment**
 
@@ -169,7 +169,7 @@ Each rule must have a `cidr` and can have an optional `label`.
 | cidr  | string | IPv4 CIDR to allow. Use `/32` for a single IPv4 address   |
 | label | string | Optional label attached to the rule                     |
 
-IPv6 CIDRs and single IP addresses without a prefix are invalid.
+IPv6 CIDRs and single IPv4 addresses without a prefix are invalid.
 
 --- row ---
 

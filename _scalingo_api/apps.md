@@ -609,7 +609,7 @@ Lists the app-level firewall rules for public HTTP(S) access. Each rule has an
 `id`, an `app_id`, a `cidr`, and a `label`. The label is optional when creating
 a rule. The `id` is required to retrieve or delete a rule.
 
-CIDRs must be IPv4 CIDR values only. IPv6 values and single IP addresses
+CIDRs must be IPv4 CIDR values only. IPv6 values and single IPv4 addresses
 without a prefix are invalid; use `/32` for one IPv4 address.
 
 ||| col |||
