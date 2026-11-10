@@ -86,6 +86,82 @@ Example object:
 
 --- row ---
 
+* **New app firewall rule event**
+
+_When:_ When an Application Firewall rule is added
+`type=new_app_firewall_rule`
+
+{:.table}
+| field   | type   | description                         |
+| ------- | ------ | ----------------------------------- |
+| rule_id | string | Unique ID of the firewall rule      |
+| cidr    | string | CIDR range allowed by the rule      |
+| label   | string | Optional label attached to the rule |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "new_app_firewall_rule",
+  "type_data": {
+    "rule_id": "afw-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "cidr": "203.0.113.42/32",
+    "label": "Office"
+  }
+}
+```
+
+--- row ---
+
+* **Delete app firewall rule event**
+
+_When:_ When an Application Firewall rule is deleted
+`type=delete_app_firewall_rule`
+
+{:.table}
+| field   | type   | description                         |
+| ------- | ------ | ----------------------------------- |
+| rule_id | string | Unique ID of the firewall rule      |
+| cidr    | string | CIDR range allowed by the rule      |
+| label   | string | Optional label attached to the rule |
+
+||| col |||
+
+Example object:
+
+```json
+{
+  "id": "54dcdd4a73636100011a0000",
+  "created_at": "2015-02-12T18:05:14.226+01:00",
+  "user": {
+    "username": "johndoe",
+    "email": "john@doe.com",
+    "id": "us-0e6d8e46-5cd0-42a4-acba-372b2be605ac"
+  },
+  "app_id": "5343eccd646173000a140000",
+  "app_name": "appname",
+  "type": "delete_app_firewall_rule",
+  "type_data": {
+    "rule_id": "afw-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "cidr": "203.0.113.42/32",
+    "label": "Office"
+  }
+}
+```
+
+--- row ---
+
 * **Rename app event**
 
 _When:_ When the application is renamed to a new name

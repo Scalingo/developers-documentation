@@ -601,6 +601,123 @@ Returns 200 OK
 
 --- row ---
 
+## List Application Firewall Rules
+
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/firewall_rules`
+
+Lists the app-level firewall rules for public HTTP(S) access. Each rule has an
+`id`, an `app_id`, a `cidr`, and a `label`. The label is optional when creating
+a rule. The `id` is required to retrieve or delete a rule.
+
+CIDRs must be IPv4 CIDR values only. IPv6 values and single IPv4 addresses
+without a prefix are invalid; use `/32` for one IPv4 address.
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET "https://$SCALINGO_API_URL/v1/apps/example-app/firewall_rules"
+```
+
+Returns 200 OK
+
+```json
+{
+  "firewall_rules": [
+    {
+      "id": "afw-82a3cac5-9b25-473e-b33d-6272b87e636f",
+      "app_id": "54100930736f7563d5030000",
+      "cidr": "203.0.113.42/32",
+      "label": "office"
+    }
+  ]
+}
+```
+
+--- row ---
+
+## Get an Application Firewall Rule
+
+`GET https://$SCALINGO_API_URL/v1/apps/[:app]/firewall_rules/[:rule_id]`
+
+Retrieves a firewall rule by its ID.
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X GET "https://$SCALINGO_API_URL/v1/apps/example-app/firewall_rules/afw-82a3cac5-9b25-473e-b33d-6272b87e636f"
+```
+
+Returns 200 OK
+
+```json
+{
+  "firewall_rule": {
+    "id": "afw-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "app_id": "54100930736f7563d5030000",
+    "cidr": "203.0.113.42/32",
+    "label": "office"
+  }
+}
+```
+
+--- row ---
+
+## Create an Application Firewall Rule
+
+`POST https://$SCALINGO_API_URL/v1/apps/[:app]/firewall_rules`
+
+### Parameters
+
+* `firewall_rule.cidr`: IPv4 CIDR to allow
+* `firewall_rule.label`: optional label attached to the rule
+
+||| col |||
+
+Example request
+
+```sh
+curl -H "Accept: application/json" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -X POST "https://$SCALINGO_API_URL/v1/apps/example-app/firewall_rules" -d \
+  '{
+    "firewall_rule": {
+      "cidr": "203.0.113.42/32",
+      "label": "office"
+    }
+  }'
+```
+
+Returns 201 Created
+
+```json
+{
+  "firewall_rule": {
+    "id": "afw-82a3cac5-9b25-473e-b33d-6272b87e636f",
+    "app_id": "54100930736f7563d5030000",
+    "cidr": "203.0.113.42/32",
+    "label": "office"
+  }
+}
+```
+
+--- row ---
+
+## Delete an Application Firewall Rule
+
+`DELETE https://$SCALINGO_API_URL/v1/apps/[:app]/firewall_rules/[:rule_id]`
+
+Returns 204 No Content.
+
+--- row ---
+
 ## Update Application Settings
 
 `PATCH https://$SCALINGO_API_URL/v1/apps/[:app]`
