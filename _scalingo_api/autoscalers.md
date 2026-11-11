@@ -214,7 +214,7 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -u :$AUTH
   -X PATCH https://$SCALINGO_API_URL/v1/apps/example-app/autoscalers/au-297f1134-8576-45ac-ab58-2100b6807683 -d \
   '{
     "autoscaler": {
-      "min_containers": 1,
+      "min_containers": 2,
       "max_containers": 10,
     }
   }'
@@ -230,7 +230,7 @@ Returns 200 OK
     "updated_at": "2018-01-25T10:57:53.822973091Z",
     "last_scale": "0001-01-01T00:00:00Z",
     "container_type": "web",
-    "min_containers": 1,
+    "min_containers": 2,
     "max_containers": 10,
     "metric": "rpm_per_container",
     "target": 150,
