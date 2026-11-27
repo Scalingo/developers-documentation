@@ -3,11 +3,10 @@ require "rack/rewrite"
 
 use Rack::Rewrite do
   rewrite %r{/(.+)}, lambda { |match, rack_env|
-    if File.exist?("_site/" + match[1] + ".html")
-      return "/" + match[1] + ".html"
-    else
-      return "/" + match[1]
-    end
+    path = rack_env["PATH_INFO"]
+    target = File.exist?("_site#{path}.html") ? "#{path}.html" : path
+    query = rack_env["QUERY_STRING"]
+    query.nil? || query.empty? ? target : "#{target}?#{query}"
   }
 end
 
